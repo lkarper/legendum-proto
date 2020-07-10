@@ -3,10 +3,10 @@ import DialogueChoices from '../DialogueChoices/DialogueChoices';
 
 const DialoguePage= (props) => {
     const {response, page, setPage, setResponse, dialogue } = props.data;
-    const page_to_display = dialogue[page - 1];
+    const pageToDisplay = dialogue[page - 1];
 
-    const image = page_to_display.image_url 
-        ? <img src={page_to_display.image_url} alt={page_to_display.image_alt_text}/> 
+    const image = pageToDisplay.image_url 
+        ? <img src={pageToDisplay.image_url} alt={pageToDisplay.image_alt_text}/> 
         : '';
 
     let body;
@@ -38,8 +38,8 @@ const DialoguePage= (props) => {
         body = (
             <div>
                 {image}
-                <p>{page_to_display.text}</p>
-                {page_to_display.choices ? 
+                <p>{pageToDisplay.text}</p>
+                {pageToDisplay.choices ? 
                     <DialogueChoices 
                         data={{
                             dialogue,
@@ -49,7 +49,7 @@ const DialoguePage= (props) => {
                     /> : ''}
                 {response || ''}
                 {page !== 1 ? <button onClick={() => setPage(page - 1)}>&#60;</button> : ''}
-                {page !== dialogue.length && !page_to_display.choices ? <button onClick={() => setPage(page + 1)}>&#62;</button> : ''}
+                {page !== dialogue.length && !pageToDisplay.choices ? <button onClick={() => setPage(page + 1)}>&#62;</button> : ''}
             </div>
         );
     }
