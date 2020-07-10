@@ -22,6 +22,9 @@ const Story = (props) => {
                 data.sort((a, b) => a.page - b.page);
                 console.log(data);
                 setDialogue(data);
+            })
+            .catch(error => {
+                console.log('error', error);
             });
     }, [chapt]);
 
