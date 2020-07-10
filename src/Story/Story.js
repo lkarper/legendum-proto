@@ -37,7 +37,9 @@ const Story = (props) => {
                         setResponse,
                         dialogue,
                     }}
-                /> : ''}
+                /> 
+                : ''
+            }
             {dialogue.length && dialogue.length === page 
                 ? <Link 
                     to={`/game/exercise/${chapt}/learn`}
