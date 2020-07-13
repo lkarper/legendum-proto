@@ -45,7 +45,7 @@ const Story = (props) => {
             }
             {dialogue.length && dialogue.length === page 
                 ? <Link 
-                    to={`/game/exercise/${chapt}/learn`}
+                    to={`/game/exercises/${chapt}/learn`}
                 >Begin Exercise</Link>
                 : ''
             }

@@ -7,11 +7,11 @@ const Exercise = (props) => {
     return (
         <div>
             <Route 
-                path="/game/exercise/:chapt/learn"
+                path="/game/exercises/:chapt/learn"
                 component={Learn}
             />
             <Route 
-                path="/game/exercise/:chapt/do"
+                path="/game/exercises/:chapt/do"
                 component={Do}
             />
 

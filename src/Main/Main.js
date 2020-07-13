@@ -11,7 +11,7 @@ const Main = (props) => {
                 component={Landing}
             />
             <Route 
-                path={["/game/story/:chapt", "/game/exercise/:chapt"]}
+                path={["/game/story/:chapt", "/game/exercises/:chapt"]}
                 component={Game}
             />
         </main>

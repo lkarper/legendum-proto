@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import LearnPage from '../LearnPage/LearnPage';
 
 const Learn = (props) => {
@@ -36,6 +37,10 @@ const Learn = (props) => {
                         setPage
                     }}
                 />
+                : ''
+            }
+            {page === pages.length ?
+                <Link to={`/game/exercises/${chapt}/do`}>Practice What You've Learned</Link>
                 : ''
             }
         </div>
