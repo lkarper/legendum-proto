@@ -1,7 +1,7 @@
 import React from 'react';
 
 const UserCorrect = (props) => {
-    const { page, userResponse } = props;
+    const { page } = props;
     return (
         <div 
             role="alert"
