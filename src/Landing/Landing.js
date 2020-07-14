@@ -5,7 +5,7 @@ const Landing = (props) => {
     return (
         <div>
             <Link
-                to=""
+                to="/register"
             >Register</Link>
             <Link
                 to="/game/story/1"
