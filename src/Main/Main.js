@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Landing from '../Landing/Landing';
 import Game from '../Game/Game';
 import Register from '../Register/Register';
+import LoginPage from '../LoginPage/LoginPage';
 
 const Main = (props) => {
     return (
@@ -18,6 +19,10 @@ const Main = (props) => {
             <Route
                 path="/register"
                 component={Register}
+            />
+            <Route
+                path="/login"
+                component={LoginPage} 
             />
         </main>
     );

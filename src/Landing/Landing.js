@@ -10,6 +10,9 @@ const Landing = (props) => {
             <Link
                 to="/game/story/1"
             >Play without Registering</Link>
+            <Link
+                to="/login"
+            >Login</Link>
         </div>
     )
 }

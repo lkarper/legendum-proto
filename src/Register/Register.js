@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AuthApiService from '../services/auth-api-service';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 
 const Register = (props) => {
@@ -19,35 +20,60 @@ const Register = (props) => {
         number: true,
         specialChar: true,
     });
+    const [apiError, setApiError] = useState(null);
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        AuthApiService.postUser({
+            user_name: userName,
+            password,
+            display_name: displayName
+        })
+            .then(user => {
+                setUserName('');
+                setPassword('');
+                setDisplayName('');
+                setApiError(null);
+                props.history.push('/login');
+            })
+            .catch(res => {
+                setApiError(res.error);
+            });
     }
 
     return (
-        <RegistrationForm 
-            propsObject={{
-                userName,
-                password,
-                reenterPassword,
-                displayName,
-                userNameError,
-                passwordErrorMessage,
-                reenterPasswordError,
-                displayNameError,
-                passwordError,
-                setUserName,
-                setPassword,
-                setReenterPassword,
-                setDisplayName,
-                setUserNameError,
-                setPasswordErrorMessage,
-                setReenterPasswordError,
-                setDisplayNameError,
-                setPasswordError,
-                handleSubmit,
-            }}
-        />
+        <>
+            <RegistrationForm 
+                propsObject={{
+                    userName,
+                    password,
+                    reenterPassword,
+                    displayName,
+                    userNameError,
+                    passwordErrorMessage,
+                    reenterPasswordError,
+                    displayNameError,
+                    passwordError,
+                    setUserName,
+                    setPassword,
+                    setReenterPassword,
+                    setDisplayName,
+                    setUserNameError,
+                    setPasswordErrorMessage,
+                    setReenterPasswordError,
+                    setDisplayNameError,
+                    setPasswordError,
+                    handleSubmit,
+                }}
+            />
+            {apiError ? 
+                <div role="alert"> 
+                    <h2>Error</h2>
+                    <p>New user could not be created: {apiError}</p>
+                </div>
+                : ''
+            }
+        </>
     );
 }
 
