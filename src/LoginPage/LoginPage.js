@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import AuthApiService from '../services/auth-api-service';
-import TokenService from '../services/token-service';
 import LoginForm from '../LoginForm/LoginForm';
 
 const LoginPage = (props) => {
+
+    const { forceUpdate } = props;
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -12,6 +13,7 @@ const LoginPage = (props) => {
     const onLoginSuccess = () => {
         const { location, history } = props;
         const destination = (location.state || {}).from || '/';
+        forceUpdate();
         history.push(destination);
     }
 

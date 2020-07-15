@@ -6,6 +6,9 @@ import Register from '../Register/Register';
 import LoginPage from '../LoginPage/LoginPage';
 
 const Main = (props) => {
+
+    const { forceUpdate } = props;
+
     return (
         <main>
             <Route 
@@ -22,7 +25,7 @@ const Main = (props) => {
             />
             <Route
                 path="/login"
-                component={LoginPage} 
+                render={rProps => <LoginPage {...rProps} forceUpdate={forceUpdate} />} 
             />
         </main>
     );

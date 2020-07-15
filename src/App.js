@@ -72,8 +72,8 @@ const App = (props) => {
 
     return (
         <div className="App">
-        <Header />
-        <Main />
+            <Header forceUpdate={forceUpdate} />
+            <Main forceUpdate={forceUpdate} />
         </div>
     );
 }
