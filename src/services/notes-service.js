@@ -1,5 +1,5 @@
 import TokenService from './token-service';
-import config from '../config'
+import config from '../config';
 
 const NotesService = {
     getNotesByUser() {
@@ -8,11 +8,11 @@ const NotesService = {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
             },
         })
-        .then(res =>
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        );
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            );
     },
     postNote(hintId, customNote) {
         return fetch(`${config.API_ENDPOINT}/notes`, {
@@ -41,11 +41,11 @@ const NotesService = {
                 'authorization': `bearer ${TokenService.getAuthToken()}`, 
             }
         })
-        .then(res => {
-            if (!res.ok) {
-                return res.json().then(e => Promise.reject(e));
-            }
-        });
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e));
+                }
+            });
     },
     deleteNote(noteId) {
         return fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
@@ -55,11 +55,11 @@ const NotesService = {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`
             },
         })
-        .then(res => {
-            if (!res.ok) {
-                return res.json().then(e => Promise.reject(e));
-            }
-        });
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e));
+                }
+            });
     }
 };
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TokenService from '../services/token-service';
 import NotesService from '../services/notes-service';
+import ProgressService from '../services/progress-service';
 
 const UserContext = React.createContext({
     notes: [],
@@ -12,8 +13,8 @@ const UserContext = React.createContext({
     deleteNote: () => {},
     setError: () => {},
     clearError: () => {},
+    updateProgress: () => {},
     setProgress: () => {},
-    clearProgress: () => {},
 });
 
 export default UserContext;
@@ -21,6 +22,7 @@ export default UserContext;
 export const UserProvider = (props) => {
 
     const [notes, setNotes] = useState([]);
+    const [progress, setProgress] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -32,8 +34,20 @@ export const UserProvider = (props) => {
                 .catch(error => {
                     setError(error);
                 });
+            ProgressService.getProgressByUser()
+                .then(progress => {
+                    setProgress(progress);
+                })
+                .catch(error => {
+                    setError(error.message);
+                });
         }
     }, [props]);
+
+    const updateProgress = (newProgressObject) => {
+        const newProgress = [...progress, newProgressObject];
+        setProgress(newProgress);
+    }
     
     const addNote = (note) => {
         setNotes(...notes, note);
@@ -56,11 +70,13 @@ export const UserProvider = (props) => {
     const value = {
         notes,
         error,
+        progress,
         setError,
         setNotes,
         addNote,
         updateNotes,
         deleteNote,
+        updateProgress
     };
 
     return (
