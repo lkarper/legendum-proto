@@ -13,7 +13,7 @@ const NotesList = (props) => {
                         .map(note => (
                             <li key={note.id}>
                                 <p>{note.hint}</p>
-                                {note.custom_note ? <p>note.custom_note</p> : ''}
+                                {note.custom_note ? <p>{note.custom_note}</p> : ''}
                                 <p>From exercise: {note.exercise_title}: {note.exercise_translation}</p>
                                 <p>Lost modified: {new Date(note.date_modified).toString()}</p>
                                 <button>Edit note</button>
