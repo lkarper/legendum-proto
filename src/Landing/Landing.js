@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Landing.css';
 
 const Landing = (props) => {
     return (
-        <div>
+        <div className="Landing__container">
             <Link
                 to="/register"
             >Register</Link>
