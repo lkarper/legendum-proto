@@ -1,0 +1,8 @@
+.Landing__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Landing__container a {
+    margin: 15px;
+}
