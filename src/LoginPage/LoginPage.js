@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import UserContext from '../contexts/UserContext';
+import NotesService from '../services/notes-service';
 import AuthApiService from '../services/auth-api-service';
 import LoginForm from '../LoginForm/LoginForm';
 
 const LoginPage = (props) => {
+
+    const context = useContext(UserContext);
 
     const { forceUpdate } = props;
 
@@ -12,9 +16,17 @@ const LoginPage = (props) => {
 
     const onLoginSuccess = () => {
         const { location, history } = props;
-        const destination = (location.state || {}).from || '/';
-        forceUpdate();
-        history.push(destination);
+        const destination = (location.state || {}).from || '/dashboard';
+        NotesService.getNotesByUser()
+            .then(notes => {
+                context.setNotes(notes);
+                forceUpdate();
+                history.push(destination);
+            })
+            .catch(error => {
+                context.setError(error);
+            });
+
     }
 
     const handleLogin = (event) => {
