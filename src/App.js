@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import UserContext from './contexts/UserContext';
 import IdleService from './services/idle-service';
 import TokenService from './services/token-service';
 import AuthApiService from './services/auth-api-service';
@@ -13,6 +14,8 @@ const useForceUpdate = () => {
 
 const App = (props) => {
 
+    const context = useContext(UserContext);
+
     const forceUpdate = useForceUpdate();
 
     const logoutFromIdle = () => {
@@ -26,6 +29,7 @@ const App = (props) => {
         react won't know the token has been removed from local storage,
         so we need to tell React to rerender
         */
+        context.setNotes([]);
         forceUpdate();
     }
 
