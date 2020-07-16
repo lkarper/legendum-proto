@@ -8,6 +8,8 @@ const UserContext = React.createContext({
     error: null,
     setNotes: () => {},
     addNote: () => {},
+    updateNotes: () => {},
+    deleteNote: () => {},
     setError: () => {},
     clearError: () => {},
     setProgress: () => {},
@@ -37,12 +39,28 @@ export const UserProvider = (props) => {
         setNotes(...notes, note);
     }
     
+    const updateNotes = (newNote) => {
+        const updatedNote = notes.find(n => n.id === newNote.id);
+        updatedNote.hint_id = newNote.hint_id;
+        updatedNote.custom_note = newNote.custom_note;
+        updatedNote.date_modified = newNote.date_modified;
+        const newNotes = [...notes.filter(n => n.id !== updatedNote.id), updatedNote];
+        setNotes(newNotes);
+    }
+
+    const deleteNote = (noteIdToDelete) => {
+        const newNotes = notes.filter(n => n.id !== noteIdToDelete);
+        setNotes(newNotes);
+    }
+
     const value = {
         notes,
         error,
         setError,
         setNotes,
         addNote,
+        updateNotes,
+        deleteNote,
     };
 
     return (

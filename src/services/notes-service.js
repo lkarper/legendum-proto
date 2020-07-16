@@ -32,6 +32,35 @@ const NotesService = {
                     : res.json()
             );
     },
+    updateNote(noteId, customNote) {
+        return fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(customNote),
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`, 
+            }
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e));
+            }
+        });
+    },
+    deleteNote(noteId) {
+        return fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${TokenService.getAuthToken()}`
+            },
+        })
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e));
+            }
+        });
+    }
 };
 
 export default NotesService;
