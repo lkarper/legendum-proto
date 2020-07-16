@@ -1,4 +1,5 @@
 import React from 'react';
+import Hint from '../Hint/Hint';
 
 const LearnHints = (props) => {
     const { page, showHintsBoolean, setShowHintsBoolean } = props;
@@ -11,12 +12,9 @@ const LearnHints = (props) => {
     const hintsList = (
         <ol>
             {page.hints
-                .split('|')
-                .map((hint, i) => (
-                    <li key={i}>
-                        <p>{hint}</p>
-                        <button>Save hint</button>
-                    </li>
+                .sort((a, b) => a.hint_order_number - b.hint_order_number)
+                .map(hint => (
+                    <Hint key={hint.hint_order_number} hint={hint} /> 
                 ))}
         </ol>
     );
