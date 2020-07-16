@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import TokenService from '../services/token-service';
 import NotesService from '../services/notes-service';
 import ProgressService from '../services/progress-service';
+import ExercisesService from '../services/exercises-service';
 
 const UserContext = React.createContext({
     notes: [],
     progress: [],
     error: null,
+    exercises: [],
     setNotes: () => {},
     addNote: () => {},
     updateNotes: () => {},
@@ -23,6 +25,7 @@ export const UserProvider = (props) => {
 
     const [notes, setNotes] = useState([]);
     const [progress, setProgress] = useState([]);
+    const [exercises, setExercises] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -42,6 +45,14 @@ export const UserProvider = (props) => {
                     setError(error.message);
                 });
         }
+        ExercisesService.getAllExercises()
+            .then(exercises => {
+                setExercises(exercises);
+            })
+            .catch(error => {
+                setError(error.message);
+            });
+
     }, [props]);
 
     const updateProgress = (newProgressObject) => {
@@ -71,6 +82,7 @@ export const UserProvider = (props) => {
         notes,
         error,
         progress,
+        exercises,
         setError,
         setNotes,
         addNote,
