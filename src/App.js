@@ -30,6 +30,7 @@ const App = (props) => {
         so we need to tell React to rerender
         */
         context.setNotes([]);
+        context.setProgress([]);
         forceUpdate();
     }
 
