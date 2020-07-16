@@ -5,7 +5,7 @@ import ChapterProgress from '../ChapterProgress/ChapterProgress';
 const ProgressReport = (props) => {
 
     const context = useContext(UserContext);
-    const { progress, exercises } = context;
+    const { exercises } = context;
 
     return (
         <div>

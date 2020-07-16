@@ -9,7 +9,7 @@ import './App.css';
 
 const useForceUpdate = () => {
     const [value, setValue] = useState(0); 
-    return () => setValue(value => ++value); 
+    return () => setValue(value + 1); 
 }
 
 const App = (props) => {
