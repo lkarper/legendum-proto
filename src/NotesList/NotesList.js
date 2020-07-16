@@ -1,15 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import UserContext from '../contexts/UserContext';
-import SaveHint from '../SaveHint/SaveHint';
+import Note from '../Note/Note';
 
 const NotesList = (props) => {
 
     const context = useContext(UserContext);
-    const [showEdit, toggleShowEdit] = useState(false);
-
-    const onSubmitHint = (e, customNote) => {
-
-    }
 
     return (
         <div>
@@ -17,20 +12,7 @@ const NotesList = (props) => {
             {context.notes.length ?
                 <ol>
                     {context.notes
-                        .map(note => (
-                            <li key={note.id}>
-                                <p>{note.hint}</p>
-                                {note.custom_note ? <p>{note.custom_note}</p> : ''}
-                                <p>From exercise: {note.exercise_title}: {note.exercise_translation}</p>
-                                <p>Lost modified: {new Date(note.date_modified).toString()}</p>
-                                <button>Edit note</button>
-                                <button>Delete note</button>
-                                {showEdit 
-                                    ? <SaveHint cNoteProp={note.custom_note} onSubmitHint={onSubmitHint} /> 
-                                    : ''
-                                }
-                            </li>
-                        ))
+                        .map(note => <Note key={note.id} note={note}/> )
                     }
                 </ol>
                 : <p>No notes saved yet.</p>
