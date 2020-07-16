@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ExercisesService from '../services/exercises-service';
 import LearnPage from '../LearnPage/LearnPage';
 
 const Learn = (props) => {
@@ -9,15 +10,8 @@ const Learn = (props) => {
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/exercises/${chapt}/learn`)
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                throw new Error (res.statusText);
-            })
+        ExercisesService.getExercisesLearnByChapter(chapt)
             .then(data => {
-                console.log(data);
                 data.sort((a, b) => a.page - b.page);
                 setPages(data);
             })

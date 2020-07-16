@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DoPage from '../DoPage/DoPage';
+import ExercisesService from '../services/exercises-service';
 
 const Do = (props) => {
     const { chapt } = props.match.params;
@@ -9,15 +10,8 @@ const Do = (props) => {
     const [savedUserInput, setSavedUserInput] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/exercises/${chapt}/do`)
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                throw new Error (res.statusText);
-            })
+        ExercisesService.getExercisesDoByChapter(chapt)
             .then(data => {
-                console.log(data);
                 data.sort((a, b) => a.page - b.page);
                 setPages(data);
             })
