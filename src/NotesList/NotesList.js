@@ -1,8 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import UserContext from '../contexts/UserContext';
+import SaveHint from '../SaveHint/SaveHint';
 
 const NotesList = (props) => {
+
     const context = useContext(UserContext);
+    const [showEdit, toggleShowEdit] = useState(false);
+
+    const onSubmitHint = (e, customNote) => {
+
+    }
 
     return (
         <div>
@@ -18,6 +25,10 @@ const NotesList = (props) => {
                                 <p>Lost modified: {new Date(note.date_modified).toString()}</p>
                                 <button>Edit note</button>
                                 <button>Delete note</button>
+                                {showEdit 
+                                    ? <SaveHint cNoteProp={note.custom_note} onSubmitHint={onSubmitHint} /> 
+                                    : ''
+                                }
                             </li>
                         ))
                     }

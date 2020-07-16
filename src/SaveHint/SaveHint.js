@@ -3,10 +3,10 @@ import ValidateCustomNote from '../ValidateCustomNote/ValidateCustomNote';
 
 const SaveHint = (props) => {
 
-    const [customNote, setCustomNote] = useState('');
-    const [customNoteError, setCustomNoteError] = useState('');
+    const { onSubmitHint, cNoteProp = '' } = props;
 
-    const { onSubmitHint } = props;
+    const [customNote, setCustomNote] = useState(cNoteProp);
+    const [customNoteError, setCustomNoteError] = useState('');
 
     return (
         <div>
