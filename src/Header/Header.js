@@ -20,7 +20,7 @@ const Header = (props) => {
         forceUpdate();
     }
 
-    const location = Object.keys(props).includes('location') ? props.location.pathname : '/';
+    const location = Object.keys(props).includes('location') ? props.location.pathname : '/dashboard';
 
     const logoutLink = (
         <div>
