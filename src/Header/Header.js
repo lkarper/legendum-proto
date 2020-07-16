@@ -16,6 +16,7 @@ const Header = (props) => {
         TokenService.clearCallbackBeforeExpiry();
         IdleService.unRegisterIdleResets();
         context.setNotes([]);
+        context.setProgress([]);
         forceUpdate();
     }
 

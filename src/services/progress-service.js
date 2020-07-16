@@ -30,6 +30,13 @@ const ProgressService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             );
+    },
+    getFetchProgressCallForUser() {
+        return fetch(`${config.API_ENDPOINT}/progress`, {
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+            },
+        });
     }
 
 }

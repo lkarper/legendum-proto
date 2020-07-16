@@ -14,6 +14,13 @@ const NotesService = {
                     : res.json()
             );
     },
+    getFetchNotesCallByUser() {
+        return fetch(`${config.API_ENDPOINT}/notes`, {
+            headers: {
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+            },
+        });
+    },
     postNote(hintId, customNote) {
         return fetch(`${config.API_ENDPOINT}/notes`, {
             method: 'POST',

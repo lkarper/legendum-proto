@@ -76,7 +76,8 @@ export const UserProvider = (props) => {
         addNote,
         updateNotes,
         deleteNote,
-        updateProgress
+        updateProgress,
+        setProgress,
     };
 
     return (
