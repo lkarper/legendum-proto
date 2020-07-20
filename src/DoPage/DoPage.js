@@ -36,13 +36,13 @@ const DoPage = (props) => {
         }
     }
 
-    const onCompletion = () => {
+    const onCompletion = (url) => {
         if (TokenService.hasAuthToken()) {
             ProgressService.postProgress(chapt)
                 .then(progressObject => {
                     setError(null);
                     context.updateProgress(progressObject);
-                    props.history.push(`/game/story/${parseInt(chapt) + 1}`);
+                    props.history.push(url);
                 })
                 .catch(error => {
                     setError(error.message);
@@ -94,13 +94,18 @@ const DoPage = (props) => {
                             {TokenService.hasAuthToken() 
                                 ? <> 
                                     <button
-                                        onClick={onCompletion} 
+                                        onClick={() => onCompletion(`/game/story/${parseInt(chapt) + 1}`)} 
                                     >
-                                        On to the next chapter.
+                                        On to the next chapter (progress will be saved)
+                                    </button>
+                                    <button
+                                        onClick={() => onCompletion(`/dashboard`)} 
+                                    >
+                                        Back to the dashboard (progress will be saved)
                                     </button>
                                     <Link
                                         to='/dashboard'
-                                    >Back to dashboard (progress will not be saved)</Link>
+                                    >Back to dashboard (do not save progress)</Link>
                                 </>
                                 : <Link to={`/game/story/${parseInt(chapt) + 1}`}>On the the next chapter</Link>
                             }
@@ -111,8 +116,7 @@ const DoPage = (props) => {
                 {error ? 
                     <>
                         <h2>Could not save progress: {error} </h2>
-                        <p>Click below to try again (you will be redirected to the next chapter if successful).</p>
-                        <button onClick={onCompletion}>Try again</button>
+                        <p>Check your connection then click one of the options above to try again.</p>
                     </>
                     : ''
                 }
