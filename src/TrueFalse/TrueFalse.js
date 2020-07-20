@@ -41,7 +41,7 @@ const TrueFalse = (props) => {
                             onChange={(e) => setChoice(e.target.value)}
                             required
                         />
-                        <label htmlFor="true">False/Falsum</label>
+                        <label htmlFor="false">False/Falsum</label>
                     </div>
                     <button
                         type="submit"
