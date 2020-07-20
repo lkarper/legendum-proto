@@ -25,6 +25,7 @@ const ChapterProgress = (props) => {
                 </div>
                 : ''
             }
+            <Link to={`/game/story/${exercise.id}`}>Pick up with this chapter's story</Link>
             <Link to={`/game/exercises/${exercise.id}/learn`}>Learn this Exercise</Link>
             <Link to={`/game/exercises/${exercise.id}/do`}>Practice this Exercise</Link>
         </li>
