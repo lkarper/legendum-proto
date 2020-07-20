@@ -4,7 +4,7 @@ import QuestionLegend from '../QuestionLegend/QuestionLegend';
 
 const Input = (props) => {
 
-    const [userInput, setUserInput] = useState();
+    const [userInput, setUserInput] = useState('');
     const [formError, setFormError] = useState(null);
 
     useEffect(() => {
@@ -15,6 +15,10 @@ const Input = (props) => {
             setFormError(null);
         }
     }, [userInput])
+
+    useEffect(() => {
+        setUserInput('');
+    }, [props.page.question]);
 
     const { page, savedUserInput, checkAnswer } = props;
 
@@ -28,6 +32,7 @@ const Input = (props) => {
                     <input 
                         type="text"
                         id="user-response"
+                        value={userInput}
                         onChange={(e) => setUserInput(e.target.value)}
                         aria-describedby="input-error"
                         required
