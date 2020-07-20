@@ -11,7 +11,10 @@ const ProgressReport = (props) => {
         <div>
             <h2>User Progress</h2>
             <ol>
-                {exercises.map(exercise => <ChapterProgress key={exercise.id} exercise={exercise} />)}
+                {exercises
+                    .sort((a, b) => a.id - b.id)
+                    .map(exercise => <ChapterProgress key={exercise.id} exercise={exercise} />)
+                }
             </ol>
         </div>
     )
