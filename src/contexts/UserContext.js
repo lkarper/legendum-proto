@@ -61,7 +61,7 @@ export const UserProvider = (props) => {
     }
     
     const addNote = (note) => {
-        setNotes(...notes, note);
+        setNotes([...notes, note]);
     }
     
     const updateNotes = (newNote) => {
