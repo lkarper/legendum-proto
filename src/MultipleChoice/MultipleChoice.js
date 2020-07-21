@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import QuestionDialogue from '../QuestionDialogue/QuestionDialogue';
 import QuestionLegend from '../QuestionLegend/QuestionLegend';
+import './MultipleChoice.css';
 
 const MultipleChoice = (props) => {
 
@@ -8,8 +9,6 @@ const MultipleChoice = (props) => {
     const [shuffledChoices, setShuffledChoices]= useState([]);
 
     const { page, savedUserInput, checkAnswer } = props;
-
-    
 
     useEffect(() => {
         const { correct_response, incorrect_response_option_1, incorrect_response_option_2, incorrect_response_option_3 } = page;
@@ -49,7 +48,7 @@ const MultipleChoice = (props) => {
         );
 
     return (
-        <div>
+        <div className='MultipleChoice__container'>
             <QuestionDialogue page={page} savedUserInput={savedUserInput} />
             <form
                 onSubmit={(e) => {
