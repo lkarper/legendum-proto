@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import DialoguePage from '../DialoguePage/DialoguePage';
+import './Story.css';
 
 const Story = (props) => {
 
@@ -29,25 +29,26 @@ const Story = (props) => {
     }, [chapt]);
 
     return (
-        <div>
-            {dialogue.length ? <h2>{dialogue[0].story_title}</h2> : <p>Loading...</p>}
-            {dialogue.length ? 
-                <DialoguePage 
-                    data={{
-                        response,
-                        page,
-                        setPage,
-                        setResponse,
-                        dialogue,
-                    }}
-                /> 
-                : ''
-            }
-            {dialogue.length && dialogue.length === page 
-                ? <Link 
-                    to={`/game/exercises/${chapt}/learn`}
-                >Begin Exercise</Link>
-                : ''
+        <div className='Story__container'>
+            {dialogue.length 
+                ? 
+                    <>
+                        <h2 className='Story__h2'>{dialogue[0].story_title}</h2>
+                        <DialoguePage 
+                            data={{
+                                response,
+                                page,
+                                setPage,
+                                setResponse,
+                                dialogue,
+                                chapt,
+                            }}
+                        />
+                    </>
+                :
+                    <>
+                        <p>Loading...</p>
+                    </>
             }
         </div>
     );
