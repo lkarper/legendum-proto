@@ -1,12 +1,13 @@
 import React from 'react';
 import Hint from '../Hint/Hint';
+import './LearnHints.css';
 
 const LearnHints = (props) => {
     const { page, showHintsBoolean, setShowHintsBoolean } = props;
 
     const hideAndShowButton = showHintsBoolean 
-            ? <button onClick={() => setShowHintsBoolean(false)}>Hide hints</button>
-            : <button onClick={() => setShowHintsBoolean(true)}>Show hints</button>
+            ? <button className='LearnHints__hide-show-button' onClick={() => setShowHintsBoolean(false)}>Hide hints</button>
+            : <button className='LearnHints__hide-show-button' onClick={() => setShowHintsBoolean(true)}>Show hints</button>
         ;
     
     const hintsList = (
@@ -20,7 +21,7 @@ const LearnHints = (props) => {
     );
 
     return (
-        <div>
+        <div className='LearnHints__container'>
             {hideAndShowButton}
             {showHintsBoolean ? hintsList : ''}
         </div>
