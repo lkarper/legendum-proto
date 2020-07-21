@@ -5,7 +5,7 @@ import Do from '../Do/Do';
 
 const Exercise = (props) => {
     return (
-        <div>
+        <>
             <Route 
                 path="/game/exercises/:chapt/learn"
                 component={Learn}
@@ -15,7 +15,7 @@ const Exercise = (props) => {
                 component={Do}
             />
 
-        </div>
+        </>
     );
 }
 

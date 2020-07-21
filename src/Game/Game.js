@@ -5,7 +5,7 @@ import Exercise from '../Exercise/Exercise';
 
 const Game = (props) => {
     return (
-        <div>
+        <>
             <Route 
                 path="/game/story/:chapt"
                 component={Story}
@@ -14,7 +14,7 @@ const Game = (props) => {
                 path="/game/exercises/:chapt"
                 component={Exercise}
             />
-        </div>
+        </>
     );
 }
 

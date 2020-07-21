@@ -15,12 +15,10 @@ const UserIncorrect = (props) => {
     }
 
     return (
-        <div
-            role="alert"
-        >
+        <>
             <p>{feedback}</p>
             <p>Try again</p>
-        </div>
+        </>
     )
 }
 
