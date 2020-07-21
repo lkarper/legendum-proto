@@ -1,8 +1,11 @@
 .Header__header {
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    width: 100vw;
+    height: 75px;
     border-bottom: 2px solid black;
+    z-index: 100;
 }
 
 .Header__nav {

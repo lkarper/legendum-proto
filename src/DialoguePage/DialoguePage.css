@@ -1,0 +1,65 @@
+.DialoguePage__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+.DialoguePage__image {
+    position: absolute;
+    bottom: 25px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    max-height: 75%
+}
+
+.DialoguePage__background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    height: 50%;
+}
+
+.DialoguePage__background-image {
+    z-index: -10;    
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.DialoguePage__text-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50%;
+    width: 100vw;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.DialoguePage__begin-exercise-link {
+    text-align: center;
+}
+
+.DialoguePage__text {
+    margin: 0;
+    padding: 5px;
+}
+
+.DialoguePage__button-container {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.DialoguePage__nav-button {
+    width: 75px;
+}
