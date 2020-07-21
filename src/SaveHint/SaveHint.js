@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ValidateCustomNote from '../ValidateCustomNote/ValidateCustomNote';
+import './SaveHint.css';
 
 const SaveHint = (props) => {
 
@@ -9,30 +10,29 @@ const SaveHint = (props) => {
     const [customNoteError, setCustomNoteError] = useState('');
 
     return (
-        <div>
-            <form onSubmit={(e) => onSubmitHint(e, customNote)}>
-                <textarea
-                    id="custom-note"
-                    name="custom-note"
-                    aria-label="Add a custom note here, if you'd like."
-                    placeholder="Add a custom note here, if you'd like."
-                    rows="4"
-                    cols="50"
-                    value={customNote}
-                    onChange={(e) => setCustomNote(e.target.value)}
-                ></textarea>
-                <button 
-                    type="submit"
-                    disabled={!!customNoteError}
-                >Save Hint</button>
-                <ValidateCustomNote 
-                    customNote={customNote}
-                    customNoteError={customNoteError}
-                    setCustomNoteError={setCustomNoteError}
-                />
-            </form>
-        </div>
-    )
+        <form onSubmit={(e) => onSubmitHint(e, customNote)}>
+            <textarea
+                id="custom-note"
+                name="custom-note"
+                aria-label="Add a custom note here, if you'd like."
+                placeholder="Add a custom note here, if you'd like."
+                rows="4"
+                cols="35"
+                value={customNote}
+                onChange={(e) => setCustomNote(e.target.value)}
+            ></textarea>
+            <button 
+                className='SaveHint__submit'
+                type="submit"
+                disabled={!!customNoteError}
+            >Save Hint</button>
+            <ValidateCustomNote 
+                customNote={customNote}
+                customNoteError={customNoteError}
+                setCustomNoteError={setCustomNoteError}
+            />
+        </form>
+    );
 }
 
 export default SaveHint;
