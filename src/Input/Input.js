@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import QuestionDialogue from '../QuestionDialogue/QuestionDialogue';
 import QuestionLegend from '../QuestionLegend/QuestionLegend';
+import './Input.css';
 
 const Input = (props) => {
 
@@ -11,6 +12,8 @@ const Input = (props) => {
         const regex = /^[a-zA-z[a-zA-z\s]*$/;
         if (!regex.test(userInput)) {
             setFormError('Please type your answer and be sure to include only letters or spaces in your response.')
+        } else if (userInput.length && userInput.trim().length === 0) {
+            setFormError('Please type your answer and be sure to include at least one letter.')
         } else {
             setFormError(null);
         }
@@ -23,7 +26,7 @@ const Input = (props) => {
     const { page, savedUserInput, checkAnswer } = props;
 
     return (
-        <div>
+        <div className='Input__container'>
             <QuestionDialogue page={page} savedUserInput={savedUserInput} />
             <form onSubmit={(e) => checkAnswer(e, userInput)}>
                 <fieldset>
