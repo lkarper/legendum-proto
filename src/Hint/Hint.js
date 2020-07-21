@@ -3,6 +3,7 @@ import UserContext from '../contexts/UserContext';
 import TokenService from '../services/token-service';
 import NotesService from '../services/notes-service';
 import SaveHint from '../SaveHint/SaveHint';
+import './Hint.css';
 
 const Hint = (props) => {
 
@@ -31,7 +32,8 @@ const Hint = (props) => {
             <p>{hint.hint}</p>
             {TokenService.hasAuthToken() 
                 ? <div>
-                    <button 
+                    <button
+                        className='Hint__toggle-show-add' 
                         onClick={() => toggleShowAdd(!showAdd)}
                         disabled={noteAdded}    
                     >
