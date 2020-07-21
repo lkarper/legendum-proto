@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import QuestionDialogue from '../QuestionDialogue/QuestionDialogue';
 import QuestionLegend from '../QuestionLegend/QuestionLegend';
+import './TrueFalse.css';
 
 const TrueFalse = (props) => {
 
@@ -9,7 +10,7 @@ const TrueFalse = (props) => {
     const { page, savedUserInput, checkAnswer } = props;
 
     return (
-        <div>
+        <div className='TrueFalse__container'>
             <QuestionDialogue page={page} savedUserInput={savedUserInput} />
             <form
                 onSubmit={(e) => {
