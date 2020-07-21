@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DoPage from '../DoPage/DoPage';
 import ExercisesService from '../services/exercises-service';
+import './Do.css';
 
 const Do = (props) => {
     const { chapt } = props.match.params;
@@ -21,20 +22,28 @@ const Do = (props) => {
     }, [chapt]);
 
     return (
-        <div>
-            {pages.length ? <h2>{pages[0].exercise_title} {pages[0].exercise_translation}</h2> : <p>Loading...</p>}
-            {pages.length ?
-                <DoPage
-                    data={{
-                        chapt,
-                        savedUserInput,
-                        pages,
-                        page,
-                        setPage,
-                        setSavedUserInput,
-                    }}
-                />
-                : ''
+        <div className='Do__container'>
+            {pages.length 
+                ? 
+                    <>
+                        <h2
+                            className='Do__h2'
+                        >
+                            {pages[0].exercise_title} {pages[0].exercise_translation}
+                        </h2>
+                        <DoPage
+                            data={{
+                                chapt,
+                                savedUserInput,
+                                pages,
+                                page,
+                                setPage,
+                                setSavedUserInput,
+                            }}
+                        />
+                    </>
+                : 
+                    <p>Loading...</p>
             }
         </div>
     );
