@@ -6,6 +6,8 @@ import UserContext from '../contexts/UserContext';
 import UserIncorrect from '../UserIncorrect/UserIncorrect';
 import UserCorrect from '../UserCorrect/UserCorrect';
 import QuestionToDisplay from '../QuestionToDisplay/QuestionToDisplay';
+import BackgroundImage from '../BackgroundImage/BackgroundImage';
+import './DoPage.css';
 
 const DoPage = (props) => {
 
@@ -13,6 +15,7 @@ const DoPage = (props) => {
 
     const [userCorrect, setUserCorrect] = useState();
     const [userIncorrect, setUserIncorrect] = useState();
+    const [endQuiz, setEndQuiz] = useState(false);
     const [error, setError] = useState(null);
 
     const { chapt, savedUserInput, pages, page, setPage, setSavedUserInput } = props.data;
@@ -51,75 +54,100 @@ const DoPage = (props) => {
     }
 
     return (
-        <div>
-            <img 
-                src={pageToDisplay.image_url}
-                alt={pageToDisplay.image_alt_text}
-            />
-            <QuestionToDisplay 
-                pageToDisplay={pageToDisplay}
-                savedUserInput={savedUserInput}
-                checkAnswer={checkAnswer}
-            />
-            {userIncorrect ? <UserIncorrect page={pageToDisplay} userResponse={userIncorrect} /> : ''}
-            {userCorrect ? <UserCorrect page={pageToDisplay} userResponse={userCorrect} /> : ''}
-            {page !== 1 ? 
-                <button 
-                    onClick={() => {
-                        setUserCorrect();
-                        setUserIncorrect();
-                        setPage(page - 1);
-                    }}
-                >
-                    &#60;
-                </button> 
-                : ''
-            }
-            {page !== pages.length && userCorrect ? 
-                <button 
-                    onClick={() => {
-                        setUserCorrect();
-                        setUserIncorrect();
-                        setPage(page + 1);
-                    }}
-                >
-                    &#62;
-                </button> 
-                : ''
-            }
-            <div role="alert">
-                {page === pages.length && userCorrect
-                    ? 
+        <div className='DoPage__container'>
+            <BackgroundImage
+                classPrefix='DoPage'
+                imgUrl={pageToDisplay.background_image_url}
+                imageAltText={pageToDisplay.background_image_alt_text}
+            >
+                <img
+                    className='DoPage__image' 
+                    src={pageToDisplay.image_url}
+                    alt={pageToDisplay.image_alt_text}
+                />
+            </BackgroundImage>
+            <div className={`DoPage__text-container${endQuiz ? '-end' : '' }`}>
+                {!endQuiz 
+                    ?
                         <>
-                            {TokenService.hasAuthToken() 
-                                ? <> 
-                                    <button
-                                        onClick={() => onCompletion(`/game/story/${parseInt(chapt) + 1}`)} 
-                                    >
-                                        On to the next chapter (progress will be saved)
-                                    </button>
-                                    <button
-                                        onClick={() => onCompletion(`/dashboard`)} 
-                                    >
-                                        Back to the dashboard (progress will be saved)
-                                    </button>
-                                    <Link
-                                        to='/dashboard'
-                                    >Back to dashboard (do not save progress)</Link>
-                                </>
-                                : <Link to={`/game/story/${parseInt(chapt) + 1}`}>On the the next chapter</Link>
+                        <QuestionToDisplay 
+                            pageToDisplay={pageToDisplay}
+                            savedUserInput={savedUserInput}
+                            checkAnswer={checkAnswer}
+                        />
+                        <div role='alert' className='DoPage__check-answer-container'>
+                            {userIncorrect ? <UserIncorrect page={pageToDisplay} userResponse={userIncorrect} /> : ''}
+                            {userCorrect ? <UserCorrect page={pageToDisplay} userResponse={userCorrect} /> : ''}
+                        </div>
+                        </>
+                    : ''
+                }
+                <div className='DoPage__button-container'>
+                    <button
+                        className='DoPage__nav-button'
+                        disabled={page === 1} 
+                        onClick={() => {
+                            setUserCorrect();
+                            setUserIncorrect();
+                            if (endQuiz) {
+                                setEndQuiz(false);
+                            } else {
+                                setPage(page - 1);
                             }
-                            {/* Where else should the user be able to go? Some sort of home? A leaderboard? A group? */}
-                        </> 
-                    : ''
-                }
-                {error ? 
-                    <>
-                        <h2>Could not save progress: {error} </h2>
-                        <p>Check your connection then click one of the options above to try again.</p>
-                    </>
-                    : ''
-                }
+                        }}
+                    >
+                        &#60;
+                    </button>
+                    <button 
+                        className='DoPage__nav-button'
+                        disabled={!userCorrect}
+                        onClick={() => {
+                            setUserCorrect();
+                            setUserIncorrect();
+                            if (page !== pages.length) {
+                                setPage(page + 1);
+                            } else {
+                                setEndQuiz(true);
+                            }
+                        }}
+                    >
+                        &#62;
+                    </button>
+                </div>
+                <div role="alert" className='DoPage__end-quiz-container'>
+                    {endQuiz
+                        ? 
+                            <>
+                                {TokenService.hasAuthToken() 
+                                    ? <> 
+                                        <button
+                                            onClick={() => onCompletion(`/game/story/${parseInt(chapt) + 1}`)} 
+                                        >
+                                            On to the next chapter (progress will be saved)
+                                        </button>
+                                        <button
+                                            onClick={() => onCompletion(`/dashboard`)} 
+                                        >
+                                            Back to the dashboard (progress will be saved)
+                                        </button>
+                                        <Link
+                                            to='/dashboard'
+                                        >Back to dashboard (do not save progress)</Link>
+                                    </>
+                                    : <Link to={`/game/story/${parseInt(chapt) + 1}`}>On the the next chapter</Link>
+                                }
+                                {/* Where else should the user be able to go? Some sort of home? A leaderboard? A group? */}
+                            </> 
+                        : ''
+                    }
+                    {error ? 
+                        <>
+                            <h2>Could not save progress: {error} </h2>
+                            <p>Check your connection then click one of the options above to try again.</p>
+                        </>
+                        : ''
+                    }
+                </div>
             </div>
         </div>
     );
