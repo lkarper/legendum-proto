@@ -6,15 +6,15 @@ const NextStory = (props) => {
 
     const context = useContext(UserContext);
 
-    const exercises = context.exercises.sort((a, b) => a.id - b.id);
+    const exercises = [...context.exercises].sort((a, b) => a.id - b.id);
 
-    const lastChapter = context.exercises.length ? context.exercises.sort((a, b) => b.id - a.id)[0].id : undefined;
+    const lastChapter = context.exercises.length ? [...context.exercises].sort((a, b) => b.id - a.id)[0].id : undefined;
 
     let nextChapter;
 
     exercises.forEach(exercise => {
         if (!nextChapter) {
-            if (context.progress.filter(p => p.exercise_id === exercise.id).length === 0) {
+            if (context.progress.length && context.progress.filter(p => p.exercise_id === exercise.id).length === 0) {
                 nextChapter = exercise.id;
             }
         }
