@@ -7,7 +7,7 @@ const Dashboard = () => {
     return (
         <div>
             <ProgressReport />
-            <NotesList />
+            <NotesList suffix='dashboard' />
         </div>
     );
 }
