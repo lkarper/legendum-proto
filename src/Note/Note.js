@@ -1,7 +1,9 @@
 import React, { useState, useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NotesService from '../services/notes-service';
 import UserContext from '../contexts/UserContext';
 import SaveHint from '../SaveHint/SaveHint';
+import './Note.css';
 
 const Note = (props) => {
 
@@ -47,11 +49,21 @@ const Note = (props) => {
             {note.custom_note ? <p>{note.custom_note}</p> : ''}
             <p>From exercise: {note.exercise_title}{' '}{note.exercise_translation}</p>
             <p>Lost modified: {new Date(note.date_modified).toString()}</p>
-            <button onClick={() => toggleShowEdit(!showEdit)}>{showEdit ? 'Nevermind' : 'Edit note'}</button>
-            <button 
-                onClick={onDelete}
-                disabled={showEdit}
-            >Delete note</button>
+            <div className='Note__button-container'>
+                <button 
+                    className='Note__toggle-show-edit button'
+                    onClick={() => toggleShowEdit(!showEdit)}
+                >{showEdit ? 'Nevermind' : 'Edit note'}</button>
+                <FontAwesomeIcon 
+                    className='Note__leaf' 
+                    icon={['fab', 'pagelines']} 
+                />
+                <button 
+                    className='Note__delete-button button'
+                    onClick={onDelete}
+                    disabled={showEdit}
+                >Delete note</button>
+            </div>
             {showEdit 
                 ? <SaveHint 
                     cNoteProp={note.custom_note} 

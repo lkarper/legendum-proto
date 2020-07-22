@@ -13,14 +13,14 @@ const NotesWidget = (props) => {
         return (
             <>
                 <button
-                    className='NotesWidget__toggle-button'
+                    className='NotesWidget__toggle-button button'
                     onClick={() => toggleShowList(!showList)}
                 >
                     My notes
                 </button>
                 <div className={`NotesWidget__outer-container-${notesListContainerClassSuffix}`}>
                     <button
-                        className='NotesWidget__outer-container-close-button'
+                        className='NotesWidget__outer-container-close-button button'
                         onClick={() => toggleShowList(false)}
                     >
                         &#10006;

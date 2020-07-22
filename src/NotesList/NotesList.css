@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text&display=swap');
+
+.NotesList__container-widget-list {
+    overflow-y: auto;
+    height: 100%;
+    background: url('/images/paper-background-2-small.png') repeat-y center center fixed;
+    padding: 10px;
+    font-family: 'Crimson Text', serif;
+}

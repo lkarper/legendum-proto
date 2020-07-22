@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TokenService from '../services/token-service';
 import NextStory from '../NextStory/NextStory';
 import './Landing.css';
@@ -25,24 +26,40 @@ const Landing = (props) => {
                 />
             </div>
             {!TokenService.hasAuthToken() ? 
-                <>
+                <div className='Landing__link-container'>
                     <Link
+                        className='Landing__link'
                         to="/register"
                     >Register</Link>
+                    <FontAwesomeIcon 
+                        className='Landing__leaf' 
+                        icon={['fab', 'pagelines']} 
+                    />
                     <Link
+                        className='Landing__link'
                         to="/game/story/1"
                     >Play without Registering</Link>
+                    <FontAwesomeIcon 
+                        className='Landing__leaf' 
+                        icon={['fab', 'pagelines']} 
+                    />
                     <Link
+                        className='Landing__link'
                         to="/login"
                     >Login</Link>
-                </>
+                </div>
                 : 
-                <>
+                <div className='Landing__link-container'>
                     <Link
+                        className='Landing__link'
                         to='/dashboard'
                     >Go to Dashboard</Link>
+                    <FontAwesomeIcon 
+                        className='Landing__leaf' 
+                        icon={['fab', 'pagelines']} 
+                    />
                     <NextStory />
-                </>    
+                </div>    
             }
         </div>
     )

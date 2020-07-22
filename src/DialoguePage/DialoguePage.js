@@ -22,7 +22,11 @@ const DialoguePage= (props) => {
                 /> 
             </BackgroundImage>
         : 
-            '';
+            <BackgroundImage 
+                classPrefix='DialoguePage'
+                imgUrl={pageToDisplay.background_image_url}
+                imageAltText={pageToDisplay.background_image_alt_text}
+            />;
 
     let body;
 
@@ -45,7 +49,7 @@ const DialoguePage= (props) => {
                     }
                     <div className='DialoguePage__button-container'>
                         <button 
-                                className='DialoguePage__nav-button'
+                                className='DialoguePage__nav-button button'
                                 onClick={() => {
                                     setPage(page - 1);
                                     setResponse(null);
@@ -53,7 +57,7 @@ const DialoguePage= (props) => {
                                 disabled={page === 1}
                             >&#60;</button>
                         <button
-                            className='DialoguePage__nav-button' 
+                            className='DialoguePage__nav-button button' 
                             onClick={() => {
                                 setPage(page + 1);
                                 setResponse(null)
@@ -82,7 +86,7 @@ const DialoguePage= (props) => {
                     {dialogue.length && dialogue.length === page 
                         ? 
                             <Link
-                                className='DialoguePage__begin-exercise-link' 
+                                className='DialoguePage__begin-exercise-link button' 
                                 to={`/game/exercises/${chapt}/learn`}
                             >
                                 Begin Exercise
@@ -92,7 +96,7 @@ const DialoguePage= (props) => {
                     }
                     <div className='DialoguePage__button-container'>
                         <button
-                                className='DialoguePage__nav-button' 
+                                className='DialoguePage__nav-button button' 
                                 onClick={() => {
                                     setPage(page - 1);
                                     setResponse(null);
@@ -100,7 +104,7 @@ const DialoguePage= (props) => {
                                 disabled={page === 1}
                             >&#60;</button>
                         <button 
-                                className='DialoguePage__nav-button'
+                                className='DialoguePage__nav-button button'
                                 onClick={() => {
                                 setPage(page + 1);
                                 setResponse(null)

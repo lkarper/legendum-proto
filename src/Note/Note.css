@@ -1,10 +1,11 @@
-.DialogueChoices__container {
+.Note__button-container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 10px 5px;
 }
 
-.DialogueChoices_choice-button {
+.Note__leaf {
     margin: 5px;
+    color: #FFC71F;
+    font-size: 24px;
 }

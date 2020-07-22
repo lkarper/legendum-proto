@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import UserContext from '../contexts/UserContext';
 import Note from '../Note/Note';
+import './NotesList.css';
 
 const NotesList = (props) => {
 

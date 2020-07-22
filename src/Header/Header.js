@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TokenService from '../services/token-service';
 import IdleService from '../services/idle-service';
 import UserContext from '../contexts/UserContext';
@@ -23,8 +24,9 @@ const Header = (props) => {
     const location = Object.keys(props).includes('location') ? props.location.pathname : '/dashboard';
 
     const logoutLink = (
-        <div>
+        <div className="Header__links-container">
             <Link
+                className="Header__link"
                 onClick={handleLogout}
                 to='/'
             >
@@ -34,12 +36,19 @@ const Header = (props) => {
     );
 
     const loginLink = (
-        <div>
-            <Link to='/register'>
+        <div className="Header__links-container">
+            <Link 
+                className="Header__link" 
+                to='/register'
+            >
                 Register
             </Link>
-            {' '}
-            <Link 
+            <FontAwesomeIcon 
+                className='Header__leaf' 
+                icon={['fab', 'pagelines']} 
+            />
+            <Link
+                className="Header__link" 
                 to={{
                     pathname: '/login',
                     state: { from: location || '/' }
@@ -53,9 +62,12 @@ const Header = (props) => {
     return (
         <header className="Header__header">
             <nav className="Header__nav">
-                <h1>
-                    <Link to='/'>
-                        Legendum
+                <h1 className="Header__h1">
+                    <Link 
+                        className='Header__home-link'
+                        to='/'
+                    >
+                        LEGENDUM
                     </Link>
                 </h1>
                 {TokenService.hasAuthToken()

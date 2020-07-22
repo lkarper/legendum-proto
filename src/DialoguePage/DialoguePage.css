@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text&display=swap');
+
 .DialoguePage__container {
     display: flex;
     flex-direction: column;
@@ -40,10 +42,16 @@
     padding: 5px;
     display: flex;
     flex-direction: column;
+    font-family: 'Crimson Text', serif;
 }
 
 .DialoguePage__begin-exercise-link {
+    align-self: center;
     text-align: center;
+    padding: 5px;
+    width: 200px;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 .DialoguePage__text {

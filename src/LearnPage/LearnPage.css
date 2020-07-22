@@ -39,14 +39,19 @@
 
 .LearnPage__text-container {
     position: absolute;
-    bottom: 0;
+    top: 50%;
     left: 0;
-    height: 50%;
+    min-height: 50%;
     width: 100vw;
     padding: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: url('/images/paper-background-2-small.png') repeat-y center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .LearnPage__do-link {

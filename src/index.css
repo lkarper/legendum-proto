@@ -1,0 +1,24 @@
+.button {
+    border: 2px solid #FFC71F;
+    background-color: #721D2B;
+    color: #FFC71F;
+    font-family: 'Crimson Text', serif;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+    transform: translateY(4px);
+}
+
+.button:enabled:hover {
+    text-decoration: underline;
+}
+
+.button:hover {
+    text-decoration: underline;
+}
+
+.button:disabled {
+    opacity: 0.5;
+}
