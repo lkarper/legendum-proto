@@ -7,6 +7,23 @@ import './Landing.css';
 const Landing = (props) => {
     return (
         <div className="Landing__container">
+            <div className='Landing__image-container'>
+                <div className="Landing__speech-bubble-container">
+                    <div className="Landing__speech-bubble">
+                        <p className='Landing__speech-text'>Welcome!</p>
+                    </div>
+                    <div aria-hidden='true' className='Landing__arrow-container'>
+                        <div className='Landing__arrow left'></div>
+                        <div className='Landing__arrow center'></div>
+                        <div className='Landing__arrow right'></div>
+                    </div>
+                </div>
+                <img
+                    className='Landing__greeting-image' 
+                    src='/images/enni.png'
+                    alt='A friendly-looking, three-headed dog.'
+                />
+            </div>
             {!TokenService.hasAuthToken() ? 
                 <>
                     <Link
