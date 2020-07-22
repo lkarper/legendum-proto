@@ -7,7 +7,7 @@ const NotesList = (props) => {
     const context = useContext(UserContext);
 
     return (
-        <div>
+        <div className={`NotesList__container-${props.suffix}`}>
             <h2>Saved Notes:</h2>
             {context.notes.length ?
                 <ol>
