@@ -1,0 +1,37 @@
+.NotesWidget__outer-container-widget-list.off {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.NotesWidget__outer-container-widget-list.on {
+    width: calc(100vw - 10%);
+    height: calc(100vh - 75px - 4%);
+    word-wrap: break-word;
+    position: fixed;
+    top: 75px;
+    margin: 5%;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: white;
+    z-index: 200;
+    overflow: hidden;
+}
+
+.NotesWidget__toggle-button {
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    z-index: 100;
+}
+
+.NotesWidget__outer-container-close-button {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+}
+
+.NotesList__container-widget-list {
+    overflow-y: auto;
+    height: 100%;
+}

@@ -36,12 +36,12 @@
 .Landing__arrow:after {
     border-color: white transparent transparent transparent;
     border-style: solid;
-    border-width: 19px 19px 0px 19px;
+    border-width: 20px 20px 0px 20px;
     bottom: 1px;
     content: "";
     position: absolute;
-    top: -22px;
-    left: -19px;
+    top: -23px;
+    left: -20px;
 }
 
 .Landing__greeting-image {
