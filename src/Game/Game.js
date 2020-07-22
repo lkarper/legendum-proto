@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Story from '../Story/Story';
 import Exercise from '../Exercise/Exercise';
+import NotesWidget from '../NotesWidget/NotesWidget';
 
 const Game = (props) => {
     return (
@@ -13,6 +14,10 @@ const Game = (props) => {
             <Route 
                 path="/game/exercises/:chapt"
                 component={Exercise}
+            />
+            <Route 
+                path="/game"
+                component={NotesWidget}
             />
         </>
     );
