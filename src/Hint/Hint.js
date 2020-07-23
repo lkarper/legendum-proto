@@ -31,9 +31,9 @@ const Hint = (props) => {
         <li>
             <p>{hint.hint}</p>
             {TokenService.hasAuthToken() 
-                ? <div>
+                ? <div className='Hint__add-hint-container'>
                     <button
-                        className='Hint__toggle-show-add' 
+                        className='Hint__toggle-show-add button' 
                         onClick={() => toggleShowAdd(!showAdd)}
                         disabled={noteAdded}    
                     >

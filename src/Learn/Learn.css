@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text&display=swap');
+
 .Learn__container {
     position: relative;
     display: flex;
@@ -5,10 +7,4 @@
     align-items: center;
     width: 100%;
     height: calc(100vh - 75px);
-}
-
-.Learn__h2 {
-    height: 50px;
-    margin: 5px;
-    z-index: 10;
 }

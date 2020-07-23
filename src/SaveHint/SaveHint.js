@@ -10,7 +10,10 @@ const SaveHint = (props) => {
     const [customNoteError, setCustomNoteError] = useState('');
 
     return (
-        <form onSubmit={(e) => onSubmitHint(e, customNote)}>
+        <form 
+            className='SaveHint__form'
+            onSubmit={(e) => onSubmitHint(e, customNote)}
+        >
             <textarea
                 id="custom-note"
                 name="custom-note"
@@ -22,7 +25,7 @@ const SaveHint = (props) => {
                 onChange={(e) => setCustomNote(e.target.value)}
             ></textarea>
             <button 
-                className='SaveHint__submit'
+                className='SaveHint__submit button'
                 type="submit"
                 disabled={!!customNoteError}
             >Save Hint</button>

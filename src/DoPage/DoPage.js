@@ -67,6 +67,11 @@ const DoPage = (props) => {
                 />
             </BackgroundImage>
             <div className={`DoPage__text-container${endQuiz ? '-end' : '' }`}>
+                <h2
+                    className='DoPage__h2'
+                >
+                    {pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}
+                </h2>
                 {!endQuiz 
                     ?
                         <>
@@ -84,7 +89,7 @@ const DoPage = (props) => {
                 }
                 <div className='DoPage__button-container'>
                     <button
-                        className='DoPage__nav-button'
+                        className='DoPage__nav-button button'
                         disabled={page === 1} 
                         onClick={() => {
                             setUserCorrect();
@@ -99,7 +104,7 @@ const DoPage = (props) => {
                         &#60;
                     </button>
                     <button 
-                        className='DoPage__nav-button'
+                        className='DoPage__nav-button button'
                         disabled={!userCorrect}
                         onClick={() => {
                             setUserCorrect();
@@ -121,20 +126,23 @@ const DoPage = (props) => {
                                 {TokenService.hasAuthToken() 
                                     ? <> 
                                         <button
+                                            className='button'
                                             onClick={() => onCompletion(`/game/story/${parseInt(chapt) + 1}`)} 
                                         >
                                             On to the next chapter (progress will be saved)
                                         </button>
                                         <button
+                                            className='button'
                                             onClick={() => onCompletion(`/dashboard`)} 
                                         >
                                             Back to the dashboard (progress will be saved)
                                         </button>
                                         <Link
+                                            className='button'
                                             to='/dashboard'
                                         >Back to dashboard (do not save progress)</Link>
                                     </>
-                                    : <Link to={`/game/story/${parseInt(chapt) + 1}`}>On the the next chapter</Link>
+                                    : <Link className='button' to={`/game/story/${parseInt(chapt) + 1}`}>On the the next chapter</Link>
                                 }
                                 {/* Where else should the user be able to go? Some sort of home? A leaderboard? A group? */}
                             </> 

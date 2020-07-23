@@ -25,7 +25,6 @@ const Learn = (props) => {
             {pages.length 
                 ? 
                     <div className='Learn__container'>
-                        <h2 className='Learn__h2'>{pages[0].exercise_title}</h2> 
                         <LearnPage
                             data={{
                                 pages,

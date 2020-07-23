@@ -41,7 +41,8 @@ const Input = (props) => {
                         required
                     />
                     {formError ? <p id="input-error">{formError}</p> : ''}
-                    <button 
+                    <button
+                        className='button' 
                         type="submit"
                         disabled={formError || !userInput}
                     >Submit</button>

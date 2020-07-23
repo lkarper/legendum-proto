@@ -35,6 +35,7 @@ const LearnPage = (props) => {
             {image}
             <div className='LearnPage__text-container'>
                 <div className='LearnPage__text-hints-container'>
+                    <h2 className='LearnPage__h2'>{pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}</h2> 
                     <p className='LearnPage__text'>{pageToDisplay.text}</p>
                     {pageToDisplay.hints 
                         ? 
@@ -48,7 +49,7 @@ const LearnPage = (props) => {
                     {page === pages.length 
                         ?
                             <Link
-                                className='LearnPage__do-link' 
+                                className='LearnPage__do-link button' 
                                 to={`/game/exercises/${chapt}/do`}
                             >
                                 Practice What You've Learned
@@ -59,7 +60,7 @@ const LearnPage = (props) => {
                 </div>
                 <div className='LearnPage__button-container'>
                     <button
-                        className='LearnPage__nav-button'
+                        className='LearnPage__nav-button button'
                         disabled={page === 1} 
                         onClick={() => {
                             setShowHintsBoolean(false);
@@ -69,7 +70,7 @@ const LearnPage = (props) => {
                         &#60;
                     </button>
                     <button
-                        className='LearnPage__nav-button'
+                        className='LearnPage__nav-button button'
                         disabled={page === pages.length} 
                         onClick={() => {
                             setShowHintsBoolean(false);

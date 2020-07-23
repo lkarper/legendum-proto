@@ -6,8 +6,8 @@ const LearnHints = (props) => {
     const { page, showHintsBoolean, setShowHintsBoolean } = props;
 
     const hideAndShowButton = showHintsBoolean 
-            ? <button className='LearnHints__hide-show-button' onClick={() => setShowHintsBoolean(false)}>Hide hints</button>
-            : <button className='LearnHints__hide-show-button' onClick={() => setShowHintsBoolean(true)}>Show hints</button>
+            ? <button className='LearnHints__hide-show-button button' onClick={() => setShowHintsBoolean(false)}>Hide hints</button>
+            : <button className='LearnHints__hide-show-button button' onClick={() => setShowHintsBoolean(true)}>Show hints</button>
         ;
     
     const hintsList = (

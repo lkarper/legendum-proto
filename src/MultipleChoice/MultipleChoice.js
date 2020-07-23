@@ -60,7 +60,8 @@ const MultipleChoice = (props) => {
                     <QuestionLegend page={page} savedUserInput={savedUserInput} />
                     {choicesHTMLArray}
                 </fieldset>
-                <button 
+                <button
+                    className='button' 
                     type="submit"
                     disabled={!userChoice}
                 >Submit</button>

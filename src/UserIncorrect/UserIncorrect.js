@@ -1,4 +1,5 @@
 import React from 'react';
+import './UserIncorrect.css';
 
 const UserIncorrect = (props) => {
     const { page, userResponse } = props;
@@ -16,7 +17,7 @@ const UserIncorrect = (props) => {
 
     return (
         <>
-            <p>{feedback}</p>
+            <p className='UserIncorrect__message'>{feedback}</p>
             <p>Try again</p>
         </>
     )

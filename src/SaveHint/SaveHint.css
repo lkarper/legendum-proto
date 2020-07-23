@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text&display=swap');
+
 .SaveHint__submit {
     margin: 5px;
 }
+
+.SaveHint__form {
+    margin: 5px;
+}
+
+.SaveHint__form textarea {
+    font-family: 'Crimson Text', serif;    
+    font-size: 16px;
+}
+

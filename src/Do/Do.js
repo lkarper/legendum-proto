@@ -26,11 +26,6 @@ const Do = (props) => {
             {pages.length 
                 ? 
                     <>
-                        <h2
-                            className='Do__h2'
-                        >
-                            {pages[0].exercise_title} {pages[0].exercise_translation}
-                        </h2>
                         <DoPage
                             data={{
                                 chapt,
