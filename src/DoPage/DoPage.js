@@ -138,11 +138,11 @@ const DoPage = (props) => {
                                             Back to the dashboard (progress will be saved)
                                         </button>
                                         <Link
-                                            className='button'
+                                            className='DoPage__link button'
                                             to='/dashboard'
                                         >Back to dashboard (do not save progress)</Link>
                                     </>
-                                    : <Link className='button' to={`/game/story/${parseInt(chapt) + 1}`}>On the the next chapter</Link>
+                                    : <Link className='DoPage__link button' to={`/game/story/${parseInt(chapt) + 1}`}>On the the next chapter</Link>
                                 }
                                 {/* Where else should the user be able to go? Some sort of home? A leaderboard? A group? */}
                             </> 
