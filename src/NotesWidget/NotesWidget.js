@@ -25,7 +25,7 @@ const NotesWidget = (props) => {
                     >
                         &#10006;
                     </button>
-                    <NotesList suffix={'widget-list'} />
+                    <NotesList chapt={props.match.params.chapt} suffix={'widget-list'} />
                 </div>
             </>
         );
