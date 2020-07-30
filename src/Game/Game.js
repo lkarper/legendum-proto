@@ -16,7 +16,7 @@ const Game = (props) => {
                 component={Exercise}
             />
             <Route 
-                path="/game"
+                path={["/game/exercises/:chapt", "/game/story/:chapt"]}
                 component={NotesWidget}
             />
         </>
