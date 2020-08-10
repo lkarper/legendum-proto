@@ -3,41 +3,35 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 125px);
+    height: 100%;
+    /* height: calc(100vh - 125px); */
 }
 
 .DoPage__image {
-    position: absolute;
     bottom: 25px;
     margin: 0 auto;
     left: 0;
     right: 0;
-    max-height: 75%
+    max-height: 75%;
+    max-width: 90%;
+    z-index: 100;
+    position: absolute;
 }
 
 .DoPage__text-container {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100vw;
+    width: 100%;
     padding: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     font-family: 'Crimson Text', serif;
-    background: url('/images/paper-background-2-small.png') repeat-y center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 .DoPage__text-container-end {
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
     left: 0;
-    height: 50%;
-    width: 100vw;
+    height: 50%; */
+    width: 100%;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -45,28 +39,31 @@
 }
 
 .DoPage__background-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     margin: 0;
-    height: 50%;
+    height: 300px;
 }
 
 .DoPage__background-image {
-    z-index: -10;    
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     display: block;
+    z-index: 10;
 }
 
 .DoPage__do-link {
     align-self: center;
+    margin: 5px;
 }
 
 .DoPage__text {
     margin: 0;
     padding: 5px;
+    font-size: 24px;
 }
 
 .DoPage__button-container {
@@ -74,7 +71,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 5px;
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 .DoPage__nav-button {
@@ -89,11 +87,12 @@
 }
 
 .DoPage__h2 {
-    text-align: center;
     margin: 5px;
-    border-bottom: 1px solid black;
+    z-index: 10;
+    font-family: 'Crimson Text', serif;
     font-weight: 400;
-    font-size: 24px;
+    text-align: center;
+    border-bottom: 1px solid black;
 }
 
 .DoPage__link.button {
@@ -103,4 +102,26 @@
 .DoPage__end-quiz-container > .button {
     margin: 5px;
     padding: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+    .DoPage__text {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    /* .DoPage__image {
+        max-height: 100%;
+    } */
+
+    .DoPage__h2 {
+        font-size: 36px;
+        padding: 10px;
+    }
+
+    .DoPage__background-container {
+        border: 5px solid #FFC71F;
+        width: 800px;
+        height: 500px;
+    }
 }

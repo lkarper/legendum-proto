@@ -1,3 +1,19 @@
 .Hint__toggle-show-add {
     margin: 5px;
 }
+
+@media screen and (min-width: 1000px) {
+    .Hint__hint-text {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .Hint__add-hint-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .Hint__toggle-show-add {
+        align-self: flex-start;
+    }
+}

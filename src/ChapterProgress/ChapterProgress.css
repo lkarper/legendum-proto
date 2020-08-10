@@ -1,0 +1,39 @@
+.ChapterProgress__link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #FFC71F;
+    background-color: #721D2B;
+    padding: 5px;
+    width: 90%;
+}
+
+.ChapterProgress__link {
+    color: #FFC71F;
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    margin: 5px 10px;
+}
+
+.ChapterProgress__link:active {
+    text-decoration: underline;
+}
+
+.ChapterProgress__link:hover {
+    color: goldenrod;
+}
+
+.ChapterProgress__leaf {
+    margin: 5px;
+    color: #FFC71F;
+}
+
+@media screen and (min-width: 1000px) {
+    .ChapterProgress__link-container {
+        width: 75%;
+    }
+
+    .ChapterProgress__link {
+        font-size: 18px;
+    }
+}

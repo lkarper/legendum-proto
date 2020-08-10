@@ -32,10 +32,10 @@ const LearnPage = (props) => {
 
     return (
         <div className='LearnPage__container'>
+            <h2 className='LearnPage__h2'>{pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}</h2> 
             {image}
             <div className='LearnPage__text-container'>
                 <div className='LearnPage__text-hints-container'>
-                    <h2 className='LearnPage__h2'>{pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}</h2> 
                     <p className='LearnPage__text'>{pageToDisplay.text}</p>
                     {pageToDisplay.hints 
                         ? 

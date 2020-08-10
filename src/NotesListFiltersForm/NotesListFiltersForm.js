@@ -1,11 +1,12 @@
 import React from 'react';
+import './NotesListFiltersForm.css';
 
 const NotesListFiltersForm = (props) => {
 
     const { suffix, sortType, chapterFilter, setSortType, setChapterFilter } = props;
 
     return (
-        <form className={`NotesListFilterForm__form-${suffix}`}>
+        <form className={`NotesListFiltersForm__form-${suffix}`}>
             {suffix === 'widget-list' 
                 ?
                     <fieldset>

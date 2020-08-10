@@ -94,3 +94,13 @@
     margin: 5px;
     color: #FFC71F;
 }
+
+@media screen and (min-width: 1000px) {
+    .Landing__greeting-image {
+        max-width: 50%;
+    }
+
+    .Landing__link {
+        font-size: 24px;
+    }
+}

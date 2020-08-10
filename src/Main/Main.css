@@ -1,6 +1,10 @@
 main {
     margin-top: 75px;
-    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
     background: url('/images/paper-background-2-small.png') repeat-y center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;

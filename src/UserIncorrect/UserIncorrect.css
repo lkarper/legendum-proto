@@ -1,3 +1,5 @@
 .UserIncorrect__message {
-    margin: 5px;
+    padding: 5px;
+    margin: 0;
+    font-size: 20px;
 }

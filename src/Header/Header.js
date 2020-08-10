@@ -26,6 +26,16 @@ const Header = (props) => {
     const logoutLink = (
         <div className="Header__links-container">
             <Link
+                to='/dashboard'
+                className='Header__link'
+            >
+                Dashboard
+            </Link>
+            <FontAwesomeIcon 
+                className='Header__leaf' 
+                icon={['fab', 'pagelines']} 
+            />
+            <Link
                 className="Header__link"
                 onClick={handleLogout}
                 to='/'

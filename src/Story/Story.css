@@ -3,17 +3,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
     width: 100%;
-    height: calc(100vh - 75px);
 }
 
 .Story__h2 {
-    height: 50px;
     margin: 5px;
     z-index: 10;
-    color: #FFC71F;
-    font-weight: 400;;
-    border: 2px solid #FFC71F;
-    background-color: #721D2B;
-    padding: 5px;
+    font-family: 'Crimson Text', serif;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+@media screen and (min-width: 1000px) {
+    .Story__container {
+        width: 800px;
+    }
+
+    .Story__h2 {
+        font-size: 36px;
+        padding: 10px;
+    }
 }

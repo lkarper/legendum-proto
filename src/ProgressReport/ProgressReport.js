@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import UserContext from '../contexts/UserContext';
 import ChapterProgress from '../ChapterProgress/ChapterProgress';
+import './ProgressReport.css';
 
 const ProgressReport = (props) => {
 
@@ -8,15 +9,15 @@ const ProgressReport = (props) => {
     const { exercises } = context;
 
     return (
-        <div>
-            <h2>User Progress</h2>
-            <ol>
+        <section className='ProgressReport__section'>
+            <h3>User Progress</h3>
+            <ol className='ProgressReport__ol'>
                 {exercises
                     .sort((a, b) => a.id - b.id)
                     .map(exercise => <ChapterProgress key={exercise.id} exercise={exercise} />)
                 }
             </ol>
-        </div>
+        </section>
     )
 }
 

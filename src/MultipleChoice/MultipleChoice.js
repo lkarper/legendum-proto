@@ -61,7 +61,7 @@ const MultipleChoice = (props) => {
                     {choicesHTMLArray}
                 </fieldset>
                 <button
-                    className='button' 
+                    className='MultipleChoice__submit button' 
                     type="submit"
                     disabled={!userChoice}
                 >Submit</button>

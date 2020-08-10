@@ -5,13 +5,13 @@
 }
 
 .NotesWidget__outer-container-widget-list.on {
-    width: calc(100vw - 10%);
-    height: calc(100vh - 75px - 4%);
+    width: 90%;
+    height: calc(100% - 100px);
     word-wrap: break-word;
     position: fixed;
     top: 75px;
     margin: 5%;
-    border: 1px solid black;
+    border: 5px solid #FFC71F;
     background-color: white;
     z-index: 200;
     overflow: hidden;
@@ -27,6 +27,21 @@
 
 .NotesWidget__outer-container-close-button {
     position: absolute;
-    top: 3px;
-    right: 3px;
+    top: 8px;
+    right: 8px;
+    width: 25px;
+    height: 25px;
+}
+
+@media screen and (min-width: 1000px) {
+    .NotesWidget__outer-container-widget-list.on {
+        height: 70%;
+    }
+
+    .NotesWidget__outer-container-close-button.button {
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+        right: 25px;
+    }
 }

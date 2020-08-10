@@ -1,0 +1,18 @@
+.Input__container legend {
+    font-size: 20px;
+}
+
+.Input__container label {
+    font-size: 18px;
+}
+
+.Input__submit {
+    margin: 5px;
+    font-size: 16px;
+}
+
+.Input__container input[type="text"] {
+    margin-left: 5px;
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+}

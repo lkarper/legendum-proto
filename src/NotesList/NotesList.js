@@ -31,7 +31,7 @@ const NotesList = (props) => {
 
     return (
         <div className={`NotesList__container-${props.suffix}`}>
-            <h2 className={`NotesList__h2-${props.suffix}`}>Saved Notes:</h2>
+            <h3 className={`NotesList__h3-${props.suffix}`}>Saved Notes:</h3>
             <NotesListFiltersForm 
                 suffix={props.suffix}
                 sortType={sortType}
@@ -40,7 +40,7 @@ const NotesList = (props) => {
                 setChapterFilter={setChapterFilter}
             />
             {notesToShow.length ?
-                <ol>
+                <ol className='NotesList__ol'>
                     {notesToShow
                         .map(note => <Note key={note.id} note={note}/> )
                     }

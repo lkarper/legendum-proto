@@ -44,12 +44,14 @@ const TrueFalse = (props) => {
                         />
                         <label htmlFor="false">False/Falsum</label>
                     </div>
-                    <button
-                        className='button'
-                        type="submit"
-                        disabled={!userChoice}
-                    >Submit</button>
                 </fieldset>
+                <button
+                    className='TrueFalse__submit button'
+                    type="submit"
+                    disabled={!userChoice}
+                >
+                    Submit
+                </button>
             </form>
 
         </div>

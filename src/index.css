@@ -1,3 +1,7 @@
+#root {
+    height: 100%;
+}
+
 .button {
     border: 2px solid #FFC71F;
     background-color: #721D2B;
@@ -21,4 +25,11 @@
 
 .button:disabled {
     opacity: 0.5;
+}
+
+@media screen and (min-width: 750px) {
+    .button {
+        font-size: 20px;
+        padding: 10px;
+    }
 }

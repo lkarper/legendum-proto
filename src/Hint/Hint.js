@@ -29,7 +29,7 @@ const Hint = (props) => {
 
     return (
         <li>
-            <p>{hint.hint}</p>
+            <p className='Hint__hint-text'>{hint.hint}</p>
             {TokenService.hasAuthToken() 
                 ? <div className='Hint__add-hint-container'>
                     <button

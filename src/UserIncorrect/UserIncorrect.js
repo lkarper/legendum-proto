@@ -18,7 +18,7 @@ const UserIncorrect = (props) => {
     return (
         <>
             <p className='UserIncorrect__message'>{feedback}</p>
-            <p>Try again</p>
+            <p className='UserIncorrect__message'>Try again</p>
         </>
     )
 }

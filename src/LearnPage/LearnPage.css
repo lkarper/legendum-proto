@@ -5,32 +5,35 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 125px);
+    /* height: calc(100% - 125px); */
 }
 
 .LearnPage__image {
-    position: absolute;
     bottom: 25px;
     margin: 0 auto;
     left: 0;
     right: 0;
-    max-height: 75%
+    max-height: 75%;
+    max-width: 90%;
+    z-index: 100;
+    position: absolute;
 }
 
 .LearnPage__background-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     margin: 0;
-    height: 50%;
+    height: 300px;
 }
 
 .LearnPage__background-image {
-    z-index: -10;    
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     display: block;
+    z-index: 10;
 }
 
 .LearnPage__text-hints-container {
@@ -40,20 +43,10 @@
 }
 
 .LearnPage__text-container {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    min-height: 50%;
-    width: 100vw;
+    width: 100%;
     padding: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background: url('/images/paper-background-2-small.png') repeat-y center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     font-family: 'Crimson Text', serif;
 }
 
@@ -87,8 +80,31 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding: 5px;
+    margin-top: 25px;
 }
 
 .LearnPage__nav-button {
     width: 75px;
+}
+
+@media screen and (min-width: 1000px) {
+    .LearnPage__text {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    /* .LearnPage__image {
+        max-height: 100%;
+    } */
+
+    .LearnPage__h2 {
+        font-size: 36px;
+        padding: 10px;
+    }
+
+    .LearnPage__background-container {
+        width: 800px;
+        height: 500px;
+        border: 5px solid #FFC71F;
+    }
 }

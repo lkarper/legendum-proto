@@ -55,6 +55,11 @@ const DoPage = (props) => {
 
     return (
         <div className='DoPage__container'>
+            <h2
+                className='DoPage__h2'
+            >
+                {pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}
+            </h2>
             <BackgroundImage
                 classPrefix='DoPage'
                 imgUrl={pageToDisplay.background_image_url}
@@ -67,11 +72,6 @@ const DoPage = (props) => {
                 />
             </BackgroundImage>
             <div className={`DoPage__text-container${endQuiz ? '-end' : '' }`}>
-                <h2
-                    className='DoPage__h2'
-                >
-                    {pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}
-                </h2>
                 {!endQuiz 
                     ?
                         <>

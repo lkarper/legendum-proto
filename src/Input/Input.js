@@ -41,12 +41,14 @@ const Input = (props) => {
                         required
                     />
                     {formError ? <p id="input-error">{formError}</p> : ''}
-                    <button
-                        className='button' 
-                        type="submit"
-                        disabled={formError || !userInput}
-                    >Submit</button>
                 </fieldset>
+                <button
+                    className='Input__submit button' 
+                    type="submit"
+                    disabled={formError || !userInput}
+                >
+                    Submit
+                </button>
             </form>
         </div>
     );
