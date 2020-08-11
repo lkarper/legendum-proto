@@ -2,7 +2,11 @@ import config from '../config';
 
 const ExercisesService = {
     getAllExercises() {
-        return fetch(`${config.API_ENDPOINT}/exercises`)
+        return fetch(`${config.API_ENDPOINT}/exercises`, {
+            header: {
+                'Authorization': `bearer ${config.API_KEY}`
+            },
+        })
             .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
@@ -10,7 +14,11 @@ const ExercisesService = {
             );
     },
     getExercisesLearnByChapter(chapt) {
-        return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/learn`)
+        return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/learn`, {
+            header: {
+                'Authorization': `bearer ${config.API_KEY}`
+            },
+        })
             .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
@@ -18,7 +26,11 @@ const ExercisesService = {
             );
     },
     getExercisesDoByChapter(chapt) {
-        return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/do`)
+        return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/do`, {
+            header: {
+                'Authorization': `bearer ${config.API_KEY}`
+            },
+        })
             .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
