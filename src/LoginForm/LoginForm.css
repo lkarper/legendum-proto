@@ -25,10 +25,6 @@
     font-family: 'Crimson Text', serif;
 }
 
-.LoginForm__error-container {
-    height: 25px;
-}
-
 .LoginForm__error {
     font-family: 'Crimson Text', serif;
     color: red;
