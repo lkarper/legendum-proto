@@ -13,7 +13,7 @@ const Story = (props) => {
 
     useEffect(() => {
         fetch(`http://localhost:8000/api/dialogue/${chapt}`, {
-            header: {
+            headers: {
                 'Authorization': `bearer ${config.API_KEY}`
             },
         })

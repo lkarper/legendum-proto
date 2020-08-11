@@ -3,7 +3,7 @@ import config from '../config';
 const ExercisesService = {
     getAllExercises() {
         return fetch(`${config.API_ENDPOINT}/exercises`, {
-            header: {
+            headers: {
                 'Authorization': `bearer ${config.API_KEY}`
             },
         })
@@ -15,7 +15,7 @@ const ExercisesService = {
     },
     getExercisesLearnByChapter(chapt) {
         return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/learn`, {
-            header: {
+            headers: {
                 'Authorization': `bearer ${config.API_KEY}`
             },
         })
@@ -27,7 +27,7 @@ const ExercisesService = {
     },
     getExercisesDoByChapter(chapt) {
         return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/do`, {
-            header: {
+            headers: {
                 'Authorization': `bearer ${config.API_KEY}`
             },
         })
