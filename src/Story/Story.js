@@ -47,7 +47,7 @@ const Story = (props) => {
                     </>
                 :
                     <>
-                        <p>Loading...</p>
+                        <p className='Story__loading'>Loading...</p>
                     </>
             }
         </div>

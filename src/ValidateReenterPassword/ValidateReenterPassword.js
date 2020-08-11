@@ -19,7 +19,12 @@ const ValidateReenterPassword = (props) => {
     } else {
         return (
             <div role="alert">
-                <p id="reenter-password-error">{reenterPasswordError}</p>
+                <p 
+                    id="reenter-password-error"
+                    style={{ color: 'darkred' }}
+                >
+                    {reenterPasswordError}
+                </p>
             </div>
         ); 
     }

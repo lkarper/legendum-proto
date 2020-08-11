@@ -7,8 +7,16 @@
     width: 100%;
 }
 
+.Do__loading {
+    font-size: 20px;
+}
+
 @media screen and (min-width: 1000px) {
     .Do__container {
         width: 800px;
+    }
+
+    .Do__loading {
+        font-size: 40px;
     }
 }

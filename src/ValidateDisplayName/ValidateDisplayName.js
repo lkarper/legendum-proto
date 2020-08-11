@@ -7,7 +7,7 @@ const ValidateDisplayName = (props) => {
     useEffect(() => {
         const { displayName, setDisplayNameError } = props;
         if (!displayName.trim().length) {
-            setDisplayNameError('Displayname must contain at least 1 character');
+            setDisplayNameError('Displayname required.');
         } else {
             setDisplayNameError(null);
         }
@@ -16,11 +16,16 @@ const ValidateDisplayName = (props) => {
     if (displayNameError) {
         return (
             <div role="alert">
-                <p id="display-name-required">{displayNameError}</p>
+                <p 
+                    id="display-name-required"
+                    style={{ color: 'darkred' }}
+                >
+                    {displayNameError}
+                </p>
             </div>
         );
     }
-    return <p id="display-name-required">Display name required.</p>;
+    return <p id="display-name-required">Display name meets requirements.</p>;
 }
 
 export default ValidateDisplayName;

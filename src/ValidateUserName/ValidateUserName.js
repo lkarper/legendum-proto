@@ -5,8 +5,8 @@ const ValidateUserName = (props) => {
 
     useEffect(() => {
         const { setUserNameError, userName } = props;
-        if (userName.length && !userName.trim().length) {
-            setUserNameError('Username must contain at least 1 character')
+        if (!userName.trim().length) {
+            setUserNameError('Username required.');
         } else {
             setUserNameError(null);
         }
@@ -14,12 +14,19 @@ const ValidateUserName = (props) => {
 
     if (userNameError) {
         return (
-            <div role="alert">
-                <p id="username-required">{userNameError}</p>
+            <div 
+                role="alert"
+            >
+                <p 
+                    id="username-required"
+                    style={{ color: 'darkred' }}
+                >
+                    {userNameError}
+                </p>
             </div>
         );
     }
-    return <p id="username-required">Username required.</p>;
+    return <p id="username-required">Username meets requirements.</p>;
 }
 
 export default ValidateUserName;

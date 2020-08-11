@@ -3,6 +3,7 @@ import ValidateUserName from '../ValidateUserName/ValidateUserName';
 import ValidatePassword from '../ValidatePassword/ValidatePassword';
 import ValidateReenterPassword from '../ValidateReenterPassword/ValidateReenterPassword';
 import ValidateDisplayName from '../ValidateDisplayName/ValidateDisplayName';
+import './RegistrationForm.css';
 
 const RegistrationForm = (props) => {
     const {
@@ -29,6 +30,7 @@ const RegistrationForm = (props) => {
 
     return (
         <form
+            className='RegistrationForm__form'
             onSubmit={(e) => handleSubmit(e)}
         >
             <div>
@@ -122,6 +124,7 @@ const RegistrationForm = (props) => {
                 setDisplayNameError={setDisplayNameError}
             />
             <button
+                className='RegistrationForm__submit button'
                 type="submit"
                 disabled={!!(userNameError || passwordErrorMessage.length || reenterPasswordError || displayNameError)}
             >

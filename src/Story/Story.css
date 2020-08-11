@@ -16,6 +16,10 @@
     border-bottom: 1px solid black;
 }
 
+.Story__loading {
+    font-size: 20px;
+}
+
 @media screen and (min-width: 1000px) {
     .Story__container {
         width: 800px;
@@ -24,5 +28,9 @@
     .Story__h2 {
         font-size: 36px;
         padding: 10px;
+    }
+
+    .Story__loading {
+        font-size: 40px;
     }
 }

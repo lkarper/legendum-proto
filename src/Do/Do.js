@@ -38,7 +38,7 @@ const Do = (props) => {
                         />
                     </>
                 : 
-                    <p>Loading...</p>
+                    <p className='Do__loading'>Loading...</p>
             }
         </div>
     );

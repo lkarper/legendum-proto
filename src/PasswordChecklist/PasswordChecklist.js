@@ -1,4 +1,5 @@
 import React from 'react';
+import './PasswordChecklist.css';
 
 const PasswordChecklist = (props) => {
     const { passwordError } = props;
@@ -12,8 +13,8 @@ const PasswordChecklist = (props) => {
         specialChar,
     } = passwordError;
 
-    const checkMark = <span>&#10004;</span>;
-    const xMark = <span>&#10006;</span>;
+    const checkMark = <span className='PasswordChecklist__check'>&#10004;</span>;
+    const xMark = <span className='PasswordChecklist__x'>&#10006;</span>;
 
     return (
         <div>

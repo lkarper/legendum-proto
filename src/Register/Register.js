@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AuthApiService from '../services/auth-api-service';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
+import './Register.css';
 
 const Register = (props) => {
     const [userName, setUserName] = useState('');
@@ -42,7 +43,8 @@ const Register = (props) => {
     }
 
     return (
-        <>
+        <section className='Register__section'>
+            <h2>Register</h2>
             <RegistrationForm 
                 propsObject={{
                     userName,
@@ -73,7 +75,7 @@ const Register = (props) => {
                 </div>
                 : ''
             }
-        </>
+        </section>
     );
 }
 

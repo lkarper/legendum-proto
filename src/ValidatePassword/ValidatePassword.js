@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PasswordChecklist from '../PasswordChecklist/PasswordChecklist';
+import './ValidatePassword.css';
 
 const ValidatePassword = (props) => {
 
@@ -68,6 +69,7 @@ const ValidatePassword = (props) => {
         <>
             <PasswordChecklist passwordError={passwordError} />
             <div
+                className='ValidatePassword__error-container'
                 role="alert"
             >
                 <p id="password-error-message">

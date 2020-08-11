@@ -34,7 +34,7 @@ const Learn = (props) => {
                             }}
                         />
                     </div>
-                : <p>Loading...</p>}
+                : <p className='Learn__loading'>Loading...</p>}
         </>
     );
 }
