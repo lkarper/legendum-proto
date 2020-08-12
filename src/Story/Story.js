@@ -21,7 +21,6 @@ const Story = (props) => {
             })
             .then(data => {
                 data.sort((a, b) => a.page - b.page);
-                console.log(data);
                 setDialogue(data);
             })
             .catch(error => {
