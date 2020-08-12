@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DialoguePage from '../DialoguePage/DialoguePage';
+import config from '../config';
 import './Story.css';
 
 const Story = (props) => {
@@ -11,7 +12,7 @@ const Story = (props) => {
     const [response, setResponse] = useState();    
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/dialogue/${chapt}`)
+        fetch(`${config.API_ENDPOINT}/dialogue/${chapt}`)
             .then(res => {
                 if (res.ok) {
                     return res.json();
