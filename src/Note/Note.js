@@ -48,7 +48,7 @@ const Note = (props) => {
             <p>{note.hint}</p>
             {note.custom_note ? <p>{note.custom_note}</p> : ''}
             <p>From exercise: {note.exercise_title}{' '}{note.exercise_translation}</p>
-            <p>Lost modified: {new Date(note.date_modified).toString()}</p>
+            <p>Last modified: {new Date(note.date_modified).toString()}</p>
             <div className='Note__button-container'>
                 <button 
                     className='Note__toggle-show-edit button'
