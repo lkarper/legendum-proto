@@ -14,7 +14,7 @@ const ProgressService = {
                 : res.json()
         );
     },
-    postProgress(chapterId) {
+    postProgress(chapterNum) {
         return fetch(`${config.API_ENDPOINT}/progress`, {
             method: 'POST',
             headers: {
@@ -22,7 +22,7 @@ const ProgressService = {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
             },
             body: JSON.stringify({
-                exercise_id: chapterId,
+                chapter_number: chapterNum,
             }),
         })
             .then(res =>
