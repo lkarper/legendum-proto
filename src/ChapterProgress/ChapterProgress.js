@@ -40,7 +40,7 @@ const ChapterProgress = (props) => {
                     Pick up with this chapter's story
                 </Link>
                 <FontAwesomeIcon 
-                    className='Landing__leaf' 
+                    className='ChapterProgress__leaf' 
                     icon={['fab', 'pagelines']} 
                 />
                 <Link 
@@ -50,7 +50,7 @@ const ChapterProgress = (props) => {
                     Learn this Exercise
                 </Link>
                 <FontAwesomeIcon 
-                    className='Landing__leaf' 
+                    className='ChapterProgress__leaf' 
                     icon={['fab', 'pagelines']} 
                 />
                 <Link 
