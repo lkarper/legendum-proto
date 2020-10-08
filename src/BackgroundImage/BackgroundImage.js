@@ -1,8 +1,12 @@
 import React from 'react';
 
 const BackgroundImage = (props) => {
-
-    const { classPrefix, imgUrl, imageAltText, children } = props;
+    const { 
+        classPrefix, 
+        imgUrl, 
+        imageAltText, 
+        children, 
+    } = props;
 
     return (
         <div className={`${classPrefix}__background-container`}>
@@ -16,10 +20,10 @@ const BackgroundImage = (props) => {
                     backgroundPositionY: 'bottom',
                     backgroundPositionX: 'center'
                 }}
-            ></span>
+            />
             {children}
         </div>
-    )
+    );
 }
 
 export default BackgroundImage;
