@@ -4,7 +4,6 @@ import ChapterProgress from '../ChapterProgress/ChapterProgress';
 import './ProgressReport.css';
 
 const ProgressReport = (props) => {
-
     const context = useContext(UserContext);
     const { exercises } = context;
 
@@ -13,12 +12,17 @@ const ProgressReport = (props) => {
             <h3>User Progress</h3>
             <ol className='ProgressReport__ol'>
                 {exercises
-                    .sort((a, b) => a.id - b.id)
-                    .map(exercise => <ChapterProgress key={exercise.id} exercise={exercise} />)
+                    .sort((a, b) => a.chapter_number - b.chapter_number)
+                    .map(exercise => 
+                        <ChapterProgress 
+                            key={exercise.chapter_number} 
+                            exercise={exercise} 
+                        />
+                    )
                 }
             </ol>
         </section>
-    )
+    );
 }
 
 export default ProgressReport;
