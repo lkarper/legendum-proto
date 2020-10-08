@@ -7,6 +7,7 @@ import UserIncorrect from '../UserIncorrect/UserIncorrect';
 import UserCorrect from '../UserCorrect/UserCorrect';
 import QuestionToDisplay from '../QuestionToDisplay/QuestionToDisplay';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import './DoPage.css';
 
 const DoPage = (props) => {
@@ -24,7 +25,8 @@ const DoPage = (props) => {
     const [userCorrect, setUserCorrect] = useState();
     const [userIncorrect, setUserIncorrect] = useState();
     const [endQuiz, setEndQuiz] = useState(false);
-    const [error, setError] = useState(null);
+    const [showLoading, setShowLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const pageToDisplay = pages[page - 1];
 
@@ -48,20 +50,24 @@ const DoPage = (props) => {
 
     const onCompletion = (url) => {
         if (TokenService.hasAuthToken()) {
+            setError(false);
+            setShowLoading(true);
             ProgressService.postProgress(chapt)
                 .then(progressObject => {
-                    setError(null);
+                    setShowLoading(false);
                     context.updateProgress(progressObject);
                     props.history.push(url);
                 })
                 .catch(error => {
-                    setError(error.message);
+                    console.log('error', error);
+                    setShowLoading(false);
+                    setError(true);
                 });
         }
     }
 
     return (
-<div className='DoPage__container'>
+        <div className='DoPage__container'>
             <h2
                 className='DoPage__h2'
             >
@@ -79,23 +85,21 @@ const DoPage = (props) => {
                 />
             </BackgroundImage>
             <div className={`DoPage__text-container${endQuiz ? '-end' : '' }`}>
-                {!endQuiz 
-                    ?
-                        <>
-                            <QuestionToDisplay 
-                                pageToDisplay={pageToDisplay}
-                                savedUserInput={savedUserInput}
-                                checkAnswer={checkAnswer}
-                            />
-                            <div 
-                                role='alert' 
-                                className='DoPage__check-answer-container'
-                            >
-                                {userIncorrect && <UserIncorrect page={pageToDisplay} userResponse={userIncorrect} />}
-                                {userCorrect && <UserCorrect page={pageToDisplay} userResponse={userCorrect} />}
-                            </div>
-                        </>
-                    : ''
+                {!endQuiz &&
+                    <>
+                        <QuestionToDisplay 
+                            pageToDisplay={pageToDisplay}
+                            savedUserInput={savedUserInput}
+                            checkAnswer={checkAnswer}
+                        />
+                        <div 
+                            role='alert' 
+                            className='DoPage__check-answer-container'
+                        >
+                            {userIncorrect && <UserIncorrect page={pageToDisplay} userResponse={userIncorrect} />}
+                            {userCorrect && <UserCorrect page={pageToDisplay} userResponse={userCorrect} />}
+                        </div>
+                    </>
                 }
                 <div className='DoPage__button-container'>
                     <button
@@ -129,7 +133,10 @@ const DoPage = (props) => {
                         &#62;
                     </button>
                 </div>
-                <div role="alert" className='DoPage__end-quiz-container'>
+                <div 
+                    role="alert" 
+                    className='DoPage__end-quiz-container'
+                >
                     {endQuiz && 
                         <>
                             {TokenService.hasAuthToken()
@@ -173,15 +180,15 @@ const DoPage = (props) => {
                             }
                         </> 
                     }
-                    {error ? 
+                    {error &&  
                         <>
-                            <h2>Could not save progress: {error} </h2>
-                            <p>Check your connection then click one of the options above to try again.</p>
+                            <h2>Error: Could not save progress</h2>
+                            <p>Check your connection, then click one of the options above to try again.</p>
                         </>
-                        : ''
                     }
                 </div>
             </div>
+            {showLoading && <LoadingSpinner />}
         </div>
     );
 }
