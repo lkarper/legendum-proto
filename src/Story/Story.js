@@ -7,12 +7,14 @@ const Story = (props) => {
 
     const { chapt } = props.match.params;
 
+    const [storyTitle, setStoryTitle] = useState('');
     const [dialogue, setDialogue] = useState([]);
     const [page, setPage] = useState(1);
     const [response, setResponse] = useState();    
 
     useEffect(() => {
-        fetch(`${config.API_ENDPOINT}/dialogue/${chapt}`)
+        window.scrollTo(0, 0);
+        fetch(`${config.API_ENDPOINT}/dialogue/by-chapter/${chapt}`)
             .then(res => {
                 if (res.ok) {
                     return res.json();
@@ -20,8 +22,9 @@ const Story = (props) => {
                 throw new Error (res.statusText);
             })
             .then(data => {
-                data.sort((a, b) => a.page - b.page);
-                setDialogue(data);
+                setStoryTitle(data.story_title)
+                const pages = data.pages.sort((a, b) => a.page - b.page);
+                setDialogue(pages);
             })
             .catch(error => {
                 console.log('error', error);
@@ -33,7 +36,7 @@ const Story = (props) => {
             {dialogue.length 
                 ? 
                     <>
-                        <h2 className='Story__h2'>{dialogue[0].story_title}</h2>
+                        <h2 className='Story__h2'>{storyTitle}</h2>
                         <DialoguePage 
                             data={{
                                 response,
