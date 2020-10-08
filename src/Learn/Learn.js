@@ -10,6 +10,7 @@ const Learn = (props) => {
     const [page, setPage] = useState(1);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         ExercisesService.getExercisesLearnByChapter(chapt)
             .then(data => {
                 data.sort((a, b) => a.page - b.page);
