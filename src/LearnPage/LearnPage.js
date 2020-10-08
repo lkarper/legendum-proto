@@ -5,9 +5,14 @@ import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import './LearnPage.css';
 
 const LearnPage = (props) => {
-    const [showHintsBoolean, setShowHintsBoolean] = useState(false);
+    const { 
+        pages, 
+        page, 
+        setPage, 
+        chapt, 
+    } = props.data;
 
-    const { pages, page, setPage, chapt } = props.data;
+    const [showHintsBoolean, setShowHintsBoolean] = useState(false);
     const pageToDisplay = pages[page - 1];
 
     const image = pageToDisplay.image_url
@@ -37,26 +42,21 @@ const LearnPage = (props) => {
             <div className='LearnPage__text-container'>
                 <div className='LearnPage__text-hints-container'>
                     <p className='LearnPage__text'>{pageToDisplay.text}</p>
-                    {pageToDisplay.hints 
-                        ? 
-                            <LearnHints 
-                                page={pageToDisplay} 
-                                showHintsBoolean={showHintsBoolean} 
-                                setShowHintsBoolean={setShowHintsBoolean} 
-                            />
-                        : ''
+                    {pageToDisplay.hints.length !== 0 && 
+                        <LearnHints 
+                            page={pageToDisplay} 
+                            showHintsBoolean={showHintsBoolean} 
+                            setShowHintsBoolean={setShowHintsBoolean} 
+                        />
                     }
-                    {page === pages.length 
-                        ?
-                            <Link
-                                className='LearnPage__do-link button' 
-                                to={`/game/exercises/${chapt}/do`}
-                            >
-                                Practice What You've Learned
-                            </Link>
-                        : 
-                            ''
-                        }
+                    {page === pages.length &&
+                        <Link
+                            className='LearnPage__do-link button' 
+                            to={`/game/exercises/${chapt}/do`}
+                        >
+                            Practice What You've Learned
+                        </Link>
+                    }
                 </div>
                 <div className='LearnPage__button-container'>
                     <button
