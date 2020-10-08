@@ -6,14 +6,13 @@ import SaveHint from '../SaveHint/SaveHint';
 import './Hint.css';
 
 const Hint = (props) => {
+    const { hint } = props;
 
     const context = useContext(UserContext);
     
     const [showAdd, toggleShowAdd] = useState(false);
     const [noteAdded, setNoteAdded] = useState(false);
-
-    const { hint } = props;
-
+    const [apiError, setApiError] = useState(false);
     
     const handleSaveHint = (event, customNote) => {
         event.preventDefault();
@@ -21,17 +20,19 @@ const Hint = (props) => {
             .then(note => {
                 context.addNote(note);
                 setNoteAdded(true);
+                setApiError(false);
             })
             .catch(error => {
-                context.setError(error);
+                console.log('error', error);
+                setApiError(true);
             });
     }
 
     return (
         <li>
             <p className='Hint__hint-text'>{hint.hint}</p>
-            {TokenService.hasAuthToken() 
-                ? <div className='Hint__add-hint-container'>
+            {TokenService.hasAuthToken() &&
+                <div className='Hint__add-hint-container'>
                     <button
                         className='Hint__toggle-show-add button' 
                         onClick={() => toggleShowAdd(!showAdd)}
@@ -39,14 +40,13 @@ const Hint = (props) => {
                     >
                         {showAdd ? 'Nevermind' : 'Add Hint to Journal'}
                     </button>
-                    {showAdd && !noteAdded ? <SaveHint onSubmitHint={handleSaveHint} /> : ''}
-                    {noteAdded ? <p>Note saved successfully!</p> : ''}
+                    {(showAdd && !noteAdded) && <SaveHint onSubmitHint={handleSaveHint} />}
+                    {apiError && <p>Error: Could not save note. Check your connection and try again.</p>}
+                    {noteAdded && <p>Note saved successfully!</p>}
                 </div> 
-                : ''
             }
         </li>
     );
-
 }
 
 export default Hint;
