@@ -5,6 +5,7 @@ import TokenService from './services/token-service';
 import AuthApiService from './services/auth-api-service';
 import Header from './Header/Header';
 import Main from './Main/Main';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import './App.css';
 
 const useForceUpdate = () => {
@@ -64,7 +65,9 @@ const App = (props) => {
     return (
         <div className="App">
             <Header forceUpdate={forceUpdate} />
-            <Main forceUpdate={forceUpdate} />
+            <ErrorBoundary>
+                <Main forceUpdate={forceUpdate} />
+            </ErrorBoundary>
         </div>
     );
 }
