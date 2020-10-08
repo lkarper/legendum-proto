@@ -10,6 +10,14 @@ import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import './DoPage.css';
 
 const DoPage = (props) => {
+    const { 
+        chapt, 
+        savedUserInput, 
+        pages, 
+        page, 
+        setPage, 
+        setSavedUserInput,
+    } = props.data;
 
     const context = useContext(UserContext);
 
@@ -18,7 +26,6 @@ const DoPage = (props) => {
     const [endQuiz, setEndQuiz] = useState(false);
     const [error, setError] = useState(null);
 
-    const { chapt, savedUserInput, pages, page, setPage, setSavedUserInput } = props.data;
     const pageToDisplay = pages[page - 1];
 
     const checkAnswer = (event, userResponse) => {
@@ -54,7 +61,7 @@ const DoPage = (props) => {
     }
 
     return (
-        <div className='DoPage__container'>
+<div className='DoPage__container'>
             <h2
                 className='DoPage__h2'
             >
@@ -75,15 +82,18 @@ const DoPage = (props) => {
                 {!endQuiz 
                     ?
                         <>
-                        <QuestionToDisplay 
-                            pageToDisplay={pageToDisplay}
-                            savedUserInput={savedUserInput}
-                            checkAnswer={checkAnswer}
-                        />
-                        <div role='alert' className='DoPage__check-answer-container'>
-                            {userIncorrect ? <UserIncorrect page={pageToDisplay} userResponse={userIncorrect} /> : ''}
-                            {userCorrect ? <UserCorrect page={pageToDisplay} userResponse={userCorrect} /> : ''}
-                        </div>
+                            <QuestionToDisplay 
+                                pageToDisplay={pageToDisplay}
+                                savedUserInput={savedUserInput}
+                                checkAnswer={checkAnswer}
+                            />
+                            <div 
+                                role='alert' 
+                                className='DoPage__check-answer-container'
+                            >
+                                {userIncorrect && <UserIncorrect page={pageToDisplay} userResponse={userIncorrect} />}
+                                {userCorrect && <UserCorrect page={pageToDisplay} userResponse={userCorrect} />}
+                            </div>
                         </>
                     : ''
                 }
@@ -120,17 +130,22 @@ const DoPage = (props) => {
                     </button>
                 </div>
                 <div role="alert" className='DoPage__end-quiz-container'>
-                    {endQuiz
-                        ? 
-                            <>
-                                {TokenService.hasAuthToken() 
-                                    ? <> 
-                                        <button
-                                            className='button'
-                                            onClick={() => onCompletion(`/game/story/${parseInt(chapt) + 1}`)} 
-                                        >
-                                            On to the next chapter (progress will be saved)
-                                        </button>
+                    {endQuiz && 
+                        <>
+                            {TokenService.hasAuthToken()
+                                ? 
+                                    <> 
+                                        {parseInt(chapt) !== context.exercises.length 
+                                            ?
+                                                <button
+                                                    className='button'
+                                                    onClick={() => onCompletion(`/game/story/${parseInt(chapt) + 1}`)} 
+                                                >
+                                                    On to the next chapter (progress will be saved)
+                                                </button>
+                                            :
+                                                <p>To be continued...check back soon!</p>
+                                        }
                                         <button
                                             className='button'
                                             onClick={() => onCompletion(`/dashboard`)} 
@@ -140,13 +155,23 @@ const DoPage = (props) => {
                                         <Link
                                             className='DoPage__link button'
                                             to='/dashboard'
-                                        >Back to dashboard (do not save progress)</Link>
+                                        >
+                                            Back to dashboard (do not save progress)
+                                        </Link>
                                     </>
-                                    : <Link className='DoPage__link button' to={`/game/story/${parseInt(chapt) + 1}`}>On the the next chapter</Link>
-                                }
-                                {/* Where else should the user be able to go? Some sort of home? A leaderboard? A group? */}
-                            </> 
-                        : ''
+                                : 
+                                    parseInt(chapt) !== context.exercises.length 
+                                        ?
+                                            <Link 
+                                                className='DoPage__link button' 
+                                                to={`/game/story/${parseInt(chapt) + 1}`}
+                                            >
+                                                On the the next chapter
+                                            </Link>
+                                        :
+                                            <p>To be continued...check back soon!</p>
+                            }
+                        </> 
                     }
                     {error ? 
                         <>
@@ -160,5 +185,5 @@ const DoPage = (props) => {
         </div>
     );
 }
-
+                    
 export default withRouter(DoPage);
