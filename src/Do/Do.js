@@ -10,38 +10,55 @@ const Do = (props) => {
     const [pages, setPages] = useState([]);
     const [page, setPage] = useState(1);
     const [savedUserInput, setSavedUserInput] = useState({});
+    const [showLoading, setShowLoading] = useState(false);
+    const [apiError, setApiError] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        setShowLoading(true);
+        setApiError(false);
+        
         ExercisesService.getExercisesDoByChapter(chapt)
             .then(data => {
                 data.sort((a, b) => a.page - b.page);
                 setPages(data);
+                setShowLoading(false);
             })
             .catch(error => {
                 console.log('error', error);
+                setApiError(true);
+                setShowLoading(false);
             });
     }, [chapt]);
 
     return (
         <div className='Do__container'>
-            {pages.length 
-                ? 
-                    <>
-                        <DoPage
-                            data={{
-                                chapt,
-                                savedUserInput,
-                                pages,
-                                page,
-                                setPage,
-                                setSavedUserInput,
-                            }}
-                        />
-                    </>
-                : 
-                    <LoadingSpinner />
+            {pages.length !==0 &&
+                <DoPage
+                    data={{
+                        chapt,
+                        savedUserInput,
+                        pages,
+                        page,
+                        setPage,
+                        setSavedUserInput,
+                    }}
+                />
             }
+            {showLoading && <LoadingSpinner />}
+            <div 
+                className='Do__alert-div'
+                role='alert'
+            >
+                {apiError &&
+                    <p
+                        className='Do__api-error'
+                    >
+                        Error: Looks like something went wrong. Check the url and your connection and try again.
+                    </p>
+                }
+            </div>
         </div>
     );
 }
