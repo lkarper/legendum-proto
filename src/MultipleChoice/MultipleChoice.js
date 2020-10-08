@@ -4,20 +4,29 @@ import QuestionLegend from '../QuestionLegend/QuestionLegend';
 import './MultipleChoice.css';
 
 const MultipleChoice = (props) => {
+    const { 
+        page, 
+        savedUserInput, 
+        checkAnswer, 
+    } = props;
 
     const [userChoice, setChoice] = useState();
     const [shuffledChoices, setShuffledChoices]= useState([]);
 
-    const { page, savedUserInput, checkAnswer } = props;
-
     useEffect(() => {
-        const { correct_response, incorrect_response_option_1, incorrect_response_option_2, incorrect_response_option_3 } = page;
+        const { 
+            correct_response, 
+            incorrect_response_option_1, 
+            incorrect_response_option_2, 
+            incorrect_response_option_3 
+        } = page;
+
         const choicesArray = [
             correct_response,
             incorrect_response_option_1,
             incorrect_response_option_2,
             incorrect_response_option_3,
-        ].filter(choice => choice !== null);
+        ].filter(choice => choice !== '');
 
         const shuffledChoices = [];
 
@@ -31,9 +40,12 @@ const MultipleChoice = (props) => {
     }, [page]);
 
     const choicesHTMLArray = shuffledChoices
-        .filter(choice => choice != null)
+        .filter(choice => choice !== '')
         .map((choice, i) => 
-            <div key={choice}>
+            <div 
+                key={choice}
+                className='MultipleChoice__input-div'
+            >
                 <input 
                     type="radio"
                     id={`choice_${i}`}
@@ -49,7 +61,10 @@ const MultipleChoice = (props) => {
 
     return (
         <div className='MultipleChoice__container'>
-            <QuestionDialogue page={page} savedUserInput={savedUserInput} />
+            <QuestionDialogue 
+                page={page} 
+                savedUserInput={savedUserInput} 
+            />
             <form
                 onSubmit={(e) => {
                     checkAnswer(e, userChoice);
@@ -57,14 +72,19 @@ const MultipleChoice = (props) => {
                 }}
             >
                 <fieldset>
-                    <QuestionLegend page={page} savedUserInput={savedUserInput} />
+                    <QuestionLegend 
+                        page={page} 
+                        savedUserInput={savedUserInput} 
+                    />
                     {choicesHTMLArray}
                 </fieldset>
                 <button
                     className='MultipleChoice__submit button' 
                     type="submit"
                     disabled={!userChoice}
-                >Submit</button>
+                >
+                    Submit
+                </button>
             </form>
         </div>
     );
