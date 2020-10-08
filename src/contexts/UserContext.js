@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import TokenService from '../services/token-service';
-import NotesService from '../services/notes-service';
-import ProgressService from '../services/progress-service';
-import ExercisesService from '../services/exercises-service';
+import React, { useState } from 'react';
 
 const UserContext = React.createContext({
     notes: [],
     progress: [],
     error: null,
     exercises: [],
+    setExercises: () => {},
     setNotes: () => {},
     addNote: () => {},
     updateNotes: () => {},
     deleteNote: () => {},
     setError: () => {},
-    clearError: () => {},
     updateProgress: () => {},
     setProgress: () => {},
 });
@@ -27,33 +23,6 @@ export const UserProvider = (props) => {
     const [progress, setProgress] = useState([]);
     const [exercises, setExercises] = useState([]);
     const [error, setError] = useState(null);
-
-    useEffect(() => {
-        if (TokenService.hasAuthToken()) {
-            NotesService.getNotesByUser()
-                .then(notes => {
-                    setNotes(notes);
-                })
-                .catch(error => {
-                    setError(error);
-                });
-            ProgressService.getProgressByUser()
-                .then(progress => {
-                    setProgress(progress);
-                })
-                .catch(error => {
-                    setError(error.message);
-                });
-        }
-        ExercisesService.getAllExercises()
-            .then(exercises => {
-                setExercises(exercises);
-            })
-            .catch(error => {
-                setError(error.message);
-            });
-
-    }, [props]);
 
     const updateProgress = (newProgressObject) => {
         const newProgress = [...progress, newProgressObject];
@@ -83,6 +52,7 @@ export const UserProvider = (props) => {
         error,
         progress,
         exercises,
+        setExercises,
         setError,
         setNotes,
         addNote,
