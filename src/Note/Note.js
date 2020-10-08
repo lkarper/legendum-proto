@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NotesService from '../services/notes-service';
 import UserContext from '../contexts/UserContext';
@@ -15,12 +16,12 @@ const Note = (props) => {
     const onSubmitHint = (event, customNote) => {
         event.preventDefault();
         const updatedNote = {
-            hint_id: note.hint_id,
             custom_note: customNote,
             date_modified: new Date().toJSON(),
         }
         NotesService.updateNote(note.id, updatedNote)
-            .then(data => {
+            .then(() => {
+                updatedNote.hint_id = note.hint_id;
                 updatedNote.id = note.id;
                 updatedNote.user_id = note.user_id;
                 context.updateNotes(updatedNote);
@@ -34,7 +35,7 @@ const Note = (props) => {
     const onDelete = () => {
         if (window.confirm(`Are you sure you'd like to delete this note?`)) { 
             NotesService.deleteNote(note.id)
-                .then(data => {
+                .then(() => {
                     context.deleteNote(note.id);
                 })
                 .catch(error => {
@@ -44,16 +45,18 @@ const Note = (props) => {
     }
 
     return (
-        <li key={note.id}>
+        <li>
             <p>{note.hint}</p>
-            {note.custom_note ? <p>{note.custom_note}</p> : ''}
+            {note.custom_note && <p>{note.custom_note}</p>}
             <p>From exercise: {note.exercise_title}{' '}{note.exercise_translation}</p>
-            <p>Last modified: {new Date(note.date_modified).toString()}</p>
+            <p>Last modified: {moment(note.date_modified).format('MMM. Do YYYY, h:mm a')}</p>
             <div className='Note__button-container'>
                 <button 
                     className='Note__toggle-show-edit button'
                     onClick={() => toggleShowEdit(!showEdit)}
-                >{showEdit ? 'Nevermind' : 'Edit note'}</button>
+                >
+                    {showEdit ? 'Nevermind' : 'Edit note'}
+                </button>
                 <FontAwesomeIcon 
                     className='Note__leaf' 
                     icon={['fab', 'pagelines']} 
@@ -62,17 +65,18 @@ const Note = (props) => {
                     className='Note__delete-button button'
                     onClick={onDelete}
                     disabled={showEdit}
-                >Delete note</button>
+                >
+                    Delete note
+                </button>
             </div>
-            {showEdit 
-                ? <SaveHint 
+            {showEdit &&         
+                <SaveHint 
                     cNoteProp={note.custom_note} 
                     onSubmitHint={onSubmitHint}
                 /> 
-                : ''
             }
         </li>
-    )
+    );
 }
 
 export default Note;
