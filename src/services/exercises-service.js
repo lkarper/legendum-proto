@@ -10,7 +10,7 @@ const ExercisesService = {
             );
     },
     getExercisesLearnByChapter(chapt) {
-        return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/learn`)
+        return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/learn-pages`)
             .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
@@ -18,7 +18,7 @@ const ExercisesService = {
             );
     },
     getExercisesDoByChapter(chapt) {
-        return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/do`)
+        return fetch(`${config.API_ENDPOINT}/exercises/${chapt}/do-pages`)
             .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
