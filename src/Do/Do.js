@@ -11,6 +11,7 @@ const Do = (props) => {
     const [savedUserInput, setSavedUserInput] = useState({});
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         ExercisesService.getExercisesDoByChapter(chapt)
             .then(data => {
                 data.sort((a, b) => a.page - b.page);
