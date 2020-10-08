@@ -5,7 +5,15 @@ import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import './DialoguePage.css';
 
 const DialoguePage= (props) => {
-    const {response, page, setPage, setResponse, dialogue, chapt } = props.data;
+    const {
+        response, 
+        page, 
+        setPage, 
+        setResponse, 
+        dialogue, 
+        chapt, 
+    } = props.data;
+
     const pageToDisplay = dialogue[page - 1];
 
     const image = pageToDisplay.image_url 
@@ -49,13 +57,15 @@ const DialoguePage= (props) => {
                     }
                     <div className='DialoguePage__button-container'>
                         <button 
-                                className='DialoguePage__nav-button button'
-                                onClick={() => {
-                                    setPage(page - 1);
-                                    setResponse(null);
-                                }}
-                                disabled={page === 1}
-                            >&#60;</button>
+                            className='DialoguePage__nav-button button'
+                            onClick={() => {
+                                setPage(page - 1);
+                                setResponse(null);
+                            }}
+                            disabled={page === 1}
+                        >
+                            &#60;
+                        </button>
                         <button
                             className='DialoguePage__nav-button button' 
                             onClick={() => {
@@ -63,7 +73,9 @@ const DialoguePage= (props) => {
                                 setResponse(null)
                             }}
                             disabled={page === dialogue.length}
-                        >&#62;</button>
+                        >
+                            &#62;
+                        </button>
                     </div>
                 </div>
             </div>
@@ -74,14 +86,16 @@ const DialoguePage= (props) => {
                 {image}
                 <div className='DialoguePage__text-container'>
                     <p className='DialoguePage__text'>{pageToDisplay.text}</p>
-                    {pageToDisplay.choices ? 
-                        <DialogueChoices 
-                            data={{
-                                dialogue,
-                                page,
-                                setResponse
-                            }}
-                        /> : ''
+                    {pageToDisplay.choices 
+                        ? 
+                            <DialogueChoices 
+                                data={{
+                                    dialogue,
+                                    page,
+                                    setResponse
+                                }}
+                            /> 
+                        : ''
                     }
                     {dialogue.length && dialogue.length === page 
                         ? 
@@ -96,26 +110,31 @@ const DialoguePage= (props) => {
                     }
                     <div className='DialoguePage__button-container'>
                         <button
-                                className='DialoguePage__nav-button button' 
-                                onClick={() => {
-                                    setPage(page - 1);
-                                    setResponse(null);
-                                }}
-                                disabled={page === 1}
-                            >&#60;</button>
+                            className='DialoguePage__nav-button button' 
+                            onClick={() => {
+                                setPage(page - 1);
+                                setResponse(null);
+                            }}
+                            disabled={page === 1}
+                        >
+                            &#60;
+                        </button>
                         <button 
-                                className='DialoguePage__nav-button button'
-                                onClick={() => {
+                            className='DialoguePage__nav-button button'
+                            onClick={() => {
                                 setPage(page + 1);
                                 setResponse(null)
                             }}
                             disabled={page === dialogue.length || pageToDisplay.choices}
-                        >&#62;</button>
+                        >
+                            &#62;
+                        </button>
                     </div>
                 </div>
             </div>
         );
     }
+    
     return body;
 }
 
