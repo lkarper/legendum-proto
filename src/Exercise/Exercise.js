@@ -14,7 +14,6 @@ const Exercise = (props) => {
                 path="/game/exercises/:chapt/do"
                 component={Do}
             />
-
         </>
     );
 }

@@ -61,7 +61,7 @@ const Header = (props) => {
                 className="Header__link" 
                 to={{
                     pathname: '/login',
-                    state: { from: location || '/' }
+                    state: { from: location || '/dashboard' }
                 }}
             >
                 Log in
