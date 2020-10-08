@@ -5,6 +5,7 @@ let _timeoutId;
 
 const TokenService = {
     saveAuthToken(token) {
+        // Saves jwt to local storage
         window.sessionStorage.setItem(config.TOKEN_KEY, token);
     },
     getAuthToken() {
@@ -23,26 +24,27 @@ const TokenService = {
         return TokenService.parseJwt(TokenService.getAuthToken());
     },
     _getMsUntilExpiry(payload) {
-        /*
-        payload is from the JWT
-        the `exp` value is in seconds, need to convert to ms, so * 1000
-        calculates the difference between now and when the JWT will expire
+        /* 
+            Returns the number of ms until the jwt expires.
+            payload.exp value is in seconds, so it is converted to ms.
         */
         return (payload.exp * 1000) - Date.now();
     },
     queueCallbackBeforeExpiry(callback) {
-        /* get the number of ms from now until the token expires */
         const msUntilExpiry = TokenService._getMsUntilExpiry(
             TokenService.readJwtToken()
         );
         /*
-        queue a callback that will happen 10 seconds before the token expires
-        the callback is passed in as an argument so could be anything,
-        in this app, the callback is for calling the refresh endpoint
+            Queues a callback that will happen 30 seconds before the jwt expires.
+            The callback is used to call the jwt refresh endpoint.
         */
-        _timeoutId = setTimeout(callback, msUntilExpiry - 10000);
+        _timeoutId = setTimeout(callback, msUntilExpiry - 30000);
     },
     clearCallbackBeforeExpiry() {
+        /*
+            Clears the timeout the would call the jwt refresh endpoint.
+            Used when the user logs out, so that the token is not refreshed after logout. 
+        */
         clearTimeout(_timeoutId);
     },
 }

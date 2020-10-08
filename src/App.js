@@ -13,66 +13,52 @@ const useForceUpdate = () => {
 }
 
 const App = (props) => {
-
     const context = useContext(UserContext);
 
     const forceUpdate = useForceUpdate();
 
     const logoutFromIdle = () => {
-        /* remove the token from localStorage */
+        // Removes data from local storage
         TokenService.clearAuthToken();
-        /* remove any queued calls to the refresh endpoint */
+        
+        // Clears the timeout function set to make an api call to the refresh endpoint
         TokenService.clearCallbackBeforeExpiry();
-        /* remove the timeouts that auto logout when idle */
+
+        // Removes the timeout that auto logs-out when idle and the event listeners that reset it
         IdleService.unRegisterIdleResets();
-        /*
-        react won't know the token has been removed from local storage,
-        so we need to tell React to rerender
-        */
+
+        // Resets context and rerenders the app after local storage has been cleared
         context.setNotes([]);
         context.setProgress([]);
         forceUpdate();
     }
 
+    // Checks local storage for jwt on re-render and sets idle timeouts
     useEffect(() => {
-        /*
-        set the function (callback) to call when a user goes idle
-        we'll set this to logout a user when they're idle
+        /* 
+            Sets the callback that will be added to the timeout 
+            that will logout a user due to inactivity 
         */
         IdleService.setIdleCallback(logoutFromIdle);
 
-        /* if a user is logged in */
+        // If a user is logged in
         if (TokenService.hasAuthToken()) {
-            /*
-            tell the idle service to register event listeners
-            the event listeners are fired when a user does something, e.g. move their mouse
-            if the user doesn't trigger one of these event listeners,
-                the idleCallback (logout) will be invoked
-            */
+          
+            // Registers the event listeners that will reset the idle timeout
             IdleService.regiserIdleTimerResets();
 
-            /*
-            Tell the token service to read the JWT, looking at the exp value
-            and queue a timeout just before the token expires
-            */
+            // Queues a callback that will fire just before the jwt in local storage expires
             TokenService.queueCallbackBeforeExpiry(() => {
-                /* the timeout will call this callback just before the token expires */
+                // Calls the api to send a new jwt
                 AuthApiService.postRefreshToken();
             });
         }
 
         return function cleanup() {
-            /*
-            when the app unmounts,
-            stop the event listeners that auto logout (clear the token from storage)
-            */
+            // Clear local storage and remove event listeners when App unmounts
             IdleService.unRegisterIdleResets();
-            /*
-            and remove the refresh endpoint request
-            */
             TokenService.clearCallbackBeforeExpiry();
         }
-        
     });
 
     return (
