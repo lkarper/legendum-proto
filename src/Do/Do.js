@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DoPage from '../DoPage/DoPage';
 import ExercisesService from '../services/exercises-service';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import './Do.css';
 
 const Do = (props) => {
@@ -39,7 +40,7 @@ const Do = (props) => {
                         />
                     </>
                 : 
-                    <p className='Do__loading'>Loading...</p>
+                    <LoadingSpinner />
             }
         </div>
     );
