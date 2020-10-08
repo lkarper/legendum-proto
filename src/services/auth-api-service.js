@@ -19,7 +19,7 @@ const AuthApiService = {
             .then(res => {
 
                 // Saves the jwt from api in local storage
-                TokenService.saveAuthToken(res);
+                TokenService.saveAuthToken(res.authToken);
 
                 // Registers the event listeners that will reset the idle timeout
                 IdleService.regiserIdleTimerResets();
@@ -61,7 +61,7 @@ const AuthApiService = {
         .then(res => {
             
             // Saves new jwt to local storage
-            TokenService.saveAuthToken(res);
+            TokenService.saveAuthToken(res.authToken);
 
             // Queues a callback that will fire just before the jwt in local storage expires
             TokenService.queueCallbackBeforeExpiry(() => {
