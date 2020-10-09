@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import NotesList from '../NotesList/NotesList';
 import ProgressReport from '../ProgressReport/ProgressReport';
+import NextStory from '../NextStory/NextStory';
 import './Dashboard.css';
 
 const Dashboard = (props) => {
@@ -11,6 +12,7 @@ const Dashboard = (props) => {
     return (
         <section className='Dashboard__outer-section'>
             <h2>Dashboard</h2>
+            <NextStory />
             <ProgressReport />
             <NotesList suffix='dashboard' />
         </section>
