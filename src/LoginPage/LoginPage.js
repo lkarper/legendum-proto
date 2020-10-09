@@ -28,6 +28,7 @@ const LoginPage = (props) => {
         ])
             .then(res => Promise.all(res.map(res => res.json())))
             .then(values => {
+                context.setError(false);
                 const notes = values[0];
                 const progress = values[1];
                 context.setNotes(notes);
@@ -38,7 +39,7 @@ const LoginPage = (props) => {
             .catch(error => {
                 setShowLoading(false);
                 console.log('error', error);
-                context.setError(error.message);
+                context.setError(true);
             });
     }
 
@@ -51,6 +52,7 @@ const LoginPage = (props) => {
             password
         })
             .then(res => {
+                setError('');
                 setUserName('');
                 setPassword('');
                 onLoginSuccess();

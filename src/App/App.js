@@ -9,6 +9,7 @@ import AuthApiService from '../services/auth-api-service';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import ApiError from '../ApiError/ApiError';
 import './App.css';
 
 const useForceUpdate = () => {
@@ -80,6 +81,7 @@ const App = (props) => {
             ])
                 .then(res => Promise.all(res.map(res => res.json())))
                 .then(values => {
+                    setError(false);
                     const notes = values[0];
                     const progress = values[1];
                     setNotes(notes);
@@ -87,27 +89,30 @@ const App = (props) => {
                 })
                 .catch(error => {
                     console.log('error', error);
-                    setError(error.message);
+                    setError(true);
                 });
         }
 
         // Fetch exercise info when component mounts
         ExercisesService.getAllExercises()
             .then(exercises => {
+                setError(false);
                 setExercises(exercises);
             })
             .catch(error => {
                 console.log('error', error);
-                setError(error.message);
+                setError(true);
             });
-
     }, [props, setNotes, setError, setProgress, setExercises]);
 
     return (
         <div className="App">
             <Header forceUpdate={forceUpdate} />
             <ErrorBoundary>
-                <Main forceUpdate={forceUpdate} />
+                {context.error
+                    ? <ApiError />
+                    : <Main forceUpdate={forceUpdate} />
+                }
             </ErrorBoundary>
         </div>
     );

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const UserContext = React.createContext({
     notes: [],
     progress: [],
-    error: null,
+    error: false,
     exercises: [],
     setExercises: () => {},
     setNotes: () => {},
@@ -22,7 +22,7 @@ export const UserProvider = (props) => {
     const [notes, setNotes] = useState([]);
     const [progress, setProgress] = useState([]);
     const [exercises, setExercises] = useState([]);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(false);
 
     const updateProgress = (newProgressObject) => {
         const newProgress = [...progress, newProgressObject];
