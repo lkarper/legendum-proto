@@ -9,13 +9,15 @@ const PrivateRoute = ({ component, ...props }) => {
             {...props}
             render={componentProps => (
                 TokenService.hasAuthToken()
-                ? <Component {...componentProps} />
-                : <Redirect
-                    to={{
-                        pathname: '/login',
-                        state: { from: componentProps.location.pathname }
-                    }}
-                />
+                    ? 
+                        <Component {...componentProps} />
+                    : 
+                        <Redirect
+                            to={{
+                                pathname: '/login',
+                                state: { from: componentProps.location.pathname }
+                            }}
+                        />
             )}
         />
     )

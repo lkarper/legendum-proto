@@ -1,32 +1,42 @@
 import React, { useEffect } from 'react';
 
 const ValidateUserName = (props) => {
-    const { userNameError } = props;
+    const { 
+        userNameError, 
+        setUserNameError, 
+        userName,
+    } = props;
 
     useEffect(() => {
-        const { setUserNameError, userName } = props;
         if (!userName.trim().length) {
             setUserNameError('Username required.');
         } else {
             setUserNameError(null);
         }
-    }, [props]);
+    }, [userName, setUserNameError]);
 
-    if (userNameError) {
-        return (
-            <div 
-                role="alert"
+    const validationMessage  = userNameError 
+        ?             
+            <p 
+                id="username-required"
+                style={{ color: 'darkred' }}
             >
-                <p 
-                    id="username-required"
-                    style={{ color: 'darkred' }}
-                >
-                    {userNameError}
-                </p>
-            </div>
-        );
-    }
-    return <p id="username-required">Username meets requirements.</p>;
+                {userNameError}
+            </p>
+        : 
+            <p 
+                id="username-required"
+            >
+                Username meets requirements.
+            </p>;
+    
+    return (
+        <div 
+            role="alert"
+        >
+            {validationMessage}
+        </div>
+    );
 }
 
 export default ValidateUserName;

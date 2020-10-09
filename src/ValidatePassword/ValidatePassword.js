@@ -3,14 +3,16 @@ import PasswordChecklist from '../PasswordChecklist/PasswordChecklist';
 import './ValidatePassword.css';
 
 const ValidatePassword = (props) => {
-
-    const { passwordErrorMessage, passwordError } = props;
+    const { 
+        passwordErrorMessage, 
+        passwordError,
+        password,
+        setPasswordError,
+        setPasswordErrorMessage, 
+    } = props;
     
     useEffect(() => {
-        const password = props.password;
-        const setPasswordError = props.setPasswordError;
-        const setPasswordErrorMessage = props.setPasswordErrorMessage;
-        const newPasswordError = {}
+        const newPasswordError = {};
         const passwordErrorArray = [];
 
         if (password.length < 8) {
@@ -63,7 +65,7 @@ const ValidatePassword = (props) => {
         }
         setPasswordError(newPasswordError);
         setPasswordErrorMessage(passwordErrorArray);
-    }, [props.password, props.setPasswordError, props.setPasswordErrorMessage]);
+    }, [password, setPasswordError, setPasswordErrorMessage]);
 
     return (
         <>
@@ -73,7 +75,10 @@ const ValidatePassword = (props) => {
                 role="alert"
             >
                 <p id="password-error-message">
-                    {passwordErrorMessage.length ? passwordErrorMessage.join(' ') : 'Password meets all requirements.'}
+                    {passwordErrorMessage.length 
+                        ? passwordErrorMessage.join(' ') 
+                        : 'Password meets all requirements.'
+                    }
                 </p>
             </div>
         </>

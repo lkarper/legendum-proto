@@ -1,33 +1,37 @@
 import React, { useEffect } from 'react';
 
 const ValidateReenterPassword = (props) => {
-    const { reenterPasswordError } = props;
+    const { 
+        password,
+        reenterPassword,
+        reenterPasswordError,
+        setReenterPasswordError,
+     } = props;
 
     useEffect(() => {
-        const { setReenterPasswordError, password, reenterPassword } = props;
         if (password === reenterPassword) {
             setReenterPasswordError(null);
         } else {
             setReenterPasswordError('Passwords do not match.');
         }
-    }, [props]);
+    }, [password, reenterPassword, reenterPasswordError, setReenterPasswordError]);
 
-    if (!reenterPasswordError) {
-        return (
-            <p id="reenter-password-error">Passwords match.</p>
-        );
-    } else {
-        return (
-            <div role="alert">
-                <p 
-                    id="reenter-password-error"
-                    style={{ color: 'darkred' }}
-                >
-                    {reenterPasswordError}
-                </p>
-            </div>
-        ); 
-    }
+    const validationMessage = reenterPasswordError
+        ? 
+            <p 
+                id="reenter-password-error"
+                style={{ color: 'darkred' }}
+            >
+                {reenterPasswordError}
+            </p>
+        :
+            <p id="reenter-password-error">Passwords match.</p>;
+
+    return (
+        <div role="alert">
+            {validationMessage}
+        </div>
+    );
 }
 
 export default ValidateReenterPassword;

@@ -2,7 +2,10 @@ import React from 'react';
 import './UserIncorrect.css';
 
 const UserIncorrect = (props) => {
-    const { page, userResponse } = props;
+    const { 
+        page, 
+        userResponse, 
+    } = props;
 
     let feedback;
     if (userResponse === page.incorrect_response_option_1) {
@@ -20,7 +23,7 @@ const UserIncorrect = (props) => {
             <p className='UserIncorrect__message'>{feedback}</p>
             <p className='UserIncorrect__message'>Try again</p>
         </>
-    )
+    );
 }
 
 export default UserIncorrect;

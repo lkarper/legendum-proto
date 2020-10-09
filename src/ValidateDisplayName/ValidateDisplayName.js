@@ -1,31 +1,40 @@
 import React, { useEffect } from 'react';
 
 const ValidateDisplayName = (props) => {
-
-    const { displayNameError } = props;
+    const { 
+        displayName,
+        displayNameError,
+        setDisplayNameError,
+    } = props;
 
     useEffect(() => {
-        const { displayName, setDisplayNameError } = props;
         if (!displayName.trim().length) {
             setDisplayNameError('Displayname required.');
         } else {
             setDisplayNameError(null);
         }
-    }, [props]);
+    }, [displayName, setDisplayNameError]);
 
-    if (displayNameError) {
-        return (
-            <div role="alert">
-                <p 
-                    id="display-name-required"
-                    style={{ color: 'darkred' }}
-                >
-                    {displayNameError}
-                </p>
-            </div>
-        );
-    }
-    return <p id="display-name-required">Display name meets requirements.</p>;
+    const validationMessage = displayNameError
+        ? 
+            <p 
+                id="display-name-required"
+                style={{ color: 'darkred' }}
+            >
+                {displayNameError}
+            </p>
+        : 
+            <p 
+                id="display-name-required"
+            >
+                Display name meets requirements.
+            </p>;
+    
+    return (
+        <div role="alert">
+            {validationMessage}        
+        </div>
+    ); 
 }
 
 export default ValidateDisplayName;
