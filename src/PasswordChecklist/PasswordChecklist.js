@@ -17,7 +17,9 @@ const PasswordChecklist = (props) => {
     const xMark = <span className='PasswordChecklist__x'>&#10006;</span>;
 
     return (
-        <div>
+        <div
+            className='PasswordChecklist__container'
+        >
             <p>Password must:</p>
             <ul>
                 <li>Be at least 8 characters in length {tooShort ? xMark : checkMark}</li>
@@ -29,7 +31,7 @@ const PasswordChecklist = (props) => {
                 <li>Contain at least one special character (e.g. !, @, #, $, etc.) {specialChar ? xMark : checkMark}</li>
             </ul>
         </div>
-    )
+    );
 }
 
 export default PasswordChecklist;
