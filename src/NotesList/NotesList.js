@@ -5,7 +5,6 @@ import './NotesList.css';
 import NotesListFiltersForm from '../NotesListFiltersForm/NotesListFiltersForm';
 
 const NotesList = (props) => {
-
     const context = useContext(UserContext);
 
     const [chapterFilter, setChapterFilter] = useState('all');
@@ -48,7 +47,7 @@ const NotesList = (props) => {
                 : <p>No notes saved yet.</p>
             }
         </div>
-    )
+    );
 }
 
 export default NotesList;
