@@ -2,34 +2,27 @@
     height: 100%;
 }
 
-.button {
-    border: 2px solid #FFC71F;
-    background-color: #721D2B;
-    color: #FFC71F;
-    font-family: 'Crimson Text', serif;
-    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+section {
+    margin: 10px;
+    padding: 5px;
 }
 
-.button:active {
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
-    transform: translateY(4px);
+section section {
+    margin: 10px 0;
+    padding: 5px 0;
 }
 
-.button:enabled:hover {
-    text-decoration: underline;
-}
-
-.button:hover {
-    text-decoration: underline;
-}
-
-.button:disabled {
-    opacity: 0.5;
+p {
+    line-height: 22px;
 }
 
 @media screen and (min-width: 750px) {
     .button {
         font-size: 20px;
         padding: 10px;
+    }
+    
+    section {
+        width: 80%;
     }
 }

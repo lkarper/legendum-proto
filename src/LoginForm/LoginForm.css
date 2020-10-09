@@ -1,11 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text&display=swap');
-
 .LoginForm__container {
     display: flex;
     flex-direction: column;
     margin: 10px;
     padding: 5px;
-    font-family: 'Crimson Text', serif;
 }
 
 .LoginForm__h2 {
@@ -13,20 +10,18 @@
 }
 
 .LoginForm__input-label-container {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between; */
     padding: 5px;
 }
 
 .LoginForm__input-label-container input {
     width: 75%;
     margin-left: 5px;
-    font-family: 'Crimson Text', serif;
 }
 
 .LoginForm__error {
-    font-family: 'Crimson Text', serif;
     color: red;
     font-weight: bold;
     font-size: 20px;

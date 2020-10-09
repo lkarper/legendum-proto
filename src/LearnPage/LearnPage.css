@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text&display=swap');
-
 .LearnPage__container {
     display: flex;
     flex-direction: column;
@@ -47,13 +45,11 @@
     padding: 5px;
     display: flex;
     flex-direction: column;
-    font-family: 'Crimson Text', serif;
 }
 
 .LearnPage__h2 {
     margin: 5px;
     z-index: 10;
-    font-family: 'Crimson Text', serif;
     font-weight: 400;
     text-align: center;
     border-bottom: 1px solid black;
@@ -106,6 +102,6 @@
     .LearnPage__background-container {
         width: 800px;
         height: 500px;
-        border: 5px solid #FFC71F;
+        border: 5px solid black;
     }
 }

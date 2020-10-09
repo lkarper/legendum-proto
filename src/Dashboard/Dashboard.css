@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text&display=swap');
-
 .Dashboard__outer-section {
-    font-family: 'Crimson Text', serif;
     display: flex;
     flex-direction: column;
     align-items: center;

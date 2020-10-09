@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cardo&family=Cinzel+Decorative:wght@400;700&family=Cormorant:wght@500&family=Crimson+Text&display=swap');
-
 .Header__header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 75px;
-    border-bottom: 2px solid #FFC71F;
+    border-bottom: 2px solid black;
+    background-color: lightgray;
     z-index: 1000;
-    background-color: #721D2B;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,41 +23,12 @@
 }
 
 .Header__h1 {
-    font-family: 'Cinzel Decorative', cursive;
     font-weight: 400;
     font-size: 20px;
 }
 
-.Header__home-link {
-    color: #FFC71F;
-    text-decoration: none;
-}
-
-.Header__home-link:hover {
-    color: goldenrod;
-}
-
-.Header__home-link:active {
-    text-decoration: underline;
-}
-
-.Header__link {
-    color: #FFC71F;
-    text-decoration: none;
-    font-family: 'Crimson Text', serif;
-}
-
-.Header__link:active {
-    text-decoration: underline;
-}
-
-.Header__link:hover {
-    color: goldenrod;
-}
-
 .Header__leaf {
     margin: 0 5px;
-    color: #FFC71F;
 }
 
 @media screen and (min-width: 1000px) {

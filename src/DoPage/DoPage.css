@@ -23,7 +23,6 @@
     padding: 5px;
     display: flex;
     flex-direction: column;
-    font-family: 'Crimson Text', serif;
 }
 
 .DoPage__text-container-end {
@@ -89,7 +88,6 @@
 .DoPage__h2 {
     margin: 5px;
     z-index: 10;
-    font-family: 'Crimson Text', serif;
     font-weight: 400;
     text-align: center;
     border-bottom: 1px solid black;
@@ -100,6 +98,11 @@
 }
 
 .DoPage__end-quiz-container > .button {
+    margin: 5px;
+    padding: 5px;
+}
+
+.DoPage__end-quiz-container p {
     margin: 5px;
     padding: 5px;
 }
@@ -120,7 +123,7 @@
     }
 
     .DoPage__background-container {
-        border: 5px solid #FFC71F;
+        border: 5px solid black;
         width: 800px;
         height: 500px;
     }

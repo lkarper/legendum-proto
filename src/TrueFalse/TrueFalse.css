@@ -10,3 +10,11 @@
     margin: 5px;
     font-size: 16px;
 }
+
+.TrueFalse__input-div {
+    margin: 5px 0;
+}
+
+.TrueFalse__input-div label {
+    margin: 0 5px;
+}
