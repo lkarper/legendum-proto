@@ -4,21 +4,28 @@ import NotesService from '../services/notes-service';
 import ProgressService from '../services/progress-service';
 import AuthApiService from '../services/auth-api-service';
 import LoginForm from '../LoginForm/LoginForm';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const LoginPage = (props) => {
+    const { 
+        forceUpdate,
+        location,
+        history,
+    } = props;
 
     const context = useContext(UserContext);
 
-    const { forceUpdate } = props;
-
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
+    const [showLoading, setShowLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const onLoginSuccess = () => {
-        const { location, history } = props;
         const destination = (location.state || {}).from || '/dashboard';
-        Promise.all([NotesService.getFetchNotesCallByUser(), ProgressService.getFetchProgressCallForUser()])
+        Promise.all([
+            NotesService.getFetchNotesCallByUser(), 
+            ProgressService.getFetchProgressCallForUser()
+        ])
             .then(res => Promise.all(res.map(res => res.json())))
             .then(values => {
                 const notes = values[0];
@@ -29,13 +36,16 @@ const LoginPage = (props) => {
                 history.push(destination);
             })
             .catch(error => {
+                setShowLoading(false);
+                console.log('error', error);
                 context.setError(error.message);
             });
     }
 
     const handleLogin = (event) => {
         event.preventDefault();
-        setError(null);
+        setShowLoading(true);
+        setError('');
         AuthApiService.postLogin({
             user_name: userName,
             password
@@ -46,21 +56,24 @@ const LoginPage = (props) => {
                 onLoginSuccess();
             })
             .catch(res => {
+                setShowLoading(false);
                 setError(res.error);
             });
     }
  
     return (
-        <LoginForm 
-            userName={userName}
-            password={password}
-            setUserName={setUserName}
-            setPassword={setPassword}
-            handleLogin={handleLogin}
-            error={error}
-        />
-    )
-
+        <>
+            <LoginForm 
+                userName={userName}
+                password={password}
+                setUserName={setUserName}
+                setPassword={setPassword}
+                handleLogin={handleLogin}
+                error={error}
+            />
+            {showLoading && <LoadingSpinner />}
+        </>
+    );
 }
 
 export default LoginPage;
