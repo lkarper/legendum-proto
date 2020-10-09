@@ -1,7 +1,5 @@
 import React from 'react'
 
-const FontAwesomeIcon = (props) => {
+export function FontAwesomeIcon(props) {
   return <i className="fa" />
 }
-
-export default FontAwesomeIcon;
