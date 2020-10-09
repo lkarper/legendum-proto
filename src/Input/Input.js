@@ -4,33 +4,46 @@ import QuestionLegend from '../QuestionLegend/QuestionLegend';
 import './Input.css';
 
 const Input = (props) => {
+    const { 
+        page, 
+        savedUserInput, 
+        checkAnswer, 
+    } = props;
+
+    const { question } = page;
 
     const [userInput, setUserInput] = useState('');
-    const [formError, setFormError] = useState(null);
+    const [formError, setFormError] = useState('Please type your answer and be sure to include at least one letter.');
 
     useEffect(() => {
         const regex = /^[a-zA-z[a-zA-z\s]*$/;
         if (!regex.test(userInput)) {
-            setFormError('Please type your answer and be sure to include only letters or spaces in your response.')
+            setFormError('Please type your answer and be sure to include only letters or spaces in your response.');
         } else if (userInput.length && userInput.trim().length === 0) {
-            setFormError('Please type your answer and be sure to include at least one letter.')
+            setFormError('Please type your answer and be sure to include at least one letter.');
         } else {
-            setFormError(null);
+            setFormError('');
         }
-    }, [userInput])
+    }, [userInput]);
 
     useEffect(() => {
         setUserInput('');
-    }, [props.page.question]);
-
-    const { page, savedUserInput, checkAnswer } = props;
+    }, [question]);
 
     return (
         <div className='Input__container'>
-            <QuestionDialogue page={page} savedUserInput={savedUserInput} />
-            <form onSubmit={(e) => checkAnswer(e, userInput)}>
+            <QuestionDialogue 
+                page={page} 
+                savedUserInput={savedUserInput} 
+            />
+            <form 
+                onSubmit={(e) => checkAnswer(e, userInput)
+            }>
                 <fieldset>
-                    <QuestionLegend page={page} savedUserInput={savedUserInput} />
+                    <QuestionLegend 
+                        page={page} 
+                        savedUserInput={savedUserInput} 
+                    />
                     <label htmlFor="user-response">{page.input_label}</label>
                     <input 
                         type="text"
@@ -40,7 +53,9 @@ const Input = (props) => {
                         aria-describedby="input-error"
                         required
                     />
-                    {formError ? <p id="input-error">{formError}</p> : ''}
+                    <div role='alert'>
+                        <p id="input-error">{formError || 'Answer properly formatted'}</p>
+                    </div>
                 </fieldset>
                 <button
                     className='Input__submit button' 
