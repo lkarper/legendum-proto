@@ -7,6 +7,7 @@ const LoadingSpinner = (props) => {
         <div className='LoadingSpinner__loading-container'>
             <FontAwesomeIcon 
                 className='LoadingSpinner__spinner'
+                aria-label='Loading.'
                 icon={['fa', 'spinner']} 
                 spin
             />
