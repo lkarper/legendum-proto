@@ -4,11 +4,11 @@ import NotesList from '../NotesList/NotesList';
 import './NotesWidget.css';
 
 const NotesWidget = (props) => {
-
     const [showList, toggleShowList] = useState(false);
 
     const notesListContainerClassSuffix = showList ? 'widget-list on' : 'widget-list off';
 
+    // Users must be logged in to save notes
     if (TokenService.hasAuthToken()) {
         return (
             <>
@@ -25,11 +25,15 @@ const NotesWidget = (props) => {
                     >
                         &#10006;
                     </button>
-                    <NotesList chapt={props.match.params.chapt} suffix={'widget-list'} />
+                    <NotesList 
+                        chapt={props.match.params.chapt} 
+                        suffix={'widget-list'} 
+                    />
                 </div>
             </>
         );
     }
+
     return <></>;
 }
 
