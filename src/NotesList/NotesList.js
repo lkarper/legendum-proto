@@ -23,7 +23,7 @@ const NotesList = (props) => {
         if (chapterFilter === 'all') {
             setNotesToShow(notes);
         } else {
-            const notesFiltered = notes.filter(note => note.exercise_id === parseInt(props.chapt));
+            const notesFiltered = notes.filter(note => note.chapter_number === parseInt(props.chapt));
             setNotesToShow(notesFiltered);
         }
     }, [chapterFilter, sortType, context.notes, props.chapt])
