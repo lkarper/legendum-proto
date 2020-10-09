@@ -1,7 +1,10 @@
 import React from 'react';
 
 const QuestionLegend = (props) => {
-    const { page, savedUserInput } = props;
+    const { 
+        page, 
+        savedUserInput, 
+    } = props;
 
     if (page.look_back) {
         const questionArray = page.question.split('|');

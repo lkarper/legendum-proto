@@ -2,7 +2,10 @@ import React from 'react';
 import './QuestionDialogue.css';
 
 const QuestionDialogue = (props) => {
-    const { page, savedUserInput } = props;
+    const { 
+        page, 
+        savedUserInput,
+    } = props;
     
     if (page.dialogue_look_back) {
         const dialogueArray = page.dialogue.split('|');
