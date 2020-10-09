@@ -38,7 +38,6 @@ const ProgressService = {
             },
         });
     }
-
 }
 
 export default ProgressService;
