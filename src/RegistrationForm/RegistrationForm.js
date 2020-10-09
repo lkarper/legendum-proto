@@ -31,22 +31,22 @@ const RegistrationForm = (props) => {
     return (
         <form
             className='RegistrationForm__form'
-            onSubmit={(e) => handleSubmit(e)}
+            onSubmit={handleSubmit}
         >
             <div>
                 <label
-                    htmlFor="user-name"
+                    htmlFor='user-name'
                 >
                     Username:
                 </label>
                 <input
-                    type="text" 
-                    id="user-name"
-                    name="user-name"
-                    autoComplete="username"
+                    type='text' 
+                    id='user-name'
+                    name='user-name'
+                    autoComplete='username'
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
-                    aria-describedby="username-required"
+                    aria-describedby='username-required'
                     required
                 />
             </div>
@@ -57,17 +57,17 @@ const RegistrationForm = (props) => {
             />
             <div>
                 <label
-                    htmlFor="password"
+                    htmlFor='password'
                 >
                     Password:
                 </label>
                 <input 
-                    type="password"
-                    id="password"
-                    name="password"
-                    autoComplete="new-password"
+                    type='password'
+                    id='password'
+                    name='password'
+                    autoComplete='new-password'
                     value={password}
-                    aria-describedby="password-error-message"
+                    aria-describedby='password-error-message'
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
@@ -81,16 +81,16 @@ const RegistrationForm = (props) => {
             />
             <div>
                 <label
-                    htmlFor="reenter-password"
+                    htmlFor='reenter-password'
                 >
                     Password:
                 </label>
                 <input 
-                    type="password"
-                    id="reenter-password"
-                    name="reenter-password"
-                    autoComplete="new-password"
-                    aria-describedby="reenter-password-error"
+                    type='password'
+                    id='reenter-password'
+                    name='reenter-password'
+                    autoComplete='new-password'
+                    aria-describedby='reenter-password-error'
                     value={reenterPassword}
                     onChange={(e) => setReenterPassword(e.target.value)}
                     required
@@ -104,16 +104,16 @@ const RegistrationForm = (props) => {
             />
             <div>
                 <label
-                    htmlFor="display-name"
+                    htmlFor='display-name'
                 >
                     Display name:
                 </label>
                 <input 
-                    type="input"
-                    id="display-name"
-                    name="display-name"
+                    type='input'
+                    id='display-name'
+                    name='display-name'
                     value={displayName}
-                    aria-describedby="display-name-required"
+                    aria-describedby='display-name-required'
                     onChange={(e) => setDisplayName(e.target.value)}
                     required
                 />
@@ -125,8 +125,13 @@ const RegistrationForm = (props) => {
             />
             <button
                 className='RegistrationForm__submit button'
-                type="submit"
-                disabled={!!(userNameError || passwordErrorMessage.length || reenterPasswordError || displayNameError)}
+                type='submit'
+                disabled={
+                    !!(userNameError || 
+                    passwordErrorMessage.length || 
+                    reenterPasswordError || 
+                    displayNameError)
+                }
             >
                 Register
             </button>
