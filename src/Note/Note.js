@@ -7,11 +7,12 @@ import SaveHint from '../SaveHint/SaveHint';
 import './Note.css';
 
 const Note = (props) => {
-
     const { note } = props;
 
     const context = useContext(UserContext);
+
     const [showEdit, toggleShowEdit] = useState(false);
+    const [apiError, setApiError] = useState(false);
 
     const onSubmitHint = (event, customNote) => {
         event.preventDefault();
@@ -21,6 +22,7 @@ const Note = (props) => {
         }
         NotesService.updateNote(note.id, updatedNote)
             .then(() => {
+                setApiError(false);
                 updatedNote.hint_id = note.hint_id;
                 updatedNote.id = note.id;
                 updatedNote.user_id = note.user_id;
@@ -28,7 +30,8 @@ const Note = (props) => {
                 toggleShowEdit(false);
             })
             .catch(error => {
-                context.setError(error.message);
+                setApiError(true);
+                console.log('error', error);
             });
     }
 
@@ -36,10 +39,12 @@ const Note = (props) => {
         if (window.confirm(`Are you sure you'd like to delete this note?`)) { 
             NotesService.deleteNote(note.id)
                 .then(() => {
+                    setApiError(false);
                     context.deleteNote(note.id);
                 })
                 .catch(error => {
-                    context.setError(error.message);
+                    setApiError(true);
+                    console.log('error', error);
                 });
         }
     }
@@ -75,6 +80,12 @@ const Note = (props) => {
                     onSubmitHint={onSubmitHint}
                 /> 
             }
+            <div
+                className='Note__alert-div'
+                role='alert'
+            >
+                {apiError && <p>Error: Something went wrong. Check your connection and try again.</p>}
+            </div>
         </li>
     );
 }
