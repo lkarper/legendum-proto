@@ -34,7 +34,9 @@ const Landing = (props) => {
                     <h2>What is Legendum?</h2>
                 </header>
                 <p>Legendum is a Latin learning app that uses stories, images, and short quizzes to teach Latin!</p>
-                <p>This is a demo version of Legendum designed to get initial feedback from users. This means that the site is not yet hooked up to a back-end server.  You will be able to sample all of Legendum's features, but your progress will not be saved and your notes will disappear if you refresh the site. Upon page load, you will be automatically signed into a dummy account. If you log out, simply refresh the page and you will be logged back in automatically.</p>
+                <p>This is a demo version of Legendum designed to get initial feedback from users. The site is now hooked up to a backend server, so you can now create an account and save your own notes and progress!</p>
+                <p><Link to='/register'>Click here</Link> to create an account and get started!</p>
+                <p>(You don't need to register to learn, but you'll need an account to save your own notes and your progress.)</p>
                 <p>This demo version of Legendum contains two chapters.  The goal is to release new chapters regularly in the future.</p>
                 <p>After you test the app, please fill out this <a className="Landing__feedback-link" href="https://forms.gle/VrAvhA4pQ4SxARf89" target="_blank" rel="noopener noreferrer">form</a>!</p>
                 <p>Thank you! Thank you! Thank you!</p>
