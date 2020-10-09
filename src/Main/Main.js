@@ -10,7 +10,6 @@ import Dashboard from '../Dashboard/Dashboard';
 import './Main.css';
 
 const Main = (props) => {
-
     const { forceUpdate } = props;
 
     return (
