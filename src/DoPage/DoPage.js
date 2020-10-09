@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import TokenService from '../services/token-service';
 import ProgressService from '../services/progress-service';
@@ -29,6 +29,12 @@ const DoPage = (props) => {
     const [error, setError] = useState(false);
 
     const pageToDisplay = pages[page - 1];
+
+    useEffect(() => {
+        if (error) {
+            window.scrollTo(0, document.querySelector('.DoPage__api-error').offsetTop - document.querySelector('.Header__header').offsetHeight);
+        }
+    }, [error]);
 
     const checkAnswer = (event, userResponse) => {
         event.preventDefault();
@@ -181,10 +187,12 @@ const DoPage = (props) => {
                         </> 
                     }
                     {error &&  
-                        <>
+                        <div
+                            className='DoPage__api-error'
+                        >
                             <h2>Error: Could not save progress</h2>
                             <p>Check your connection, then click one of the options above to try again.</p>
-                        </>
+                        </div>
                     }
                 </div>
             </div>
