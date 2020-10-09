@@ -2,15 +2,21 @@ import React from 'react';
 import './LoginForm.css';
 
 const LoginForm = (props) => {
-
-    const { userName, password, setUserName, setPassword, handleLogin, error } = props;
+    const { 
+        userName, 
+        password, 
+        setUserName, 
+        setPassword, 
+        handleLogin, 
+        error, 
+    } = props;
 
     return (
         <div className='LoginForm__container'>
             <h2 className='LoginForm__h2'>Login</h2>
             <form 
                 className='LoginForm__form'
-                onSubmit={(e) => handleLogin(e)}
+                onSubmit={handleLogin}
             >
                 <div className='LoginForm__input-label-container'>
                     <label htmlFor="user-name">Username:</label>
