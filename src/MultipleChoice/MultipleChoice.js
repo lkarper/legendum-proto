@@ -18,7 +18,7 @@ const MultipleChoice = (props) => {
             correct_response, 
             incorrect_response_option_1, 
             incorrect_response_option_2, 
-            incorrect_response_option_3 
+            incorrect_response_option_3, 
         } = page;
 
         const choicesArray = [
@@ -47,7 +47,7 @@ const MultipleChoice = (props) => {
                 className='MultipleChoice__input-div'
             >
                 <input 
-                    type="radio"
+                    type='radio'
                     id={`choice_${i}`}
                     name='user-response'
                     value={choice}
@@ -80,7 +80,7 @@ const MultipleChoice = (props) => {
                 </fieldset>
                 <button
                     className='MultipleChoice__submit button' 
-                    type="submit"
+                    type='submit'
                     disabled={!userChoice}
                 >
                     Submit
