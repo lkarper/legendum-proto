@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
 import TokenService from '../services/token-service';
 import NotesService from '../services/notes-service';
@@ -14,6 +14,12 @@ const Hint = (props) => {
     const [noteAdded, setNoteAdded] = useState(false);
     const [apiError, setApiError] = useState(false);
     
+    useEffect(() => {
+        if (apiError) {
+            window.scrollTo(0, document.querySelector('.Hint__error').offsetTop - document.querySelector('.Header__header').offsetHeight);
+        }
+    }, [apiError]);
+
     const handleSaveHint = (event, customNote) => {
         event.preventDefault();
         NotesService.postNote(hint.id, customNote)
@@ -41,7 +47,7 @@ const Hint = (props) => {
                         {showAdd ? 'Nevermind' : 'Add Hint to Journal'}
                     </button>
                     {(showAdd && !noteAdded) && <SaveHint onSubmitHint={handleSaveHint} />}
-                    {apiError && <p>Error: Could not save note. Check your connection and try again.</p>}
+                    {apiError && <p className='Hint__error'>Error: Could not save note. Check your connection and try again.</p>}
                     {noteAdded && <p>Note saved successfully!</p>}
                 </div> 
             }

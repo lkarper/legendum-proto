@@ -18,7 +18,7 @@ const Do = (props) => {
 
         setShowLoading(true);
         setApiError(false);
-        
+
         ExercisesService.getExercisesDoByChapter(chapt)
             .then(data => {
                 data.sort((a, b) => a.page - b.page);
@@ -29,6 +29,7 @@ const Do = (props) => {
                 console.log('error', error);
                 setApiError(true);
                 setShowLoading(false);
+                window.scrollTo(0, document.querySelector('.Do__alert-div').offsetTop - document.querySelector('.Header__header').offsetHeight);
             });
     }, [chapt]);
 

@@ -31,6 +31,7 @@ const Note = (props) => {
             })
             .catch(error => {
                 setApiError(true);
+                window.scrollTo(0, document.querySelector('.Note__alert-div').offsetTop - document.querySelector('.Header__header').offsetHeight);
                 console.log('error', error);
             });
     }
@@ -44,6 +45,7 @@ const Note = (props) => {
                 })
                 .catch(error => {
                     setApiError(true);
+                    window.scrollTo(0, document.querySelector('.Note__alert-div').offsetTop - document.querySelector('.Header__header').offsetHeight);
                     console.log('error', error);
                 });
         }

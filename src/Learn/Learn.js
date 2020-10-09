@@ -25,6 +25,7 @@ const Learn = (props) => {
             .catch(error => {
                 setApiError(true);
                 setShowLoading(false);
+                window.scrollTo(0, document.querySelector('.Learn__alert-div').offsetHeight);
                 console.log('error', error);
             });
     }, [chapt]);
