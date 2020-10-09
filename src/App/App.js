@@ -71,29 +71,33 @@ const App = (props) => {
         }
     });
 
-    // Fetch user data when component mounts if the user is already logged in
     useEffect(() => {
+        // Fetch user data when component mounts if the user is already logged in
         if (TokenService.hasAuthToken()) {
-            NotesService.getNotesByUser()
-                .then(notes => {
+            Promise.all([
+                NotesService.getFetchNotesCallByUser(), 
+                ProgressService.getFetchProgressCallForUser(),
+            ])
+                .then(res => Promise.all(res.map(res => res.json())))
+                .then(values => {
+                    const notes = values[0];
+                    const progress = values[1];
                     setNotes(notes);
-                })
-                .catch(error => {
-                    setError(error);
-                });
-            ProgressService.getProgressByUser()
-                .then(progress => {
                     setProgress(progress);
                 })
                 .catch(error => {
+                    console.log('error', error);
                     setError(error.message);
                 });
         }
+
+        // Fetch exercise info when component mounts
         ExercisesService.getAllExercises()
             .then(exercises => {
                 setExercises(exercises);
             })
             .catch(error => {
+                console.log('error', error);
                 setError(error.message);
             });
 
