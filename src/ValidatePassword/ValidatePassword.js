@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import PasswordChecklist from '../PasswordChecklist/PasswordChecklist';
 import './ValidatePassword.css';
 
@@ -84,5 +85,29 @@ const ValidatePassword = (props) => {
         </>
     );
 }
+
+ValidatePassword.defaultProps = {
+    password: '',
+    passwordErrorMessage: [], 
+    passwordError: {},
+    setPasswordError: () => {},
+    setPasswordErrorMessage: () => {},
+};
+
+ValidatePassword.propTypes = {
+    password: PropTypes.string.isRequired,
+    passwordErrorMessage: PropTypes.arrayOf(PropTypes.string).isRequired,
+    passwordError: PropTypes.shape({
+        tooShort: PropTypes.bool,
+        tooLong: PropTypes.bool,
+        endSpaces: PropTypes.bool,
+        upperCase: PropTypes.bool,
+        lowerCase: PropTypes.bool,
+        number: PropTypes.bool,
+        specialChar: PropTypes.bool,
+    }),
+    setPasswordError: PropTypes.func.isRequired,
+    setPasswordErrorMessage: PropTypes.func.isRequired,
+};
 
 export default ValidatePassword;
