@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import UserContext from '../contexts/UserContext';
 import TokenService from '../services/token-service';
 import NotesService from '../services/notes-service';
@@ -34,6 +35,14 @@ const Hint = (props) => {
             });
     }
 
+    if (Object.keys(hint).length === 0) {
+        return (
+            <li>
+                <p>Error: Looks like something went wrong. Check your connection and try again.</p>
+            </li>
+        );
+    }
+
     return (
         <li>
             <p className='Hint__hint-text'>{hint.hint}</p>
@@ -54,5 +63,13 @@ const Hint = (props) => {
         </li>
     );
 }
+
+Hint.defaultProps = {
+    hint: {},
+};
+
+Hint.propTypes = {
+    hint: PropTypes.object,
+};
 
 export default Hint;
