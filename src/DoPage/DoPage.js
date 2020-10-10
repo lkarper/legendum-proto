@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import TokenService from '../services/token-service';
 import ProgressService from '../services/progress-service';
 import UserContext from '../contexts/UserContext';
@@ -18,23 +19,28 @@ const DoPage = (props) => {
         page, 
         setPage, 
         setSavedUserInput,
-    } = props.data;
+    } = props;
 
     const context = useContext(UserContext);
 
     const [userCorrect, setUserCorrect] = useState();
     const [userIncorrect, setUserIncorrect] = useState();
     const [endQuiz, setEndQuiz] = useState(false);
+    const [pageToDisplay, setPageToDisplay] = useState({});
     const [showLoading, setShowLoading] = useState(false);
     const [error, setError] = useState(false);
-
-    const pageToDisplay = pages[page - 1];
 
     useEffect(() => {
         if (error) {
             window.scrollTo(0, document.querySelector('.DoPage__api-error').offsetTop - document.querySelector('.Header__header').offsetHeight);
         }
     }, [error]);
+
+    useEffect(() => {
+        if (pages.length !== 0) {
+            setPageToDisplay(pages[page - 1]);
+        }
+    }, [pages, page]);
 
     const checkAnswer = (event, userResponse) => {
         event.preventDefault();
@@ -72,133 +78,157 @@ const DoPage = (props) => {
         }
     }
 
-    return (
-        <div className='DoPage__container'>
-            <h2
-                className='DoPage__h2'
-            >
-                {pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}
-            </h2>
-            <BackgroundImage
-                classPrefix='DoPage'
-                imgUrl={pageToDisplay.background_image_url}
-                imageAltText={pageToDisplay.background_image_alt_text}
-            >
-                <img
-                    className='DoPage__image' 
-                    src={pageToDisplay.image_url}
-                    alt={pageToDisplay.image_alt_text}
-                />
-            </BackgroundImage>
-            <div className={`DoPage__text-container${endQuiz ? '-end' : '' }`}>
-                {!endQuiz &&
-                    <>
-                        <QuestionToDisplay 
-                            pageToDisplay={pageToDisplay}
-                            savedUserInput={savedUserInput}
-                            checkAnswer={checkAnswer}
-                        />
-                        <div 
-                            role='alert' 
-                            className='DoPage__check-answer-container'
-                        >
-                            {userIncorrect && <UserIncorrect page={pageToDisplay} userResponse={userIncorrect} />}
-                            {userCorrect && <UserCorrect page={pageToDisplay} userResponse={userCorrect} />}
-                        </div>
-                    </>
-                }
-                <div className='DoPage__button-container'>
-                    <button
-                        className='DoPage__nav-button button'
-                        disabled={page === 1} 
-                        onClick={() => {
-                            setUserCorrect();
-                            setUserIncorrect();
-                            if (endQuiz) {
-                                setEndQuiz(false);
-                            } else {
-                                setPage(page - 1);
-                            }
-                        }}
-                    >
-                        &#60;
-                    </button>
-                    <button 
-                        className='DoPage__nav-button button'
-                        disabled={!userCorrect}
-                        onClick={() => {
-                            setUserCorrect();
-                            setUserIncorrect();
-                            if (page !== pages.length) {
-                                setPage(page + 1);
-                            } else {
-                                setEndQuiz(true);
-                            }
-                        }}
-                    >
-                        &#62;
-                    </button>
-                </div>
-                <div 
-                    role="alert" 
-                    className='DoPage__end-quiz-container'
+    if (pages.length === 0 && !showLoading) {
+        return (
+            <p>Error: Looks like something went wrong. Check your connection and try again.</p>
+        );        
+    } else {
+        return (
+            <div className='DoPage__container'>
+                <h2
+                    className='DoPage__h2'
                 >
-                    {endQuiz && 
+                    {pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}
+                </h2>
+                <BackgroundImage
+                    classPrefix='DoPage'
+                    imgUrl={pageToDisplay.background_image_url}
+                    imageAltText={pageToDisplay.background_image_alt_text}
+                >
+                    <img
+                        className='DoPage__image' 
+                        src={pageToDisplay.image_url}
+                        alt={pageToDisplay.image_alt_text}
+                    />
+                </BackgroundImage>
+                <div className={`DoPage__text-container${endQuiz ? '-end' : '' }`}>
+                    {!endQuiz &&
                         <>
-                            {TokenService.hasAuthToken()
-                                ? 
-                                    <> 
-                                        {parseInt(chapt) !== context.exercises.length 
+                            <QuestionToDisplay 
+                                pageToDisplay={pageToDisplay}
+                                savedUserInput={savedUserInput}
+                                checkAnswer={checkAnswer}
+                            />
+                            <div 
+                                role='alert' 
+                                className='DoPage__check-answer-container'
+                            >
+                                {userIncorrect && <UserIncorrect page={pageToDisplay} userResponse={userIncorrect} />}
+                                {userCorrect && <UserCorrect page={pageToDisplay} userResponse={userCorrect} />}
+                            </div>
+                        </>
+                    }
+                    <div className='DoPage__button-container'>
+                        <button
+                            className='DoPage__nav-button button'
+                            disabled={page === 1} 
+                            onClick={() => {
+                                setUserCorrect();
+                                setUserIncorrect();
+                                if (endQuiz) {
+                                    setEndQuiz(false);
+                                } else {
+                                    setPage(page - 1);
+                                }
+                            }}
+                        >
+                            &#60;
+                        </button>
+                        <button 
+                            className='DoPage__nav-button button'
+                            disabled={!userCorrect}
+                            onClick={() => {
+                                setUserCorrect();
+                                setUserIncorrect();
+                                if (page !== pages.length) {
+                                    setPage(page + 1);
+                                } else {
+                                    setEndQuiz(true);
+                                }
+                            }}
+                        >
+                            &#62;
+                        </button>
+                    </div>
+                    <div 
+                        role="alert" 
+                        className='DoPage__end-quiz-container'
+                    >
+                        {endQuiz && 
+                            <>
+                                {TokenService.hasAuthToken()
+                                    ? 
+                                        <> 
+                                            {parseInt(chapt) !== context.exercises.length 
+                                                ?
+                                                    <button
+                                                        className='button'
+                                                        onClick={() => onCompletion(`/game/story/${parseInt(chapt) + 1}`)} 
+                                                    >
+                                                        On to the next chapter (progress will be saved)
+                                                    </button>
+                                                :
+                                                    <p>To be continued...check back soon!</p>
+                                            }
+                                            <button
+                                                className='button'
+                                                onClick={() => onCompletion(`/dashboard`)} 
+                                            >
+                                                Back to the dashboard (progress will be saved)
+                                            </button>
+                                            <Link
+                                                className='DoPage__link button'
+                                                to='/dashboard'
+                                            >
+                                                Back to dashboard (do not save progress)
+                                            </Link>
+                                        </>
+                                    : 
+                                        parseInt(chapt) !== context.exercises.length 
                                             ?
-                                                <button
-                                                    className='button'
-                                                    onClick={() => onCompletion(`/game/story/${parseInt(chapt) + 1}`)} 
+                                                <Link 
+                                                    className='DoPage__link button' 
+                                                    to={`/game/story/${parseInt(chapt) + 1}`}
                                                 >
-                                                    On to the next chapter (progress will be saved)
-                                                </button>
+                                                    On the the next chapter
+                                                </Link>
                                             :
                                                 <p>To be continued...check back soon!</p>
-                                        }
-                                        <button
-                                            className='button'
-                                            onClick={() => onCompletion(`/dashboard`)} 
-                                        >
-                                            Back to the dashboard (progress will be saved)
-                                        </button>
-                                        <Link
-                                            className='DoPage__link button'
-                                            to='/dashboard'
-                                        >
-                                            Back to dashboard (do not save progress)
-                                        </Link>
-                                    </>
-                                : 
-                                    parseInt(chapt) !== context.exercises.length 
-                                        ?
-                                            <Link 
-                                                className='DoPage__link button' 
-                                                to={`/game/story/${parseInt(chapt) + 1}`}
-                                            >
-                                                On the the next chapter
-                                            </Link>
-                                        :
-                                            <p>To be continued...check back soon!</p>
-                            }
-                        </> 
-                    }
-                    {error &&  
-                        <div
-                            className='DoPage__api-error'
-                        >
-                            <h2>Error: Could not save progress</h2>
-                            <p>Check your connection, then click one of the options above to try again.</p>
-                        </div>
-                    }
+                                }
+                            </> 
+                        }
+                        {error &&  
+                            <div
+                                className='DoPage__api-error'
+                            >
+                                <h2>Error: Could not save progress</h2>
+                                <p>Check your connection, then click one of the options above to try again.</p>
+                            </div>
+                        }
+                    </div>
                 </div>
+                {showLoading && <LoadingSpinner />}
             </div>
-            {showLoading && <LoadingSpinner />}
-        </div>
-    );
+        );   
+    }
 }
+
+DoPage.defaultProps = { 
+    chapt: '', 
+    savedUserInput: {}, 
+    pages: [], 
+    page: 1, 
+    setPage: () => {}, 
+    setSavedUserInput: () => {},
+};
+
+DoPage.propTypes = { 
+    chapt: PropTypes.string, 
+    savedUserInput: PropTypes.object, 
+    pages: PropTypes.arrayOf(PropTypes.object), 
+    page: PropTypes.number, 
+    setPage: PropTypes.func, 
+    setSavedUserInput: PropTypes.func,
+};
                     
 export default withRouter(DoPage);
