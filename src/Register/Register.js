@@ -10,10 +10,10 @@ const Register = (props) => {
     const [password, setPassword] = useState('');
     const [reenterPassword, setReenterPassword] = useState('');
     const [displayName, setDisplayName] = useState('');
-    const [userNameError, setUserNameError] = useState(null);
+    const [userNameError, setUserNameError] = useState('');
     const [passwordErrorMessage, setPasswordErrorMessage] = useState([]);
-    const [reenterPasswordError, setReenterPasswordError] = useState(null);
-    const [displayNameError, setDisplayNameError] = useState(null);
+    const [reenterPasswordError, setReenterPasswordError] = useState('');
+    const [displayNameError, setDisplayNameError] = useState('');
     const [passwordError, setPasswordError] = useState({
         tooShort: true,
         tooLong: false,
@@ -54,27 +54,25 @@ const Register = (props) => {
         <section className='Register__section'>
             <h2>Register</h2>
             <RegistrationForm 
-                propsObject={{
-                    userName,
-                    password,
-                    reenterPassword,
-                    displayName,
-                    userNameError,
-                    passwordErrorMessage,
-                    reenterPasswordError,
-                    displayNameError,
-                    passwordError,
-                    setUserName,
-                    setPassword,
-                    setReenterPassword,
-                    setDisplayName,
-                    setUserNameError,
-                    setPasswordErrorMessage,
-                    setReenterPasswordError,
-                    setDisplayNameError,
-                    setPasswordError,
-                    handleSubmit,
-                }}
+                userName={userName}
+                password={password}
+                reenterPassword={reenterPassword}
+                displayName={displayName}
+                userNameError={userNameError}
+                passwordErrorMessage={passwordErrorMessage}
+                reenterPasswordError={reenterPasswordError}
+                displayNameError={displayNameError}
+                passwordError={passwordError}
+                setUserName={setUserName}
+                setPassword={setPassword}
+                setReenterPassword={setReenterPassword}
+                setDisplayName={setDisplayName}
+                setUserNameError={setUserNameError}
+                setPasswordErrorMessage={setPasswordErrorMessage}
+                setReenterPasswordError={setReenterPasswordError}
+                setDisplayNameError={setDisplayNameError}
+                setPasswordError={setPasswordError}
+                handleSubmit={handleSubmit}
             />
             <div 
                 className='Register__alert-div'
