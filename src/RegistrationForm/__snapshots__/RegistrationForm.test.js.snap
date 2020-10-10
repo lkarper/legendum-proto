@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationForm component renders the UI as expected 1`] = `
+<RegistrationForm
+  displayName=""
+  displayNameError=""
+  handleSubmit={[Function]}
+  password=""
+  passwordError={
+    Object {
+      "endSpaces": false,
+      "lowerCase": true,
+      "number": true,
+      "specialChar": true,
+      "tooLong": false,
+      "tooShort": true,
+      "upperCase": true,
+    }
+  }
+  passwordErrorMessage={Array []}
+  reenterPassword=""
+  reenterPasswordError=""
+  setDisplayName={[Function]}
+  setDisplayNameError={[Function]}
+  setPassword={[Function]}
+  setPasswordError={[Function]}
+  setPasswordErrorMessage={[Function]}
+  setReenterPassword={[Function]}
+  setReenterPasswordError={[Function]}
+  setUserName={[Function]}
+  setUserNameError={[Function]}
+  userName=""
+  userNameError=""
+>
+  <form
+    className="RegistrationForm__form"
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="user-name"
+      >
+        Username:
+      </label>
+      <input
+        aria-describedby="username-required"
+        autoComplete="username"
+        id="user-name"
+        name="user-name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <ValidateUserName
+      setUserNameError={[Function]}
+      userName=""
+      userNameError=""
+    >
+      <div
+        role="alert"
+      >
+        <p
+          id="username-required"
+        >
+          Username meets requirements.
+        </p>
+      </div>
+    </ValidateUserName>
+    <div>
+      <label
+        htmlFor="password"
+      >
+        Password:
+      </label>
+      <input
+        aria-describedby="password-error-message"
+        autoComplete="new-password"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        required={true}
+        type="password"
+        value=""
+      />
+    </div>
+    <ValidatePassword
+      password=""
+      passwordError={
+        Object {
+          "endSpaces": false,
+          "lowerCase": true,
+          "number": true,
+          "specialChar": true,
+          "tooLong": false,
+          "tooShort": true,
+          "upperCase": true,
+        }
+      }
+      passwordErrorMessage={Array []}
+      setPasswordError={[Function]}
+      setPasswordErrorMessage={[Function]}
+    >
+      <PasswordChecklist
+        passwordError={
+          Object {
+            "endSpaces": false,
+            "lowerCase": true,
+            "number": true,
+            "specialChar": true,
+            "tooLong": false,
+            "tooShort": true,
+            "upperCase": true,
+          }
+        }
+      >
+        <div
+          className="PasswordChecklist__container"
+        >
+          <p>
+            Password must:
+          </p>
+          <ul>
+            <li>
+              Be at least 8 characters in length 
+              <span
+                className="PasswordChecklist__x"
+              >
+                ✖
+              </span>
+            </li>
+            <li>
+              Be no more than 72 characters in length 
+              <span
+                className="PasswordChecklist__check"
+              >
+                ✔
+              </span>
+            </li>
+            <li>
+              Not begin or end with a space 
+              <span
+                className="PasswordChecklist__check"
+              >
+                ✔
+              </span>
+            </li>
+            <li>
+              Contain at least one lowercase letter 
+              <span
+                className="PasswordChecklist__x"
+              >
+                ✖
+              </span>
+            </li>
+            <li>
+              Contain at least one uppercase letter 
+              <span
+                className="PasswordChecklist__x"
+              >
+                ✖
+              </span>
+            </li>
+            <li>
+              Contain at least one number 
+              <span
+                className="PasswordChecklist__x"
+              >
+                ✖
+              </span>
+            </li>
+            <li>
+              Contain at least one special character (e.g. !, @, #, $, etc.) 
+              <span
+                className="PasswordChecklist__x"
+              >
+                ✖
+              </span>
+            </li>
+          </ul>
+        </div>
+      </PasswordChecklist>
+      <div
+        className="ValidatePassword__error-container"
+        role="alert"
+      >
+        <p
+          id="password-error-message"
+        >
+          Password meets all requirements.
+        </p>
+      </div>
+    </ValidatePassword>
+    <div>
+      <label
+        htmlFor="reenter-password"
+      >
+        Password:
+      </label>
+      <input
+        aria-describedby="reenter-password-error"
+        autoComplete="new-password"
+        id="reenter-password"
+        name="reenter-password"
+        onChange={[Function]}
+        required={true}
+        type="password"
+        value=""
+      />
+    </div>
+    <ValidateReenterPassword
+      password=""
+      reenterPassword=""
+      reenterPasswordError=""
+      setReenterPasswordError={[Function]}
+    >
+      <div
+        role="alert"
+      >
+        <p
+          id="reenter-password-error"
+        >
+          Passwords match.
+        </p>
+      </div>
+    </ValidateReenterPassword>
+    <div>
+      <label
+        htmlFor="display-name"
+      >
+        Display name:
+      </label>
+      <input
+        aria-describedby="display-name-required"
+        id="display-name"
+        name="display-name"
+        onChange={[Function]}
+        required={true}
+        type="input"
+        value=""
+      />
+    </div>
+    <ValidateDisplayName
+      displayName=""
+      displayNameError=""
+      setDisplayNameError={[Function]}
+    >
+      <div
+        role="alert"
+      >
+        <p
+          id="display-name-required"
+        >
+          Display name meets requirements.
+        </p>
+      </div>
+    </ValidateDisplayName>
+    <button
+      className="RegistrationForm__submit button"
+      disabled={false}
+      type="submit"
+    >
+      Register
+    </button>
+  </form>
+</RegistrationForm>
+`;
