@@ -11,7 +11,7 @@ const ValidateUserName = (props) => {
         if (!userName.trim().length) {
             setUserNameError('Username required.');
         } else {
-            setUserNameError(null);
+            setUserNameError('');
         }
     }, [userName, setUserNameError]);
 

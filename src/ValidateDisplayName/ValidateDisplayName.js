@@ -11,7 +11,7 @@ const ValidateDisplayName = (props) => {
         if (!displayName.trim().length) {
             setDisplayNameError('Displayname required.');
         } else {
-            setDisplayNameError(null);
+            setDisplayNameError('');
         }
     }, [displayName, setDisplayNameError]);
 

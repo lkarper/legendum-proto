@@ -10,7 +10,7 @@ const ValidateReenterPassword = (props) => {
 
     useEffect(() => {
         if (password === reenterPassword) {
-            setReenterPasswordError(null);
+            setReenterPasswordError('');
         } else {
             setReenterPasswordError('Passwords do not match.');
         }
