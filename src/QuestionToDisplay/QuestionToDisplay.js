@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MultipleChoice from '../MultipleChoice/MultipleChoice';
 import Input from '../Input/Input';
 import TrueFalse from '../TrueFalse/TrueFalse';
@@ -10,7 +11,11 @@ const QuestionToDisplay = (props) => {
         checkAnswer,
     } = props;
 
-    if (pageToDisplay.question_type === 'multiple-choice') {
+    if (Object.keys(pageToDisplay).length === 0) {
+        return (
+            <p>Error: Looks like something went wrong. Check your connection and try again.</p>
+        );        
+    } else if (pageToDisplay.question_type === 'multiple-choice') {
         return (
             <MultipleChoice 
                 page={pageToDisplay} 
@@ -36,5 +41,17 @@ const QuestionToDisplay = (props) => {
         );
     }
 }
+
+QuestionToDisplay.defaultProps = { 
+    pageToDisplay: {}, 
+    savedUserInput: {}, 
+    checkAnswer: () => {},
+};
+
+QuestionToDisplay.propTypes = { 
+    pageToDisplay: PropTypes.object, 
+    savedUserInput: PropTypes.object, 
+    checkAnswer: PropTypes.func,
+};
 
 export default QuestionToDisplay;
