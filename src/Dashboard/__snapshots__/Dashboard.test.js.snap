@@ -70,6 +70,7 @@ exports[`Dashboard component renders the UI as expected 1`] = `
           </section>
         </ProgressReport>
         <NotesList
+          chapt=""
           suffix="dashboard"
         >
           <div
