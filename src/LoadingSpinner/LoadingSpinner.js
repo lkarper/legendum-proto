@@ -12,7 +12,7 @@ const LoadingSpinner = (props) => {
                 spin
             />
         </div>
-    )
+    );
 };
 
 export default LoadingSpinner;
