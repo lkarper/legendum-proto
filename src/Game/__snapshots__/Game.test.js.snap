@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Game>
+      <Route
+        component={[Function]}
+        path="/game/story/:chapt"
+      />
+      <Route
+        component={[Function]}
+        path="/game/exercises/:chapt"
+      />
+      <Route
+        component={[Function]}
+        path={
+          Array [
+            "/game/exercises/:chapt",
+            "/game/story/:chapt",
+          ]
+        }
+      />
+    </Game>
+  </Router>
+</BrowserRouter>
+`;
