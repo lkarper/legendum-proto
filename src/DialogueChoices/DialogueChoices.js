@@ -20,11 +20,9 @@ const DialogueChoices = (props) => {
                 key={i} 
                 onClick={() => setResponse(
                     <DialogueResponse 
-                        data={{
-                            dialogue, 
-                            page, 
-                            choiceIndex: i
-                        }}
+                        dialogue={dialogue}
+                        page={page}
+                        choiceIndex={i}
                     />
                 )}
             >
