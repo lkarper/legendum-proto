@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import UserContext from '../contexts/UserContext';
 import NotesService from '../services/notes-service';
 import ProgressService from '../services/progress-service';
@@ -77,5 +78,29 @@ const LoginPage = (props) => {
         </>
     );
 }
+
+LoginPage.defaultProps = { 
+    forceUpdate: () => {},
+    location: {
+        state: {
+            from: '/dashboard',
+        },
+    },
+    history: {
+        push: () => {},
+    },
+};
+
+LoginPage.propTypes = { 
+    forceUpdate: PropTypes.func,
+    location: PropTypes.shape({
+        state: PropTypes.shape({
+            from: PropTypes.string,
+        }),
+    }),
+    history: PropTypes.shape({
+        history: PropTypes.func,
+    }),
+};
 
 export default LoginPage;
