@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import ValidateCustomNote from '../ValidateCustomNote/ValidateCustomNote';
 import './SaveHint.css';
 
 const SaveHint = (props) => {
     const { 
         onSubmitHint, 
-        cNoteProp = '', 
+        cNoteProp, 
     } = props;
 
     const [customNote, setCustomNote] = useState(cNoteProp);
@@ -41,5 +42,15 @@ const SaveHint = (props) => {
         </form>
     );
 }
+
+SaveHint.defaultProps = { 
+    onSubmitHint: () => {}, 
+    cNoteProp: '', 
+};
+
+SaveHint.propTypes = { 
+    onSubmitHint: PropTypes.func, 
+    cNoteProp: PropTypes.string, 
+};
 
 export default SaveHint;
