@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidateCustomNote component renders the UI as expected 1`] = `
+<ValidateCustomNote
+  customNote=""
+  customNoteError=""
+  setCustomNoteError={[Function]}
+>
+  <div
+    role="alert"
+  />
+</ValidateCustomNote>
+`;
