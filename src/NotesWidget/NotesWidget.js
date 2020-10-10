@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import TokenService from '../services/token-service';
 import NotesList from '../NotesList/NotesList';
 import './NotesWidget.css';
@@ -36,5 +37,17 @@ const NotesWidget = (props) => {
 
     return <></>;
 }
+
+NotesWidget.defaultProps = {
+    match: {
+        params: {
+            chapt: '',
+        },
+    },
+};
+
+NotesWidget.propTypes = {
+    match: PropTypes.object,
+};
 
 export default NotesWidget;
