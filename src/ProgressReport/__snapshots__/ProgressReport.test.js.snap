@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressReport component renders the UI as expected 1`] = `
+<ProgressReport>
+  <section
+    className="ProgressReport__section"
+  >
+    <h3>
+      User Progress
+    </h3>
+    <ol
+      className="ProgressReport__ol"
+    />
+  </section>
+</ProgressReport>
+`;
