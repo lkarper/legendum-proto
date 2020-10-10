@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingSpinner component renders the UI as expected 1`] = `
+<LoadingSpinner>
+  <div
+    className="LoadingSpinner__loading-container"
+  >
+    <FontAwesomeIcon
+      aria-label="Loading."
+      className="LoadingSpinner__spinner"
+      icon={
+        Array [
+          "fa",
+          "spinner",
+        ]
+      }
+      spin={true}
+    >
+      <i
+        className="fa"
+      />
+    </FontAwesomeIcon>
+  </div>
+</LoadingSpinner>
+`;
