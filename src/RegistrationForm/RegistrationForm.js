@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ValidateUserName from '../ValidateUserName/ValidateUserName';
 import ValidatePassword from '../ValidatePassword/ValidatePassword';
 import ValidateReenterPassword from '../ValidateReenterPassword/ValidateReenterPassword';
@@ -26,7 +27,7 @@ const RegistrationForm = (props) => {
         setDisplayNameError,
         setPasswordError,
         handleSubmit,
-    } = props.propsObject;
+    } = props;
 
     return (
         <form
@@ -138,5 +139,65 @@ const RegistrationForm = (props) => {
         </form>
     );
 }
+
+RegistrationForm.defaultProps = {
+    userName: '',
+    password: '',
+    reenterPassword: '',
+    displayName: '',
+    userNameError: '',
+    passwordErrorMessage: [],
+    reenterPasswordError: '',
+    displayNameError: '',
+    passwordError: {
+        tooShort: true,
+        tooLong: false,
+        endSpaces: false,
+        upperCase: true,
+        lowerCase: true,
+        number: true,
+        specialChar: true,
+    },
+    setUserName: () => {},
+    setPassword: () => {},
+    setReenterPassword: () => {},
+    setDisplayName: () => {},
+    setUserNameError: () => {},
+    setPasswordErrorMessage: () => {},
+    setReenterPasswordError: () => {},
+    setDisplayNameError: () => {},
+    setPasswordError: () => {},
+    handleSubmit: () => {},
+};
+
+RegistrationForm.propTypes = {
+    userName: PropTypes.string,
+    password: PropTypes.string,
+    reenterPassword: PropTypes.string,
+    displayName: PropTypes.string,
+    userNameError: PropTypes.string,
+    passwordErrorMessage: PropTypes.arrayOf(PropTypes.string),
+    reenterPasswordError: PropTypes.string,
+    displayNameError: PropTypes.string,
+    passwordError: PropTypes.shape({
+        tooShort: PropTypes.bool,
+        tooLong: PropTypes.bool,
+        endSpaces: PropTypes.bool,
+        upperCase: PropTypes.bool,
+        lowerCase: PropTypes.bool,
+        number: PropTypes.bool,
+        specialChar: PropTypes.bool,
+    }),
+    setUserName: PropTypes.func,
+    setPassword: PropTypes.func,
+    setReenterPassword: PropTypes.func,
+    setDisplayName: PropTypes.func,
+    setUserNameError: PropTypes.func,
+    setPasswordErrorMessage: PropTypes.func,
+    setReenterPasswordError: PropTypes.func,
+    setDisplayNameError: PropTypes.func,
+    setPasswordError: PropTypes.func,
+    handleSubmit: PropTypes.func,
+};
 
 export default RegistrationForm;
