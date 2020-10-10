@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './PasswordChecklist.css';
 
 const PasswordChecklist = (props) => {
@@ -33,5 +34,21 @@ const PasswordChecklist = (props) => {
         </div>
     );
 }
+
+PasswordChecklist.defaultProps = {
+    passwordError: {},
+};
+
+PasswordChecklist.propTypes = {
+    passwordError: PropTypes.shape({
+        tooShort: PropTypes.bool,
+        tooLong: PropTypes.bool,
+        endSpaces: PropTypes.bool,
+        upperCase: PropTypes.bool,
+        lowerCase: PropTypes.bool,
+        number: PropTypes.bool,
+        specialChar: PropTypes.bool,
+    }),
+};
 
 export default PasswordChecklist;
