@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCorrect component renders the UI as expected 1`] = `
+<UserCorrect
+  page={Object {}}
+>
+  <p>
+    Error: Looks like something went wrong. Check your connection and try again.
+  </p>
+</UserCorrect>
+`;
