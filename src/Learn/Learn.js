@@ -36,12 +36,10 @@ const Learn = (props) => {
             {pages.length !== 0 && 
                 <div className='Learn__container'>
                     <LearnPage
-                        data={{
-                            pages,
-                            page,
-                            chapt,
-                            setPage,
-                        }}
+                        pages={pages}
+                        page={page}
+                        chapt={chapt}
+                        setPage={setPage}
                     />
                 </div>
             }
