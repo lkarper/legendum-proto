@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import DoPage from '../DoPage/DoPage';
 import ExercisesService from '../services/exercises-service';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
@@ -62,6 +63,18 @@ const Do = (props) => {
             </div>
         </div>
     );
+}
+
+Do.defaultProps = {
+    match: {
+        params: {
+            chapt: '',
+        },
+    },
+};
+
+Do.propTypes = {
+    match: PropTypes.object.isRequired,
 }
 
 export default Do;
