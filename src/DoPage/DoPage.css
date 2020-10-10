@@ -23,6 +23,7 @@
     padding: 5px;
     display: flex;
     flex-direction: column;
+    font-family: 'Crimson Text', serif;
 }
 
 .DoPage__text-container-end {
@@ -88,6 +89,7 @@
 .DoPage__h2 {
     margin: 5px;
     z-index: 10;
+    font-family: 'Crimson Text', serif;
     font-weight: 400;
     text-align: center;
     border-bottom: 1px solid black;
@@ -123,7 +125,7 @@
     }
 
     .DoPage__background-container {
-        border: 5px solid black;
+        border: 5px solid #FFC71F;
         width: 800px;
         height: 500px;
     }

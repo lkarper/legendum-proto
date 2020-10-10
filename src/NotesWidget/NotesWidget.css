@@ -11,7 +11,7 @@
     position: fixed;
     top: 75px;
     margin: 5%;
-    border: 5px solid black;
+    border: 5px solid #FFC71F;
     background-color: white;
     z-index: 200;
     overflow: hidden;

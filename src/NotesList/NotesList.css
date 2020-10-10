@@ -15,7 +15,9 @@
 .NotesList__container-widget-list {
     overflow-y: auto;
     height: 100%;
+    background: url('/images/paper-background-2-small.png') repeat-y center center fixed;
     padding: 10px;
+    font-family: 'Crimson Text', serif;
 }
 
 .NotesList__h3-widget-list {

@@ -14,4 +14,5 @@
 .Input__container input[type="text"] {
     margin-left: 5px;
     font-size: 18px;
+    font-family: 'Crimson Text', serif;
 }

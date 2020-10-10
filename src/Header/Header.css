@@ -4,8 +4,8 @@
     left: 0;
     width: 100%;
     height: 75px;
-    border-bottom: 2px solid black;
-    background-color: lightgray;
+    border-bottom: 2px solid #FFC71F;
+    background-color: #721D2B;
     z-index: 1000;
     display: flex;
     flex-direction: column;
@@ -23,12 +23,41 @@
 }
 
 .Header__h1 {
+    font-family: 'Cinzel Decorative', cursive;
     font-weight: 400;
     font-size: 20px;
 }
 
+.Header__home-link {
+    color: #FFC71F;
+    text-decoration: none;
+}
+
+.Header__home-link:hover {
+    color: goldenrod;
+}
+
+.Header__home-link:active {
+    text-decoration: underline;
+}
+
+.Header__link {
+    color: #FFC71F;
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+}
+
+.Header__link:active {
+    text-decoration: underline;
+}
+
+.Header__link:hover {
+    color: goldenrod;
+}
+
 .Header__leaf {
     margin: 0 5px;
+    color: #FFC71F;
 }
 
 @media screen and (min-width: 1000px) {

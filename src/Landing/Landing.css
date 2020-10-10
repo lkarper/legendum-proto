@@ -54,6 +54,11 @@
 .Landing__speech-text {
     font-size: 32px;
     margin: 20px 5px; 
+    font-family: 'Crimson Text', serif;
+}
+
+.Landing__section {
+    font-family: 'Crimson Text', serif;
 }
 
 .Landing__section p {
