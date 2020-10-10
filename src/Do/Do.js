@@ -38,14 +38,12 @@ const Do = (props) => {
         <div className='Do__container'>
             {pages.length !==0 &&
                 <DoPage
-                    data={{
-                        chapt,
-                        savedUserInput,
-                        pages,
-                        page,
-                        setPage,
-                        setSavedUserInput,
-                    }}
+                    chapt={chapt}
+                    savedUserInput={savedUserInput}
+                    pages={pages}
+                    page={page}
+                    setPage={setPage}
+                    setSavedUserInput={setSavedUserInput}
                 />
             }
             {showLoading && <LoadingSpinner />}
