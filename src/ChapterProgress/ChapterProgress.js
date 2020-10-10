@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 import UserContext from '../contexts/UserContext';
 import './ChapterProgress.css';
 
@@ -10,6 +11,15 @@ const ChapterProgress = (props) => {
 
     const context = useContext(UserContext);
     const timesCompleted = context.progress.filter(p => p.chapter_number === exercise.chapter_number).length;
+
+    if (Object.keys(exercise).length === 0) {
+        return (
+            <li>
+                <h4>Error</h4>
+                <p>Looks like something went wrong. Check your connection and try again.</p>
+            </li>
+        );
+    }
 
     return (
         <li>
@@ -62,6 +72,14 @@ const ChapterProgress = (props) => {
             </div>
         </li>
     );
+}
+
+ChapterProgress.defaultProps = {
+    exercise: {},
+}
+
+ChapterProgress.propTypes = {
+    exercise: PropTypes.object.isRequired,
 }
 
 export default ChapterProgress;
