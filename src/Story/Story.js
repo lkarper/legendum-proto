@@ -45,14 +45,12 @@ const Story = (props) => {
                 <>
                     <h2 className='Story__h2'>{storyTitle}</h2>
                     <DialoguePage 
-                        data={{
-                            response,
-                            page,
-                            setPage,
-                            setResponse,
-                            dialogue,
-                            chapt,
-                        }}
+                        response={response}
+                        page={page}
+                        dialogue={dialogue}
+                        chapt={chapt}
+                        setPage={setPage}
+                        setResponse={setResponse}
                     />
                 </>
             }
