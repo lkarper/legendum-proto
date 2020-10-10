@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidateUserName component renders the UI as expected 1`] = `
+<ValidateUserName
+  setUserNameError={[Function]}
+  userName=""
+  userNameError=""
+>
+  <div
+    role="alert"
+  >
+    <p
+      id="username-required"
+    >
+      Username meets requirements.
+    </p>
+  </div>
+</ValidateUserName>
+`;
