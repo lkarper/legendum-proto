@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const ValidateCustomNote = (props) => {
     const { 
@@ -24,5 +25,17 @@ const ValidateCustomNote = (props) => {
         </div>
     );
 }
+
+ValidateCustomNote.defaultProps = { 
+    customNoteError: '',
+    customNote: '',
+    setCustomNoteError: () => {},
+};
+
+ValidateCustomNote.propTypes = { 
+    customNoteError: PropTypes.string,
+    customNote: PropTypes.string,
+    setCustomNoteError: PropTypes.func,
+};
 
 export default ValidateCustomNote;
