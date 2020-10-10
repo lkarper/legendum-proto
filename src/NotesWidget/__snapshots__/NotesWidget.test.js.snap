@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotesWidget component renders the UI as expected 1`] = `
+<NotesWidget
+  match={
+    Object {
+      "params": Object {
+        "chapt": "",
+      },
+    }
+  }
+/>
+`;
