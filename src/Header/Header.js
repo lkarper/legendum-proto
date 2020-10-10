@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 import TokenService from '../services/token-service';
 import IdleService from '../services/idle-service';
 import UserContext from '../contexts/UserContext';
 import './Header.css';
 
 const Header = (props) => {
+    const { forceUpdate } = props;
 
     const context = useContext(UserContext);
-
-    const { forceUpdate } = props;
 
     const handleLogout = () => {
         TokenService.clearAuthToken();
@@ -88,5 +88,13 @@ const Header = (props) => {
         </header>
     );
 }
+
+Header.defaultProps = {
+    forceUpdate: () => {},
+};
+
+Header.propTypes = {
+    forceUpdate: PropTypes.func,
+};
 
 export default withRouter(Header);
