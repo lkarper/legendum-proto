@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialoguePage component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <DialoguePage
+      chapt=""
+      dialogue={Array []}
+      page={1}
+      setPage={[Function]}
+      setResponse={[Function]}
+    >
+      <p>
+        Error: Looks like something went wrong. Check your connection and try again.
+      </p>
+    </DialoguePage>
+  </Router>
+</BrowserRouter>
+`;
