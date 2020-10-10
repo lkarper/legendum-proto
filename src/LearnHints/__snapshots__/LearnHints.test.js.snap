@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LearnHints component renders the UI as expected 1`] = `
+<LearnHints
+  page={
+    Object {
+      "hints": Array [],
+    }
+  }
+  setShowHintsBoolean={[Function]}
+  showHintsBoolean={false}
+>
+  <div
+    className="LearnHints__container"
+  >
+    <button
+      className="LearnHints__hide-show-button button"
+      onClick={[Function]}
+    >
+      Show hints
+    </button>
+  </div>
+</LearnHints>
+`;
