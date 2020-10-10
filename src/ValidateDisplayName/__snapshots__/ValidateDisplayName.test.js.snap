@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidateDisplayName component renders the UI as expected 1`] = `
+<ValidateDisplayName
+  displayName=""
+  displayNameError=""
+  setDisplayNameError={[Function]}
+>
+  <div
+    role="alert"
+  >
+    <p
+      id="display-name-required"
+    >
+      Display name meets requirements.
+    </p>
+  </div>
+</ValidateDisplayName>
+`;
