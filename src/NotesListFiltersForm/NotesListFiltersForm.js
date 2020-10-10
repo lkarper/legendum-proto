@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './NotesListFiltersForm.css';
 
 const NotesListFiltersForm = (props) => {
@@ -73,5 +74,21 @@ const NotesListFiltersForm = (props) => {
         </form>
     );
 }
+
+NotesListFiltersForm.defaultProps = { 
+    suffix: '', 
+    sortType: 'rec', 
+    chapterFilter: 'all', 
+    setSortType: () => {}, 
+    setChapterFilter: () => {}, 
+};
+
+NotesListFiltersForm.propTypes = { 
+    suffix: PropTypes.string, 
+    sortType: PropTypes.oneOf(['rec', 'old']), 
+    chapterFilter: PropTypes.oneOf(['all', 'chapt']), 
+    setSortType: PropTypes.func, 
+    setChapterFilter: PropTypes.func, 
+};
 
 export default NotesListFiltersForm;
