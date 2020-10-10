@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotesListFiltersForm component renders the UI as expected 1`] = `
+<NotesListFiltersForm
+  chapterFilter="all"
+  setChapterFilter={[Function]}
+  setSortType={[Function]}
+  sortType="rec"
+  suffix=""
+>
+  <form
+    className="NotesListFiltersForm__form-"
+  >
+    <fieldset>
+      <legend>
+        Sort by date saved
+      </legend>
+      <div>
+        <input
+          checked={true}
+          id="sort-rec"
+          name="sort-notes"
+          onChange={[Function]}
+          type="radio"
+          value="rec"
+        />
+        <label
+          htmlFor="sort-rec"
+        >
+          Sort notes newest - oldest
+        </label>
+      </div>
+      <div>
+        <input
+          checked={false}
+          id="sort-old"
+          name="sort-notes"
+          onChange={[Function]}
+          type="radio"
+          value="old"
+        />
+        <label
+          htmlFor="sort-old"
+        >
+          Sort notes oldest - newest
+        </label>
+      </div>
+    </fieldset>
+  </form>
+</NotesListFiltersForm>
+`;
