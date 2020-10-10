@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const ValidateReenterPassword = (props) => {
     const { 
@@ -6,7 +7,7 @@ const ValidateReenterPassword = (props) => {
         reenterPassword,
         reenterPasswordError,
         setReenterPasswordError,
-     } = props;
+    } = props;
 
     useEffect(() => {
         if (password === reenterPassword) {
@@ -33,5 +34,19 @@ const ValidateReenterPassword = (props) => {
         </div>
     );
 }
+
+ValidateReenterPassword.defaultProps = {
+    password: '', 
+    reenterPassword: '', 
+    reenterPasswordError: '',
+    setReenterPasswordError: () => {},
+};
+
+ValidateReenterPassword.propTypes = {
+    password: PropTypes.string.isRequired, 
+    reenterPassword: PropTypes.string.isRequired, 
+    reenterPasswordError: PropTypes.string.isRequired,
+    setReenterPasswordError: PropTypes.func.isRequired,
+};
 
 export default ValidateReenterPassword;
