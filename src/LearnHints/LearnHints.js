@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Hint from '../Hint/Hint';
 import './LearnHints.css';
 
@@ -41,5 +42,21 @@ const LearnHints = (props) => {
         </div>
     );
 }
+
+LearnHints.defaultProps = { 
+    page: {
+        hints: [],
+    }, 
+    showHintsBoolean: false, 
+    setShowHintsBoolean: () => {}, 
+};
+
+LearnHints.propTypes = {
+    page: PropTypes.shape({
+        hints: PropTypes.arrayOf(PropTypes.object),
+    }),
+    showHintsBoolean: PropTypes.bool,
+    setShowHintsBoolean: PropTypes.func,
+};
 
 export default LearnHints;
