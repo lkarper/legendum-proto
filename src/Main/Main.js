@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import PublicOnlyRoute from '../utils/PublicOnlyRoute';
 import PrivateOnlyRoute from '../utils/PrivateOnlyRoute';
@@ -43,5 +44,13 @@ const Main = (props) => {
         </main>
     );
 }
+
+Main.defaultProps = {
+    forceUpdate: () => {},
+};
+
+Main.propTypes = {
+    forceUpdate: PropTypes.func,
+};
 
 export default Main;
