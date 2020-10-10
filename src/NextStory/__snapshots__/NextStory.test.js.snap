@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextStory component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <NextStory>
+      <Link
+        className="NextStory__link"
+        to="/game/story/1"
+      >
+        <LinkAnchor
+          className="NextStory__link"
+          href="/game/story/1"
+          navigate={[Function]}
+        >
+          <a
+            className="NextStory__link"
+            href="/game/story/1"
+            onClick={[Function]}
+          >
+            Start at Chapter 1
+          </a>
+        </LinkAnchor>
+      </Link>
+    </NextStory>
+  </Router>
+</BrowserRouter>
+`;
