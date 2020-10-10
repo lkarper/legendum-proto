@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './UserIncorrect.css';
 
 const UserIncorrect = (props) => {
@@ -18,6 +19,12 @@ const UserIncorrect = (props) => {
         feedback = page.response_if_incorrect_1;
     }
 
+    if (Object.keys(page).length === 0) {
+        return (
+            <p>Error: Looks like something went wrong. Check your connection and try again.</p>
+        );
+    }
+
     return (
         <>
             <p className='UserIncorrect__message'>{feedback}</p>
@@ -25,5 +32,15 @@ const UserIncorrect = (props) => {
         </>
     );
 }
+
+UserIncorrect.defaultProps = { 
+    page: {}, 
+    userResponse: '', 
+};
+
+UserIncorrect.propTypes = { 
+    page: PropTypes.object, 
+    userResponse: PropTypes.string, 
+};
 
 export default UserIncorrect;
