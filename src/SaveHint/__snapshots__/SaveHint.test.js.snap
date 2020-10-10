@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SaveHint component renders the UI as expected 1`] = `
+<SaveHint
+  cNoteProp=""
+  onSubmitHint={[Function]}
+>
+  <form
+    className="SaveHint__form"
+    onSubmit={[Function]}
+  >
+    <textarea
+      aria-label="Add a custom note here, if you'd like."
+      className="SaveHint__textarea"
+      id="custom-note"
+      name="custom-note"
+      onChange={[Function]}
+      placeholder="Add a custom note here, if you'd like."
+      rows="4"
+      value=""
+    />
+    <button
+      className="SaveHint__submit button"
+      disabled={false}
+      type="submit"
+    >
+      Save Hint
+    </button>
+    <ValidateCustomNote
+      customNote=""
+      customNoteError=""
+      setCustomNoteError={[Function]}
+    >
+      <div
+        role="alert"
+      />
+    </ValidateCustomNote>
+  </form>
+</SaveHint>
+`;
