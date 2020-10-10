@@ -1,9 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './UserCorrect.css';
 
 const UserCorrect = (props) => {
     const { page } = props;
     
+    if (Object.keys(page).length === 0) {
+        return (
+            <p>Error: Looks like something went wrong. Check your connection and try again.</p>
+        );
+    }
+
     return (
         <p 
             className='UserCorrect__message'
@@ -16,5 +23,13 @@ const UserCorrect = (props) => {
         </p>
     );
 }
+
+UserCorrect.defaultProps = {
+    page: {},
+};
+
+UserCorrect.propTypes = {
+    page: PropTypes.object,
+};
 
 export default UserCorrect;
