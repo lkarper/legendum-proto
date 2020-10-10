@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage component renders the UI as expected 1`] = `
+<LoginPage
+  forceUpdate={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  location={
+    Object {
+      "state": Object {
+        "from": "/dashboard",
+      },
+    }
+  }
+>
+  <LoginForm
+    error=""
+    handleLogin={[Function]}
+    password=""
+    setPassword={[Function]}
+    setUserName={[Function]}
+    userName=""
+  >
+    <div
+      className="LoginForm__container"
+    >
+      <h2
+        className="LoginForm__h2"
+      >
+        Login
+      </h2>
+      <form
+        className="LoginForm__form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="LoginForm__input-label-container"
+        >
+          <label
+            htmlFor="user-name"
+          >
+            Username:
+          </label>
+          <input
+            autoComplete="username"
+            id="user-name"
+            name="user-name"
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="LoginForm__input-label-container"
+        >
+          <label
+            htmlFor="password"
+          >
+            Password:
+          </label>
+          <input
+            autoComplete="current-password"
+            id="password"
+            name="password"
+            onChange={[Function]}
+            required={true}
+            type="password"
+            value=""
+          />
+        </div>
+        <div
+          className="LoginForm__error-container"
+          role="alert"
+        />
+        <button
+          className="LoginForm__submit button"
+          disabled={true}
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </LoginForm>
+</LoginPage>
+`;
