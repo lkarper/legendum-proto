@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackgroundImage component renders the UI as expected 1`] = `
+<BackgroundImage
+  classPrefix=""
+  imageAltText="Default background."
+  imgUrl=""
+>
+  <div
+    className="__background-container"
+  >
+    <span
+      aria-label="Default background."
+      className="__background-image"
+      role="img"
+      style={
+        Object {
+          "backgroundImage": "url(  )",
+          "backgroundPositionX": "center",
+          "backgroundPositionY": "bottom",
+          "backgroundSize": "cover",
+        }
+      }
+    />
+  </div>
+</BackgroundImage>
+`;
