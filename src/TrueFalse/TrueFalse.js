@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import QuestionDialogue from '../QuestionDialogue/QuestionDialogue';
 import QuestionLegend from '../QuestionLegend/QuestionLegend';
 import './TrueFalse.css';
@@ -11,6 +12,12 @@ const TrueFalse = (props) => {
     } = props;
 
     const [userChoice, setChoice] = useState();
+
+    if (Object.keys(page).length === 0) {
+        return (
+            <p>Error: Looks like something went wrong. Check your connection and try again.</p>
+        );
+    }
 
     return (
         <div className='TrueFalse__container'>
@@ -69,5 +76,17 @@ const TrueFalse = (props) => {
         </div>
     );
 }
+
+TrueFalse.defaultProps = { 
+    page: {}, 
+    savedUserInput: {}, 
+    checkAnswer: () => {},
+};
+
+TrueFalse.propTypes = { 
+    page: PropTypes.object, 
+    savedUserInput: PropTypes.object, 
+    checkAnswer: PropTypes.func,
+};
 
 export default TrueFalse;
