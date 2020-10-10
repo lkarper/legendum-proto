@@ -38,43 +38,43 @@ exports[`Register component renders the UI as expected 1`] = `
           Register
         </h2>
         <RegistrationForm
-          propsObject={
+          displayName=""
+          displayNameError="Displayname required."
+          handleSubmit={[Function]}
+          password=""
+          passwordError={
             Object {
-              "displayName": "",
-              "displayNameError": "Displayname required.",
-              "handleSubmit": [Function],
-              "password": "",
-              "passwordError": Object {
-                "endSpaces": false,
-                "lowerCase": true,
-                "number": true,
-                "specialChar": true,
-                "tooLong": false,
-                "tooShort": true,
-                "upperCase": true,
-              },
-              "passwordErrorMessage": Array [
-                "Password must be at least 8 characters in length.",
-                "Password must contain at least one lowercase character.",
-                "Password must contain at least one uppercase character.",
-                "Password must contain at least one number.",
-                "Password must contain at least one special character.",
-              ],
-              "reenterPassword": "",
-              "reenterPasswordError": null,
-              "setDisplayName": [Function],
-              "setDisplayNameError": [Function],
-              "setPassword": [Function],
-              "setPasswordError": [Function],
-              "setPasswordErrorMessage": [Function],
-              "setReenterPassword": [Function],
-              "setReenterPasswordError": [Function],
-              "setUserName": [Function],
-              "setUserNameError": [Function],
-              "userName": "",
-              "userNameError": "Username required.",
+              "endSpaces": false,
+              "lowerCase": true,
+              "number": true,
+              "specialChar": true,
+              "tooLong": false,
+              "tooShort": true,
+              "upperCase": true,
             }
           }
+          passwordErrorMessage={
+            Array [
+              "Password must be at least 8 characters in length.",
+              "Password must contain at least one lowercase character.",
+              "Password must contain at least one uppercase character.",
+              "Password must contain at least one number.",
+              "Password must contain at least one special character.",
+            ]
+          }
+          reenterPassword=""
+          reenterPasswordError=""
+          setDisplayName={[Function]}
+          setDisplayNameError={[Function]}
+          setPassword={[Function]}
+          setPasswordError={[Function]}
+          setPasswordErrorMessage={[Function]}
+          setReenterPassword={[Function]}
+          setReenterPasswordError={[Function]}
+          setUserName={[Function]}
+          setUserNameError={[Function]}
+          userName=""
+          userNameError="Username required."
         >
           <form
             className="RegistrationForm__form"
@@ -269,7 +269,7 @@ exports[`Register component renders the UI as expected 1`] = `
             <ValidateReenterPassword
               password=""
               reenterPassword=""
-              reenterPasswordError={null}
+              reenterPasswordError=""
               setReenterPasswordError={[Function]}
             >
               <div
