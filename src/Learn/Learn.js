@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import ExercisesService from '../services/exercises-service';
 import LearnPage from '../LearnPage/LearnPage';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
@@ -54,5 +55,17 @@ const Learn = (props) => {
         </>
     );
 }
+
+Learn.defaultProps = {
+    match: {
+        params: {
+            chapt: '',
+        },
+    },
+};
+
+Learn.propTypes = {
+    match: PropTypes.object,
+};
 
 export default Learn;
