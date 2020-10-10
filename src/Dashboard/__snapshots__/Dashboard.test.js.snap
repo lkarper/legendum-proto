@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Dashboard
+      match={
+        Object {
+          "path": "",
+        }
+      }
+    >
+      <section
+        className="Dashboard__outer-section"
+      >
+        <h2>
+          Dashboard
+        </h2>
+        <NextStory>
+          <Link
+            className="NextStory__link"
+            to="/game/story/1"
+          >
+            <LinkAnchor
+              className="NextStory__link"
+              href="/game/story/1"
+              navigate={[Function]}
+            >
+              <a
+                className="NextStory__link"
+                href="/game/story/1"
+                onClick={[Function]}
+              >
+                Start at Chapter 1
+              </a>
+            </LinkAnchor>
+          </Link>
+        </NextStory>
+        <ProgressReport>
+          <section
+            className="ProgressReport__section"
+          >
+            <h3>
+              User Progress
+            </h3>
+            <ol
+              className="ProgressReport__ol"
+            />
+          </section>
+        </ProgressReport>
+        <NotesList
+          suffix="dashboard"
+        >
+          <div
+            className="NotesList__container-dashboard"
+          >
+            <h3
+              className="NotesList__h3-dashboard"
+            >
+              Saved Notes:
+            </h3>
+            <NotesListFiltersForm
+              chapterFilter="all"
+              setChapterFilter={[Function]}
+              setSortType={[Function]}
+              sortType="rec"
+              suffix="dashboard"
+            >
+              <form
+                className="NotesListFiltersForm__form-dashboard"
+              >
+                <fieldset>
+                  <legend>
+                    Sort by date saved
+                  </legend>
+                  <div>
+                    <input
+                      checked={true}
+                      id="sort-rec"
+                      name="sort-notes"
+                      onChange={[Function]}
+                      type="radio"
+                      value="rec"
+                    />
+                    <label
+                      htmlFor="sort-rec"
+                    >
+                      Sort notes newest - oldest
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      checked={false}
+                      id="sort-old"
+                      name="sort-notes"
+                      onChange={[Function]}
+                      type="radio"
+                      value="old"
+                    />
+                    <label
+                      htmlFor="sort-old"
+                    >
+                      Sort notes oldest - newest
+                    </label>
+                  </div>
+                </fieldset>
+              </form>
+            </NotesListFiltersForm>
+            <p>
+              No notes saved yet.
+            </p>
+          </div>
+        </NotesList>
+      </section>
+    </Dashboard>
+  </Router>
+</BrowserRouter>
+`;
