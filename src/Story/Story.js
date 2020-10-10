@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import DialoguePage from '../DialoguePage/DialoguePage';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import config from '../config';
@@ -64,5 +65,17 @@ const Story = (props) => {
         </div>
     );
 }
+
+Story.defaultProps = {
+    match: {
+        params: {
+            chapt: '',
+        },
+    },
+};
+
+Story.propTypes = {
+    match: PropTypes.object,
+};
 
 export default Story;
