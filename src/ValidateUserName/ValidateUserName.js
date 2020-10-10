@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const ValidateUserName = (props) => {
     const { 
@@ -38,5 +39,17 @@ const ValidateUserName = (props) => {
         </div>
     );
 }
+
+ValidateUserName.defaultProps = { 
+    userNameError: '', 
+    setUserNameError: () => {}, 
+    userName: '',
+};
+
+ValidateUserName.propTypes = { 
+    userNameError: PropTypes.string, 
+    setUserNameError: PropTypes.func, 
+    userName: PropTypes.string,
+};
 
 export default ValidateUserName;
