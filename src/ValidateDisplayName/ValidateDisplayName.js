@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const ValidateDisplayName = (props) => {
     const { 
@@ -36,5 +37,17 @@ const ValidateDisplayName = (props) => {
         </div>
     ); 
 }
+
+ValidateDisplayName.defaultProps = { 
+    displayName: '',
+    displayNameError: '',
+    setDisplayNameError: () => {},
+};
+
+ValidateDisplayName.propTypes = { 
+    displayName: PropTypes.string,
+    displayNameError: PropTypes.string,
+    setDisplayNameError: PropTypes.func,
+};
 
 export default ValidateDisplayName;
