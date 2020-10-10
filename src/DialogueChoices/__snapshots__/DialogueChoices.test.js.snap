@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialogueChoices component renders the UI as expected 1`] = `
+<DialogueChoices
+  dialogue={
+    Array [
+      Object {
+        "choices": "",
+      },
+    ]
+  }
+  page={1}
+  setResponse={[Function]}
+>
+  <div
+    className="DialogueChoices__container"
+  >
+    <p>
+      Error: Looks like something went wrong. Check your connection and try again.
+    </p>
+  </div>
+</DialogueChoices>
+`;
