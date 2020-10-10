@@ -89,11 +89,9 @@ const DialoguePage= (props) => {
                     {pageToDisplay.choices 
                         ? 
                             <DialogueChoices 
-                                data={{
-                                    dialogue,
-                                    page,
-                                    setResponse
-                                }}
+                                dialogue={dialogue}
+                                page={page}
+                                setResponse={setResponse}
                             /> 
                         : ''
                     }
