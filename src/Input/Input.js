@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import QuestionDialogue from '../QuestionDialogue/QuestionDialogue';
 import QuestionLegend from '../QuestionLegend/QuestionLegend';
 import './Input.css';
@@ -29,6 +30,12 @@ const Input = (props) => {
     useEffect(() => {
         setUserInput('');
     }, [question]);
+
+    if (!question) {
+        return (
+            <p>Error: Looks like something went wrong. Check your connection and try again.</p>
+        );
+    }
 
     return (
         <div className='Input__container'>
@@ -68,5 +75,21 @@ const Input = (props) => {
         </div>
     );
 }
+
+Input.defaultProps = { 
+    page: {
+        question: '',
+    }, 
+    savedUserInput: {}, 
+    checkAnswer: () => {}, 
+};
+
+Input.propTypes = { 
+    page: PropTypes.shape({
+        question: PropTypes.string, 
+    }), 
+    savedUserInput: PropTypes.object, 
+    checkAnswer: PropTypes.func, 
+};
 
 export default Input;
