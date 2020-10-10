@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 import NotesService from '../services/notes-service';
 import UserContext from '../contexts/UserContext';
 import SaveHint from '../SaveHint/SaveHint';
@@ -51,6 +52,14 @@ const Note = (props) => {
         }
     }
 
+    if (Object.keys(note).length === 0) {
+        return (
+            <li>
+                <p>Error: Looks like something went wrong. Check your connection and try again.</p>
+            </li>
+        );
+    }
+
     return (
         <li>
             <p>{note.hint}</p>
@@ -91,5 +100,13 @@ const Note = (props) => {
         </li>
     );
 }
+
+Note.defaultProps = {
+    note: {},
+};
+
+Note.propTypes = {
+    note: PropTypes.object,
+};
 
 export default Note;
