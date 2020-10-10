@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import UserContext from '../contexts/UserContext';
 import Note from '../Note/Note';
 import './NotesList.css';
@@ -49,5 +50,15 @@ const NotesList = (props) => {
         </div>
     );
 }
+
+NotesList.defaultProps = {
+    chapt: '',
+    suffix: '',
+};
+
+NotesList.propTypes = {
+    chapt: PropTypes.string,
+    suffix: PropTypes.string,
+};
 
 export default NotesList;
