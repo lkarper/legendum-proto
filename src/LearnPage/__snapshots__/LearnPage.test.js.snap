@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LearnPage component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <LearnPage
+      chapt=""
+      page={1}
+      pages={Array []}
+      setPage={[Function]}
+    >
+      <p>
+        Error: Looks like something went wrong. Check your connection and try
+      </p>
+    </LearnPage>
+  </Router>
+</BrowserRouter>
+`;
