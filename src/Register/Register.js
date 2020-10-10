@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import AuthApiService from '../services/auth-api-service';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import './Register.css';
@@ -92,5 +93,15 @@ const Register = (props) => {
         </section>
     );
 }
+
+Register.defaultProps = {
+    history: {
+        push: () => {},
+    },
+};
+
+Register.propTypes = {
+    history: PropTypes.object,
+};
 
 export default Register;
