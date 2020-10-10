@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BackgroundImage = (props) => {
     const { 
@@ -25,5 +26,18 @@ const BackgroundImage = (props) => {
         </div>
     );
 }
+
+BackgroundImage.defaultProps = {
+    classPrefix: '', 
+    imgUrl: '', 
+    imageAltText: 'Default background.', 
+};
+
+BackgroundImage.propTypes = {
+    classPrefix: PropTypes.string, 
+    imgUrl: PropTypes.string,
+    imageAltText: PropTypes.string, 
+    children: PropTypes.element, 
+};
 
 export default BackgroundImage;
