@@ -162,6 +162,13 @@ exports[`App component renders the UI as expected 1`] = `
             </header>
           </Header>
         </withRouter(Header)>
+        <MainBackground>
+          <div
+            aria-hidden="true"
+            className="MainBackground__background-div"
+            role="img"
+          />
+        </MainBackground>
         <ErrorBoundary>
           <Main
             forceUpdate={[Function]}
