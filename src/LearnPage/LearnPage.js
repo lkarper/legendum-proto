@@ -18,7 +18,7 @@ const LearnPage = (props) => {
     if (pages.length === 0) {
         return (
             <p>Error: Looks like something went wrong. Check your connection and try</p>
-        )
+        );
     } else {
         const pageToDisplay = pages[page - 1];
 
@@ -43,7 +43,10 @@ const LearnPage = (props) => {
                 />;
         
         return (
-            <div className='LearnPage__container'>
+            <section 
+                className='LearnPage__container'
+                aria-live='polite'
+            >
                 <h2 className='LearnPage__h2'>{pageToDisplay.exercise_title}{' '}{pageToDisplay.exercise_translation}</h2> 
                 {image}
                 <div className='LearnPage__text-container'>
@@ -88,10 +91,10 @@ const LearnPage = (props) => {
                         </button>    
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
-};
+}
 
 LearnPage.defaultProps = { 
     pages: [], 
