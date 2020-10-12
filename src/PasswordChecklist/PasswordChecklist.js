@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './PasswordChecklist.css';
 
+// This component displays a visual representation of password requirements
 const PasswordChecklist = (props) => {
     const { passwordError } = props;
+    
     const { 
         tooShort,
         tooLong,
@@ -14,8 +16,16 @@ const PasswordChecklist = (props) => {
         specialChar,
     } = passwordError;
 
-    const checkMark = <span className='PasswordChecklist__check'>&#10004;</span>;
-    const xMark = <span className='PasswordChecklist__x'>&#10006;</span>;
+    const checkMark = <span className='PasswordChecklist__check'>✓&#xfe0e;</span>;
+    const xMark = <span className='PasswordChecklist__x'>✕&#xfe0e;</span>;
+
+    if (Object.keys(passwordError).length < 7) {
+        return (
+            <div>
+                <p>Error: Something went wrong. Check your connection and try again.</p>
+            </div>
+        );
+    }
 
     return (
         <div
