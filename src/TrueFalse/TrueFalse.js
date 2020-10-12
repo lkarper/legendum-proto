@@ -40,6 +40,7 @@ const TrueFalse = (props) => {
                         className='TrueFalse__input-div'
                     >
                         <input 
+                            className='TrueFalse__input radio'
                             type='radio'
                             id='true'
                             name='user-response'
@@ -54,6 +55,7 @@ const TrueFalse = (props) => {
                         className='TrueFalse__input-div'
                     >
                         <input 
+                            className='TrueFalse__input radio'
                             type='radio'
                             id='false'
                             name='user-response'

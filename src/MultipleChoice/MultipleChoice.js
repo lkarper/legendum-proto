@@ -50,6 +50,7 @@ const MultipleChoice = (props) => {
                 className='MultipleChoice__input-div'
             >
                 <input 
+                    className='MultipleChoice__input radio'
                     type='radio'
                     id={`choice_${i}`}
                     name='user-response'
