@@ -18,6 +18,7 @@ exports[`NotesListFiltersForm component renders the UI as expected 1`] = `
       <div>
         <input
           checked={true}
+          className="NotesListFiltersForm__input radio"
           id="sort-rec"
           name="sort-notes"
           onChange={[Function]}
@@ -33,6 +34,7 @@ exports[`NotesListFiltersForm component renders the UI as expected 1`] = `
       <div>
         <input
           checked={false}
+          className="NotesListFiltersForm__input radio"
           id="sort-old"
           name="sort-notes"
           onChange={[Function]}
