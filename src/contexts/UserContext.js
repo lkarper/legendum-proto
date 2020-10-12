@@ -18,7 +18,6 @@ const UserContext = React.createContext({
 export default UserContext;
 
 export const UserProvider = (props) => {
-
     const [notes, setNotes] = useState([]);
     const [progress, setProgress] = useState([]);
     const [exercises, setExercises] = useState([]);
@@ -66,5 +65,5 @@ export const UserProvider = (props) => {
         <UserContext.Provider value={value}>
             {props.children}
         </UserContext.Provider>
-    )
+    );
 }
