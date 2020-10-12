@@ -15,7 +15,11 @@ const ChapterProgress = (props) => {
     if (Object.keys(exercise).length === 0) {
         return (
             <li>
-                <h4>Error</h4>
+                <h4
+                    className='ChapterProgress__h4'
+                >
+                    Error
+                </h4>
                 <p>Looks like something went wrong. Check your connection and try again.</p>
             </li>
         );
@@ -23,16 +27,29 @@ const ChapterProgress = (props) => {
 
     return (
         <li>
-            <h4>{exercise.exercise_title}{' '}{exercise.exercise_translation}</h4>
-            <p>You've completed this chapter {timesCompleted === 1 ? '1 time' : `${timesCompleted} times`}</p>
+            <h4
+                className='ChapterProgress__h4'
+            >
+                {exercise.exercise_title}{' '}{exercise.exercise_translation}
+            </h4>
+            <p
+                className='ChapterProgress__p-times-completed'
+            >
+                You've completed this chapter {timesCompleted === 1 ? '1 time' : `${timesCompleted} times`}
+            </p>
             {timesCompleted !== 0 && 
                 <div> 
-                    <h5>You completed this exercise on: </h5>
+                    <h5
+                        className='ChapterProgress__h5'
+                    >
+                        You completed this exercise on: 
+                    </h5>
                     <ul>
                         {context.progress
                             .filter(p => p.chapter_number === exercise.chapter_number)
                             .map(p => 
                                 <li 
+                                    className='ChapterProgress__li-dates-completed'
                                     key={p.id}
                                 >
                                     {moment(p.date_completed).format('MMM. Do YYYY, h:mm a')}
