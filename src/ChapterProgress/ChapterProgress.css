@@ -6,6 +6,7 @@
     background-color: #721D2B;
     padding: 5px;
     width: 90%;
+    margin: 5px auto;
 }
 
 .ChapterProgress__link {
@@ -13,6 +14,7 @@
     text-decoration: none;
     font-family: 'EB Garamond', serif;
     margin: 5px 10px;
+    font-size: 20px;
 }
 
 .ChapterProgress__link:active {
@@ -31,9 +33,23 @@
 @media screen and (min-width: 1000px) {
     .ChapterProgress__link-container {
         width: 75%;
+        margin-top: 15px;
     }
 
     .ChapterProgress__link {
         font-size: 18px;
+    }
+
+    .ChapterProgress__li-dates-completed,
+    .ChapterProgress__p-times-completed {
+        font-size: 20px;
+    }
+
+    .ChapterProgress__h4 {
+        font-size: 24px;
+    }
+
+    .ChapterProgress__h5 {
+        font-size: 22px;
     }
 }
