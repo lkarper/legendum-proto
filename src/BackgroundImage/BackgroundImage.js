@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Component used to display background images for stories and exercises
 const BackgroundImage = (props) => {
     const { 
         classPrefix, 
