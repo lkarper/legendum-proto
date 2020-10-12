@@ -1,25 +1,16 @@
-.LoginForm__container {
-    display: flex;
-    flex-direction: column;
+.LoginForm__form {
     margin: 10px;
-    padding: 5px;
-    font-family: 'EB Garamond', serif;
-}
-
-.LoginForm__h2 {
-    font-weight: 400;
+    width: 90%;
 }
 
 .LoginForm__input-label-container {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-between; */
+    display: flex;
+    flex-direction: column;
     padding: 5px;
+    line-height: 28px;
 }
 
 .LoginForm__input-label-container input {
-    width: 75%;
-    margin-left: 5px;
     font-family: 'EB Garamond', serif;
 }
 
@@ -38,6 +29,12 @@
     margin: 10px;
 }
 
+@media screen and (min-width: 750px) {
+    .LoginForm__form {
+        width: 50%;
+    }
+}
+
 @media screen and (min-width: 1000px) {
     .LoginForm__h2 {
         font-size: 40px;
@@ -50,5 +47,11 @@
     .LoginForm__input-label-container input {
         font-size: 20px;
         width: 300px;
+    }
+
+    .LoginForm__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
