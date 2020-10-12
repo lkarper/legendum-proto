@@ -54,11 +54,15 @@
 .Landing__speech-text {
     font-size: 32px;
     margin: 20px 5px; 
-    font-family: 'Crimson Text', serif;
+    font-family: 'EB Garamond', serif;
 }
 
 .Landing__section {
-    font-family: 'Crimson Text', serif;
+    font-family: 'EB Garamond', serif;
+}
+
+.Landing__section .Landing__section {
+    width: 100%;
 }
 
 .Landing__section p {
@@ -73,5 +77,9 @@
 
     .Landing__link {
         font-size: 24px;
+    }
+
+    .Landing__arrow:after {
+        top: -22px;
     }
 }

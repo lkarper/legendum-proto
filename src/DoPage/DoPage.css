@@ -23,7 +23,7 @@
     padding: 5px;
     display: flex;
     flex-direction: column;
-    font-family: 'Crimson Text', serif;
+    font-family: 'EB Garamond', serif;
 }
 
 .DoPage__text-container-end {
@@ -89,7 +89,7 @@
 .DoPage__h2 {
     margin: 5px;
     z-index: 10;
-    font-family: 'Crimson Text', serif;
+    font-family: 'EB Garamond', serif;
     font-weight: 400;
     text-align: center;
     border-bottom: 1px solid black;

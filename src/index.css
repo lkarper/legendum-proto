@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:wght@400;500&display=swap');
 
 #root {
     height: 100%;
@@ -22,7 +22,7 @@ p {
     border: 2px solid #FFC71F;
     background-color: #721D2B;
     color: #FFC71F;
-    font-family: 'Crimson Text', serif;
+    font-family: 'EB Garamond', serif;
     box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
 }
 
@@ -41,6 +41,54 @@ p {
 
 .button:disabled {
     opacity: 0.5;
+}
+
+.radio {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+  
+.radio + label {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+  
+.radio + label::before {
+    display: inline-block;
+    content: ' ';
+    flex-shrink: 0;
+    margin-top: 4px;
+    margin-right: 10px;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #721D2B;
+    background-color: white;
+    border-radius: 50%;
+}
+  
+.radio:checked + label::before {
+    background-color: #FFC71F;
+    border: 3px solid #721D2B;
+}
+  
+  
+.radio:focus + label::before,
+.radio:hover + label::before {
+    border: 2px solid hsl(350, 59%, 20%);
+}
+  
+.radio:focus:checked + label::before,
+.radio:hover:checked + label::before {
+    border: 3px solid  hsl(350, 59%, 20%);        
+    background-color:  	hsl(45, 100%, 30%);
 }
 
 @media screen and (min-width: 750px) {

@@ -45,7 +45,7 @@
     padding: 5px;
     display: flex;
     flex-direction: column;
-    font-family: 'Crimson Text', serif;
+    font-family: 'EB Garamond', serif;
 }
 
 .LearnPage__h2 {
@@ -54,7 +54,7 @@
     font-weight: 400;
     text-align: center;
     border-bottom: 1px solid black;
-    font-family: 'Crimson Text', serif;
+    font-family: 'EB Garamond', serif;
 }
 
 .LearnPage__do-link {
