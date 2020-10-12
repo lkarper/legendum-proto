@@ -51,22 +51,22 @@ const Input = (props) => {
                         page={page} 
                         savedUserInput={savedUserInput} 
                     />
-                    <label htmlFor="user-response">{page.input_label}</label>
+                    <label htmlFor='user-response'>{page.input_label}</label>
                     <input 
-                        type="text"
-                        id="user-response"
+                        type='text'
+                        id='user-response'
                         value={userInput}
                         onChange={(e) => setUserInput(e.target.value)}
-                        aria-describedby="input-error"
+                        aria-describedby='input-error'
                         required
                     />
                     <div role='alert'>
-                        <p id="input-error">{formError || 'Answer properly formatted'}</p>
+                        <p id='input-error'>{formError || 'Answer properly formatted'}</p>
                     </div>
                 </fieldset>
                 <button
                     className='Input__submit button' 
-                    type="submit"
+                    type='submit'
                     disabled={formError || !userInput}
                 >
                     Submit
