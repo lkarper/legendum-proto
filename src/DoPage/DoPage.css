@@ -4,7 +4,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    /* height: calc(100vh - 125px); */
 }
 
 .DoPage__image {
@@ -27,10 +26,6 @@
 }
 
 .DoPage__text-container-end {
-    /* position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 50%; */
     width: 100%;
     padding: 5px;
     display: flex;
@@ -97,6 +92,12 @@
 
 .DoPage__link.button {
     text-decoration: none;
+    text-align: center;
+}
+
+.DoPage__link.button:hover,
+.DoPage__link.button:focus {
+    text-decoration: underline;
 }
 
 .DoPage__end-quiz-container > .button {
@@ -114,10 +115,6 @@
         font-size: 20px;
         line-height: 26px;
     }
-
-    /* .DoPage__image {
-        max-height: 100%;
-    } */
 
     .DoPage__h2 {
         font-size: 36px;
