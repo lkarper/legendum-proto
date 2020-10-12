@@ -23,6 +23,10 @@ const MultipleChoice = (props) => {
                 incorrect_response_option_3, 
             } = page;
     
+            /* 
+                Multiple choice questions may have two or four options;
+                remove response options that aren't being used so that an empty label is not rendered.
+            */
             const choicesArray = [
                 correct_response,
                 incorrect_response_option_1,
