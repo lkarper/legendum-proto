@@ -2,12 +2,13 @@
     margin: 5px;
 }
 
-@media screen and (min-width: 1000px) {
-    .Hint__hint-text {
-        font-size: 20px;
-        line-height: 26px;
-    }
+.Hint__hint-text {
+    font-size: 20px;
+    line-height: 26px;
+    margin-right: 5px;
+}
 
+@media screen and (min-width: 1000px) {
     .Hint__add-hint-container {
         display: flex;
         align-items: center;
