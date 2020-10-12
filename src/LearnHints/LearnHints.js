@@ -27,7 +27,9 @@ const LearnHints = (props) => {
                 </button>;
     
     const hintsList = (
-        <ol>
+        <ol
+            className='LearnHints__ol'
+        >
             {page.hints
                 .sort((a, b) => a.hint_order_number - b.hint_order_number)
                 .map(hint => <Hint key={hint.hint_order_number} hint={hint} />)

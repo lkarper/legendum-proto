@@ -10,12 +10,12 @@
     flex-direction: column;
 }
 
-.LearnHints__container ol {
+.LearnHints__ol {
     padding-left: 20px;
 }
 
 @media screen and (min-width: 1000px) {
-    .LearnHints__container ol {
+    .LearnHints__ol {
         padding-left: 40px;
     }
 }
