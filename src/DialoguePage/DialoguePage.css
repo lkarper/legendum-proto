@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    /* height: calc(100% - 125px); */
 }
 
 .DialoguePage__image {
@@ -34,16 +33,11 @@
 }
 
 .DialoguePage__text-container {
-    /* position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 50%; */
     width: 100%;
     padding: 5px;
     display: flex;
     flex-direction: column;
     font-family: 'EB Garamond', serif;
-    /* font-weight: 500; */
 }
 
 .DialoguePage__begin-exercise-link {
@@ -58,12 +52,11 @@
 .DialoguePage__text {
     margin: 0;
     padding: 5px;
+    font-size: 20px;
 }
 
 .DialoguePage__button-container {
-    /* position: absolute; */
     width: 100%;
-    /* bottom: 10px; */
     margin-top: 25px;
     margin-bottom: 10px;
     display: flex;
