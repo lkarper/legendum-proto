@@ -27,7 +27,7 @@ const NextStory = (props) => {
     if (nextChapter) {
         return (
             <Link 
-                className='NextStory__link' 
+                className='NextStory__link button' 
                 to={`/game/story/${nextChapter}`}
             >
                 Pick up where you left off (chapter {nextChapter})
@@ -36,7 +36,7 @@ const NextStory = (props) => {
     } else if (context.progress.length === 0) {
         return (
             <Link 
-                className='NextStory__link' 
+                className='NextStory__link button' 
                 to={`/game/story/1`}
             >
                 Start at Chapter 1
@@ -46,7 +46,7 @@ const NextStory = (props) => {
     
     return (
         <Link 
-            className='NextStory__link' 
+            className='NextStory__link button' 
             to={`/game/story/${lastChapter}`}
         >
             Visit the last chapter again

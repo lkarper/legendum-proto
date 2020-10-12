@@ -1,3 +1,19 @@
 .NextStory__link {
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.NextStory__link {
+    color: #FFC71F;
+    text-decoration: none;
+    font-family: 'EB Garamond', serif;
+    margin: 5px 10px;
+    padding: 5px;
+}
+
+.NextStory__link:active {
+    text-decoration: underline;
+}
+
+.NextStory__link:hover {
+    color: goldenrod;
 }
