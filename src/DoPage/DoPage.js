@@ -45,6 +45,7 @@ const DoPage = (props) => {
     const checkAnswer = (event, userResponse) => {
         event.preventDefault();
         if (pageToDisplay.look_ahead) {
+            // Look ahead pages save user input for future use
             setSavedUserInput({
                 ...savedUserInput,
                 [pageToDisplay.property_to_save]: userResponse,
@@ -84,7 +85,10 @@ const DoPage = (props) => {
         );        
     } else {
         return (
-            <div className='DoPage__container'>
+            <section 
+                className='DoPage__container'
+                aria-live='polite'
+            >
                 <h2
                     className='DoPage__h2'
                 >
@@ -208,7 +212,7 @@ const DoPage = (props) => {
                     </div>
                 </div>
                 {showLoading && <LoadingSpinner />}
-            </div>
+            </section>
         );   
     }
 }
