@@ -6,6 +6,7 @@ import ProgressService from '../services/progress-service';
 import AuthApiService from '../services/auth-api-service';
 import LoginForm from '../LoginForm/LoginForm';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import './LoginPage.css';
 
 const LoginPage = (props) => {
     const { 
@@ -65,7 +66,10 @@ const LoginPage = (props) => {
     }
  
     return (
-        <>
+        <section
+            className='LoginPage__section'
+        >
+            <h2 className='LoginPage__h2'>Log in</h2>
             <LoginForm 
                 userName={userName}
                 password={password}
@@ -75,7 +79,7 @@ const LoginPage = (props) => {
                 error={error}
             />
             {showLoading && <LoadingSpinner />}
-        </>
+        </section>
     );
 }
 
