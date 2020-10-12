@@ -24,6 +24,7 @@ const NotesListFiltersForm = (props) => {
                     <legend>Filter by chapter</legend>
                     <div>
                         <input 
+                            className='NotesListFiltersForm__input radio'
                             type='radio'
                             id='show-all-notes'
                             name='filter-notes'
@@ -35,6 +36,7 @@ const NotesListFiltersForm = (props) => {
                     </div>
                     <div>
                         <input 
+                            className='NotesListFiltersForm__input radio'
                             type='radio'
                             id='show-chapt-notes'
                             name='filter-notes'
@@ -50,6 +52,7 @@ const NotesListFiltersForm = (props) => {
                 <legend>Sort by date saved</legend>
                 <div>
                     <input
+                        className='NotesListFiltersForm__input radio'
                         type='radio'
                         id='sort-rec'
                         name='sort-notes'
@@ -61,6 +64,7 @@ const NotesListFiltersForm = (props) => {
                 </div>
                 <div>
                     <input
+                        className='NotesListFiltersForm__input radio'
                         type='radio'
                         id='sort-old'
                         name='sort-notes'
