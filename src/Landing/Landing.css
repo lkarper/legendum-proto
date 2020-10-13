@@ -130,4 +130,12 @@
     .Landing__link {
         font-size: 20px;
     }
+
+    .Landing__section {
+        width: 65%;
+    }
+    
+    .Landing__section .Landing__section {
+        width: 100%;
+    }
 }
