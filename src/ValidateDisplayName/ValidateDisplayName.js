@@ -10,7 +10,7 @@ const ValidateDisplayName = (props) => {
 
     useEffect(() => {
         if (!displayName.trim().length) {
-            setDisplayNameError('Displayname required.');
+            setDisplayNameError('Display name required.');
         } else {
             setDisplayNameError('');
         }
@@ -19,20 +19,20 @@ const ValidateDisplayName = (props) => {
     const validationMessage = displayNameError
         ? 
             <p 
-                id="display-name-required"
+                id='display-name-required'
                 style={{ color: 'darkred' }}
             >
                 {displayNameError}
             </p>
         : 
             <p 
-                id="display-name-required"
+                id='display-name-required'
             >
                 Display name meets requirements.
             </p>;
     
     return (
-        <div role="alert">
+        <div role='alert'>
             {validationMessage}        
         </div>
     ); 
