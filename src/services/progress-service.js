@@ -32,6 +32,7 @@ const ProgressService = {
             );
     },
     getFetchProgressCallForUser() {
+        // Returns fetch call for use in Promise.all
         return fetch(`${config.API_ENDPOINT}/progress`, {
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
