@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import UserContext from '../contexts/UserContext';
 import Note from '../Note/Note';
-import './NotesList.css';
 import NotesListFiltersForm from '../NotesListFiltersForm/NotesListFiltersForm';
+import './NotesList.css';
 
 const NotesList = (props) => {
     const context = useContext(UserContext);
@@ -15,19 +15,21 @@ const NotesList = (props) => {
     useEffect(() => {
         const notes = [...context.notes];
 
+        // Sorts user saved notes by date of last modification 
         if (sortType === 'old') {
             notes.sort((a, b) => new Date(a.date_modified) - new Date(b.date_modified));
         } else {
             notes.sort((a, b) => new Date(b.date_modified) - new Date(a.date_modified));
         }
 
+        // Filters user saved notes by current chapter or all chapters
         if (chapterFilter === 'all') {
             setNotesToShow(notes);
         } else {
             const notesFiltered = notes.filter(note => note.chapter_number === parseInt(props.chapt));
             setNotesToShow(notesFiltered);
         }
-    }, [chapterFilter, sortType, context.notes, props.chapt])
+    }, [chapterFilter, sortType, context.notes, props.chapt]);
 
     return (
         <div className={`NotesList__container-${props.suffix}`}>
@@ -39,13 +41,18 @@ const NotesList = (props) => {
                 setSortType={setSortType}
                 setChapterFilter={setChapterFilter}
             />
-            {notesToShow.length ?
-                <ol className='NotesList__ol'>
-                    {notesToShow
-                        .map(note => <Note key={note.id} note={note}/> )
-                    }
-                </ol>
-                : <p>No notes saved yet.</p>
+            {notesToShow.length 
+                ?
+                    <ol 
+                        className='NotesList__ol'
+                        aria-live='polite'
+                    >
+                        {notesToShow
+                            .map(note => <Note key={note.id} note={note} />)
+                        }
+                    </ol>
+                : 
+                    <p>No notes saved yet.</p>
             }
         </div>
     );
