@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import UserContext from '../contexts/UserContext';
 import NotesService from '../services/notes-service';
@@ -22,8 +22,14 @@ const LoginPage = (props) => {
     const [showLoading, setShowLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const onLoginSuccess = () => {
-        const destination = (location.state || {}).from || '/dashboard';
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [props]);
+
+    const onLoginSuccess = (demo) => {
+        const destination = demo 
+            ? '/dashboard'
+            : (location.state || {}).from || '/dashboard';
         Promise.all([
             NotesService.getFetchNotesCallByUser(), 
             ProgressService.getFetchProgressCallForUser()
@@ -57,7 +63,26 @@ const LoginPage = (props) => {
                 setError('');
                 setUserName('');
                 setPassword('');
-                onLoginSuccess();
+                onLoginSuccess(false);
+            })
+            .catch(res => {
+                setShowLoading(false);
+                setError(res.error);
+            });
+    }
+
+    const demoLogin = () => {
+        setShowLoading(true);
+        setError('');
+        AuthApiService.postLogin({
+            user_name: 'demoUser',
+            password: 'DemoPassword123!'
+        })
+            .then(res => {
+                setError('');
+                setUserName('');
+                setPassword('');
+                onLoginSuccess(true);
             })
             .catch(res => {
                 setShowLoading(false);
@@ -78,6 +103,19 @@ const LoginPage = (props) => {
                 handleLogin={handleLogin}
                 error={error}
             />
+            <section 
+                className='LoginPage__section'
+            >
+                <h3>Want to try all of the features without creating an account?</h3>
+                <p>Try out Legendum by using a demo account before creating an account of your own.</p>
+                <button
+                    className='LoginPage__demo button'
+                    type='button'
+                    onClick={demoLogin}
+                >
+                    Try Legendum with a demo account
+                </button>
+            </section>
             {showLoading && <LoadingSpinner />}
         </section>
     );

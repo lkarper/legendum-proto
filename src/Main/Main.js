@@ -19,7 +19,7 @@ const Main = (props) => {
             <Switch>
                 <Route 
                     exact path='/'
-                    component={Landing}
+                    render={rProps => <Landing {...rProps} forceUpdate={forceUpdate} />} 
                 />
                 <Route 
                     path={['/game/story/:chapt', '/game/exercises/:chapt']}

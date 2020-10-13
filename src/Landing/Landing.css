@@ -70,6 +70,45 @@
     line-height: 28px;
 }
 
+.Landing__link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #FFC71F;
+    background-color: #721D2B;
+    padding: 5px;
+    width: 90%;
+    margin: 5px auto;
+}
+
+.Landing__link {
+    color: #FFC71F;
+    text-decoration: none;
+    font-family: 'EB Garamond', serif;
+    margin: 5px 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.Landing__link:active {
+    text-decoration: underline;
+}
+
+.Landing__link:hover {
+    color: goldenrod;
+}
+
+.Landing__demo {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.Landing__p.error {
+    color: darkred;
+}
+
 @media screen and (min-width: 1000px) {
     .Landing__greeting-image {
         max-width: 50%;
@@ -81,5 +120,14 @@
 
     .Landing__arrow:after {
         top: -22px;
+    }
+
+    .Landing__link-container {
+        width: 50%;
+        margin-top: 15px;
+    }
+
+    .Landing__link {
+        font-size: 20px;
     }
 }
