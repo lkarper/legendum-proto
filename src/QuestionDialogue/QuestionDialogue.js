@@ -11,6 +11,11 @@ const QuestionDialogue = (props) => {
     if (Object.keys(page).length === 0) {
         return <p>Error: Looks like something went wrong. Check your connection and try again.</p>;
     } else if (page.dialogue_look_back) {
+
+        /* 
+            If a page contains a 'dialogue_look_back', then the app alters the dialogue based on user input; 
+            the user's input is inserted into the dialogue
+        */
         const dialogueArray = page.dialogue.split('|');
         const dialogueToDisplay = `${dialogueArray[0]}${savedUserInput[page.dialogue_to_look_for]}${dialogueArray[1]}`;
         return <p className='QuestionDialogue__text'>{dialogueToDisplay}</p>;
