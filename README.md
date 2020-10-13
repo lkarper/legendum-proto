@@ -1,68 +1,47 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Legendum
 
-## Available Scripts
+## Demo and API
+[Live Demo](https://legendum.herokuapp.com/)
 
-In the project directory, you can run:
+[API](https://github.com/lkarper/legendum-server)
 
-### `yarn start`
+## Summary
+Legendum is a Latin learning app that uses stories, images, and short quizzes to teach Latin!  Registered users can track their progress through the story's chapters and save grammatical notes that they can reference later.  You don't need to register to learn, but you'll need an account to save your own notes and your progress.  This demo version of Legendum contains two chapters.  The goal is to release new chapters regularly in the future.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How does Legendum Work?
+Legendum was designed with two goals in mind: keep the learner engaged and build the learner's confidence.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Engagement Through Stories and Images
+Legendum is designed like a game and users learn Latin by completing chapters in a story.  The story is full of fun characters, charming images, and the occasional bit of witty banter.  Each chapter begins with a scene in English designed to engage users in the learning process.
 
-### `yarn test`
+You can get started with [Chapter 1](https://legendum.herokuapp.com/game/story/1)!
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Build your Confidence with Comprehensible Input
+After the user reads through the introduction, the chapter's Latin lesson begins. Lessons are designed on the principles of Comprehensible Input. In short, proponents of this theory of language learning argue that the best way to learn a language is to be exposed to it without the filter of another language.
 
-### `yarn build`
+Legendum uses short sentences, repetition, and images to help students understand the Latin that they are reading without having to translate it in their heads!  There are, however, hints, explanations, and tips throughout the lesson that a user can toggle on and off. This means that users can avoid the stress of "not knowing" what's going on. Stress is a major impediment to language learning, so Legendum aims to make learning Latin as stress-free as possible!  Registered users can save the grammatical tidbits that are presented and can even add personal notes.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Too exicted about Latin to start with an English scene?  Jump right in and start learning with [Exercise One](https://legendum.herokuapp.com/game/exercises/1/learn)!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Test yourself with Short Quizzes
+Each lesson is followed by a short quiz that helps users gauge their comprehension and retention.  These quizzes are low-stress undertakings.  If an incorrect answer is given, the user is presented with a short hint or explanation on why the answer is incorrect.  Users can simply try again if they get the question wrong and overall "grades" are not kept.  Registered users have access to their notes throughout.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Already know some Latin and want to test yourself out right away?  [Try the first quiz!](https://legendum.herokuapp.com/game/exercises/1/do)
 
-### `yarn eject`
+## Get Started
+Get started by [registering](https://legendum.herokuapp.com/register) for an account!
+Registered users can track their progress through lessons and stories, see how many times they've completed each chapter, and access and edit their notes on the [dashboard](https://legendum.herokuapp.com/dashboard).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Don't want to register just yet? Jump right into [Chapter 1](https://legendum.herokuapp.com/game/story/1)!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Created With
+* React
+* React Router
+* Node.js
+* HTML
+* CSS
+* JavaScript
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Tested With
+* Jest
+* Enzyme
