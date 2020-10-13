@@ -87,7 +87,7 @@ const Landing = (props) => {
                     <h2>What is Legendum?</h2>
                 </header>
                 <p>Legendum is a Latin learning app that uses stories, images, and short quizzes to teach Latin!</p>
-                <p>This is a demo version of Legendum designed to get initial feedback from users. The site is now hooked up to a backend server, so you can now create an account and save your own notes and progress!</p>
+                <p>Registered users can track their progress through the story's chapters and save grammatical notes that they can reference later.</p>
                 <div
                     className='Landing__link-container'
                 >
@@ -142,7 +142,7 @@ const Landing = (props) => {
                         <h3>Engagement Through Stories and Images</h3>
                     </header>
                     <p>Legendum is designed like a game and users learn Latin by completing chapters in a story. The story is full of fun characters, charming images, and the occasional bit of witty banter.</p>
-                    <p>Each chapter begins with a story in English that sets the scene.</p>
+                    <p>Each chapter begins with a scene in English designed to engage users in the learning process</p>
                     <div
                         className='Landing__link-container'
                     >
@@ -160,11 +160,11 @@ const Landing = (props) => {
                     <header>
                         <h3>Build your Confidence with Comprehensible Input</h3>
                     </header>
-                    <p>After the user reads through the story, the chapter's Latin lesson begins. Lessons are designed on the principles of Comprehensible Input. In short, proponents of this theory of language learning argue that the best way to learn a language is to be exposed to it without the filter of another language.</p>
+                    <p>After the user reads through the introduction, the chapter's Latin lesson begins. Lessons are designed on the principles of Comprehensible Input. In short, proponents of this theory of language learning argue that the best way to learn a language is to be exposed to it without the filter of another language.</p>
                     <p>Legendum uses short sentences, repetition, and images to help students understand the Latin that they are reading without having to translate it in their heads!</p>
                     <p>There are, however, hints, explanations, and tips throughout the lesson that a user can toggle on and off. This means that users can avoid the stress of "not knowing" what's going on. Stress is a major impediment to language learning, so Legendum aims to make learning Latin as stress-free as possible!</p>
                     <p>Registered users can save the grammatical tidbits that are presented and can even add personal notes.</p>
-                    <p>Too exicted about Latin to start with an English story?</p> 
+                    <p>Too exicted about Latin to start with an English scene?</p> 
                     <div
                         className='Landing__link-container'
                     >
@@ -180,7 +180,7 @@ const Landing = (props) => {
                     className='Landing__section'
                 >
                     <header>
-                        <h3>Test yourself with short quizzes</h3>
+                        <h3>Test yourself with Short Quizzes</h3>
                     </header>
                     <p>Each lesson is followed by a short quiz that helps users gauge their comprehension and retention.</p>
                     <p>These quizzes are low-stress undertakings. If an incorrect answer is given, the user is presented with a short hint or explanation on why the answer is incorrect. Users can simply try again if they get the question wrong and overall "grades" are not kept. Registered users have access to their notes throughout.</p>
@@ -211,7 +211,7 @@ const Landing = (props) => {
                             className='Landing__link' 
                             to='/dashboard'
                         >
-                            Checkout the dashboard!
+                            Check out the dashboard!
                         </Link>
                     </div>
                 </section>
