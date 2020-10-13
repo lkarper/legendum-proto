@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './Landing.css';
 
 const Landing = (props) => {
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [props]);
@@ -68,7 +67,7 @@ const Landing = (props) => {
                     <p>Legendum uses short sentences, repetition, and images to help students understand the Latin that they are reading without having to translate it in their heads!</p>
                     <p>There are, however, hints, explanations, and tips throughout the lesson that a user can toggle on and off. This means that users can avoid the stress of "not knowing" what's going on. Stress is a major impediment to language learning, so Legendum aims to make learning Latin as stress-free as possible!</p>
                     <p>Registered users can save the grammatical tidbits that are presented and can even add personal notes.</p>
-                    <p>Too exicted about Latin to start with an English story? Jump right in and <Link to ='/game/exercises/1/learn'>starting learning with Exercise One</Link></p>  
+                    <p>Too exicted about Latin to start with an English story? Jump right in and <Link to ='/game/exercises/1/learn'>starting learning with Exercise One</Link>!</p>  
                 </section>
                 <section
                     className='Landing__section'
