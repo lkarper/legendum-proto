@@ -15,6 +15,7 @@ const UserCorrect = (props) => {
         <p 
             className='UserCorrect__message'
         >
+            {/* If a question has no 'correct_response' listed, then it merely saves user input */}
             {page.correct_response 
                 ? 'Correct! ' 
                 : 'Thanks for the input; be sure to remember what you wrote! '
