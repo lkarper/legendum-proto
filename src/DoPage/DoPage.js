@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import xss from 'xss';
 import PropTypes from 'prop-types';
 import TokenService from '../services/token-service';
 import ProgressService from '../services/progress-service';
@@ -48,7 +49,7 @@ const DoPage = (props) => {
             // Look ahead pages save user input for future use
             setSavedUserInput({
                 ...savedUserInput,
-                [pageToDisplay.property_to_save]: userResponse,
+                [pageToDisplay.property_to_save]: xss(userResponse),
             });
             setUserIncorrect();
             setUserCorrect(userResponse);
