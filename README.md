@@ -16,6 +16,11 @@ Legendum is designed like a game and users learn Latin by completing chapters in
 
 You can get started with [Chapter 1](https://legendum.herokuapp.com/game/story/1)!
 
+Scenes from English introductions:
+![A scene from a Legendum English intro.](public/images/screenshots/story_1.png)
+![A scene from a Legendum English intro.](public/images/screenshots/story_2.png)
+
+
 ### Build your Confidence with Comprehensible Input
 After the user reads through the introduction, the chapter's Latin lesson begins. Lessons are designed on the principles of Comprehensible Input. In short, proponents of this theory of language learning argue that the best way to learn a language is to be exposed to it without the filter of another language.
 
@@ -23,14 +28,28 @@ Legendum uses short sentences, repetition, and images to help students understan
 
 Too exicted about Latin to start with an English scene?  Jump right in and start learning with [Exercise One](https://legendum.herokuapp.com/game/exercises/1/learn)!
 
+How Legendum teaches:
+![A scene from a Legendum Latin lesson.](public/images/screenshots/learn_1.png)
+![A scene from a Legendum Latin lesson.](public/images/screenshots/learn_2.png)
+![Legendum exercise hints](public/images/screenshots/hints.png)
+![A registered user's saved notes](public/images/screenshots/notes.png)
+
 ### Test yourself with Short Quizzes
 Each lesson is followed by a short quiz that helps users gauge their comprehension and retention.  These quizzes are low-stress undertakings.  If an incorrect answer is given, the user is presented with a short hint or explanation on why the answer is incorrect.  Users can simply try again if they get the question wrong and overall "grades" are not kept.  Registered users have access to their notes throughout.
 
 Already know some Latin and want to test yourself out right away?  [Try the first quiz!](https://legendum.herokuapp.com/game/exercises/1/do)
 
+Legendum quiz questions:
+![A scene from a Legendum review quiz.](public/images/screenshots/do_1.png)
+![A scene from a Legendum review quiz.](public/images/screenshots/do_2.png)
+
 ## Get Started
 Get started by [registering](https://legendum.herokuapp.com/register) for an account!
 Registered users can track their progress through lessons and stories, see how many times they've completed each chapter, and access and edit their notes on the [dashboard](https://legendum.herokuapp.com/dashboard).
+
+The Legendum dashbaord:
+![The Legendum dashboard.](public/images/screenshots/dashboard_1.png)
+![The Legendum dashboard.](public/images/screenshots/dashboard_2.png)
 
 Don't want to register just yet? Jump right into [Chapter 1](https://legendum.herokuapp.com/game/story/1)!
 
