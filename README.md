@@ -47,7 +47,7 @@ Legendum quiz questions:
 Get started by [registering](https://legendum.herokuapp.com/register) for an account!
 Registered users can track their progress through lessons and stories, see how many times they've completed each chapter, and access and edit their notes on the [dashboard](https://legendum.herokuapp.com/dashboard).
 
-The Legendum dashbaord:
+The Legendum dashboard:
 ![The Legendum dashboard.](public/images/screenshots/dashboard_1.png)
 ![The Legendum dashboard.](public/images/screenshots/dashboard_2.png)
 
