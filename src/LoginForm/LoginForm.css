@@ -16,7 +16,7 @@
 
 .LoginForm__error {
     font-family: 'EB Garamond', serif;
-    color: red;
+    color: darkred;
     font-weight: bold;
     font-size: 20px;
     margin: 10px;
