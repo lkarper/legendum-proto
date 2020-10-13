@@ -41,7 +41,6 @@ const Landing = (props) => {
             })
             .catch(error => {
                 setShowLoading(false);
-                console.log('error', error);
                 context.setError(true);
             });
     }

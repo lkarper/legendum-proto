@@ -30,7 +30,6 @@ const Hint = (props) => {
                 setApiError(false);
             })
             .catch(error => {
-                console.log('error', error);
                 setApiError(true);
             });
     }

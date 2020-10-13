@@ -36,7 +36,6 @@ const Story = (props) => {
                 setApiError(true);
                 setShowLoading(false);
                 window.scrollTo(0, document.querySelector('.Story__alert-div').offsetTop - document.querySelector('.Header__header').offsetHeight);
-                console.log('error', error);
             });
     }, [chapt]);
 

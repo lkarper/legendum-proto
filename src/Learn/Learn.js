@@ -27,7 +27,6 @@ const Learn = (props) => {
                 setApiError(true);
                 setShowLoading(false);
                 window.scrollTo(0, document.querySelector('.Learn__alert-div').offsetTop - document.querySelector('.Header__header').offsetHeight);
-                console.log('error', error);
             });
     }, [chapt]);
 

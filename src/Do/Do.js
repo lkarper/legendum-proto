@@ -27,7 +27,6 @@ const Do = (props) => {
                 setShowLoading(false);
             })
             .catch(error => {
-                console.log('error', error);
                 setApiError(true);
                 setShowLoading(false);
                 window.scrollTo(0, document.querySelector('.Do__alert-div').offsetTop - document.querySelector('.Header__header').offsetHeight);

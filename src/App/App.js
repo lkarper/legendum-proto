@@ -89,7 +89,6 @@ const App = (props) => {
                     setProgress(progress);
                 })
                 .catch(error => {
-                    console.log('error', error);
                     setError(true);
                 });
         }
@@ -101,7 +100,6 @@ const App = (props) => {
                 setExercises(exercises);
             })
             .catch(error => {
-                console.log('error', error);
                 setError(true);
             });
     }, [props, setNotes, setError, setProgress, setExercises]);

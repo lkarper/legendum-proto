@@ -73,7 +73,6 @@ const DoPage = (props) => {
                     props.history.push(url);
                 })
                 .catch(error => {
-                    console.log('error', error);
                     setShowLoading(false);
                     setError(true);
                 });

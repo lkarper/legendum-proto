@@ -46,7 +46,6 @@ const LoginPage = (props) => {
             })
             .catch(error => {
                 setShowLoading(false);
-                console.log('error', error);
                 context.setError(true);
             });
     }

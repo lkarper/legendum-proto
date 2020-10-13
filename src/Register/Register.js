@@ -45,7 +45,6 @@ const Register = (props) => {
             })
             .catch(res => {
                 setApiError(res.error);
-                console.log('error', res.error);
                 window.scrollTo(0, document.querySelector('.Register__alert-div').offsetTop - document.querySelector('.Header__header').offsetHeight);
             });
     }
