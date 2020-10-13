@@ -28,8 +28,11 @@
     padding-left: 20px;
 }
 
-@media screen and (min-width: 1000px) {
+.NotesList__ol .SaveHint__form {
+    margin-top: 10px;
+}
 
+@media screen and (min-width: 1000px) {
     .NotesList__ol {
         padding-left: 30px;
     }
