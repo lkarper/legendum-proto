@@ -26,7 +26,7 @@ const Story = (props) => {
                 throw new Error (res.statusText);
             })
             .then(data => {
-                setStoryTitle(data.story_title)
+                setStoryTitle(data.story_title);
                 const pages = data.pages.sort((a, b) => a.page - b.page);
                 setDialogue(pages);
                 setShowLoading(false);
@@ -41,7 +41,10 @@ const Story = (props) => {
     }, [chapt]);
 
     return (
-        <div className='Story__container'>
+        <section 
+            className='Story__container'
+            aria-live='polite'
+        >
             {dialogue.length !== 0 &&
                 <>
                     <h2 className='Story__h2'>{storyTitle}</h2>
@@ -62,7 +65,7 @@ const Story = (props) => {
             >
                 {apiError && <p>Error: Looks like something went wrong. Check your connection and the url and try again.</p>}
             </div>
-        </div>
+        </section>
     );
 }
 
