@@ -59,7 +59,7 @@ const AuthApiService = {
                 : res.json()
         )
         .then(res => {
-            
+
             // Saves new jwt to local storage
             TokenService.saveAuthToken(res.authToken);
 
