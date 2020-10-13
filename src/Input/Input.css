@@ -1,10 +1,10 @@
 .Input__container legend {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .Input__submit {
     margin: 5px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .Input__container input[type="text"] {

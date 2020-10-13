@@ -16,6 +16,15 @@ section section {
 
 p {
     line-height: 22px;
+    font-size: 20px;
+}
+
+label {
+    font-size: 20px;
+}
+
+input[type='text'] {
+    font-size: 20px;
 }
 
 .button {
@@ -87,8 +96,8 @@ p {
   
 .radio:focus:checked + label::before,
 .radio:hover:checked + label::before {
-    border: 3px solid  hsl(350, 59%, 20%);        
-    background-color:  	hsl(45, 100%, 30%);
+    border: 3px solid hsl(350, 59%, 20%);        
+    background-color: goldenrod;
 }
 
 @media screen and (min-width: 750px) {

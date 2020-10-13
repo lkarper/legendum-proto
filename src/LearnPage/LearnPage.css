@@ -71,6 +71,7 @@
     margin: 0;
     padding: 5px;
     font-size: 24px;
+    line-height: 28px;
 }
 
 .LearnPage__button-container {
@@ -88,11 +89,6 @@
 }
 
 @media screen and (min-width: 1000px) {
-    .LearnPage__text {
-        font-size: 20px;
-        line-height: 26px;
-    }
-
     .LearnPage__h2 {
         font-size: 36px;
         padding: 10px;

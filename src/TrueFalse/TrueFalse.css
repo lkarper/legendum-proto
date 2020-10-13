@@ -1,14 +1,14 @@
 .TrueFalse__container legend {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .TrueFalse__container label {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .TrueFalse__submit {
     margin: 5px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .TrueFalse__input-div {
