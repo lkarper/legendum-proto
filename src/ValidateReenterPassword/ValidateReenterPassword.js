@@ -20,16 +20,16 @@ const ValidateReenterPassword = (props) => {
     const validationMessage = reenterPasswordError
         ? 
             <p 
-                id="reenter-password-error"
+                id='reenter-password-error'
                 style={{ color: 'darkred' }}
             >
                 {reenterPasswordError}
             </p>
         :
-            <p id="reenter-password-error">Passwords match.</p>;
+            <p id='reenter-password-error'>Passwords match.</p>;
 
     return (
-        <div role="alert">
+        <div role='alert'>
             {validationMessage}
         </div>
     );

@@ -83,9 +83,9 @@ const ValidatePassword = (props) => {
             {/* Not visible on screen, but in the DOM for users of assistive technology */}
             <div
                 className='ValidatePassword__error-container'
-                role="alert"
+                role='alert'
             >
-                <p id="password-error-message">
+                <p id='password-error-message'>
                     {passwordErrorMessage.length 
                         ? passwordErrorMessage.join(' ') 
                         : 'Password meets all requirements.'

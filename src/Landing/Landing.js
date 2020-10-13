@@ -10,8 +10,8 @@ const Landing = (props) => {
     return (
         <>
             <div className='Landing__image-container'>
-                <div className="Landing__speech-bubble-container">
-                    <div className="Landing__speech-bubble">
+                <div className='Landing__speech-bubble-container'>
+                    <div className='Landing__speech-bubble'>
                         <p className='Landing__speech-text'>Welcome!</p>
                     </div>
                     <div aria-hidden='true' className='Landing__arrow-container'>
@@ -37,7 +37,7 @@ const Landing = (props) => {
                 <p><Link to='/register'>Click here</Link> to create an account and get started!</p>
                 <p>(You don't need to register to learn, but you'll need an account to save your own notes and your progress.)</p>
                 <p>This demo version of Legendum contains two chapters.  The goal is to release new chapters regularly in the future.</p>
-                <p>After you test the app, please fill out this <a className="Landing__feedback-link" href="https://forms.gle/VrAvhA4pQ4SxARf89" target="_blank" rel="noopener noreferrer">form</a>!</p>
+                <p>After you test the app, please fill out this <a className='Landing__feedback-link' href='https://forms.gle/VrAvhA4pQ4SxARf89' target='_blank' rel='noopener noreferrer'>form</a>!</p>
                 <p>Thank you! Thank you! Thank you!</p>
             </section>
             <section

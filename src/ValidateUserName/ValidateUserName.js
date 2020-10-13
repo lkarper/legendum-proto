@@ -19,21 +19,21 @@ const ValidateUserName = (props) => {
     const validationMessage  = userNameError 
         ?             
             <p 
-                id="username-required"
+                id='username-required'
                 style={{ color: 'darkred' }}
             >
                 {userNameError}
             </p>
         : 
             <p 
-                id="username-required"
+                id='username-required'
             >
                 Username meets requirements.
             </p>;
     
     return (
         <div 
-            role="alert"
+            role='alert'
         >
             {validationMessage}
         </div>

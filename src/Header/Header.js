@@ -24,7 +24,7 @@ const Header = (props) => {
     const location = Object.keys(props).includes('location') ? props.location.pathname : '/dashboard';
 
     const logoutLink = (
-        <div className="Header__links-container">
+        <div className='Header__links-container'>
             <Link
                 to='/dashboard'
                 className='Header__link'
@@ -36,7 +36,7 @@ const Header = (props) => {
                 icon={['fab', 'pagelines']} 
             />
             <Link
-                className="Header__link"
+                className='Header__link'
                 onClick={handleLogout}
                 to='/'
             >
@@ -46,9 +46,9 @@ const Header = (props) => {
     );
 
     const loginLink = (
-        <div className="Header__links-container">
+        <div className='Header__links-container'>
             <Link 
-                className="Header__link" 
+                className='Header__link' 
                 to='/register'
             >
                 Register
@@ -58,7 +58,7 @@ const Header = (props) => {
                 icon={['fab', 'pagelines']} 
             />
             <Link
-                className="Header__link" 
+                className='Header__link' 
                 to={{
                     pathname: '/login',
                     state: { from: location || '/dashboard' }
@@ -70,9 +70,9 @@ const Header = (props) => {
     );
 
     return (
-        <header className="Header__header">
-            <nav className="Header__nav">
-                <h1 className="Header__h1">
+        <header className='Header__header'>
+            <nav className='Header__nav'>
+                <h1 className='Header__h1'>
                     <Link 
                         className='Header__home-link'
                         to='/'

@@ -8,15 +8,15 @@ const Game = (props) => {
     return (
         <>
             <Route 
-                path="/game/story/:chapt"
+                path='/game/story/:chapt'
                 component={Story}
             />
             <Route 
-                path="/game/exercises/:chapt"
+                path='/game/exercises/:chapt'
                 component={Exercise}
             />
             <Route 
-                path={["/game/exercises/:chapt", "/game/story/:chapt"]}
+                path={['/game/exercises/:chapt', '/game/story/:chapt']}
                 component={NotesWidget}
             />
         </>

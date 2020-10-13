@@ -20,7 +20,7 @@ const ValidateCustomNote = (props) => {
     }, [customNote, setCustomNoteError]);
 
     return (
-        <div role="alert">
+        <div role='alert'>
             {customNoteError}
         </div>
     );

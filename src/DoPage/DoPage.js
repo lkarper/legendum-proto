@@ -156,7 +156,7 @@ const DoPage = (props) => {
                         </button>
                     </div>
                     <div 
-                        role="alert" 
+                        role='alert' 
                         className='DoPage__end-quiz-container'
                     >
                         {endQuiz && 

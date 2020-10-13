@@ -107,7 +107,7 @@ const App = (props) => {
     }, [props, setNotes, setError, setProgress, setExercises]);
 
     return (
-        <div className="App">
+        <div className='App'>
             <Header forceUpdate={forceUpdate} />
             <MainBackground />
             <ErrorBoundary>

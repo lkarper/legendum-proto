@@ -20,7 +20,7 @@ const DialogueResponse = (props) => {
     } else {
         const { responses_to_choices } = dialogue[page - 1];
 
-        const responsesArray = responses_to_choices.split("|");
+        const responsesArray = responses_to_choices.split('|');
         
         return (
             <p 
