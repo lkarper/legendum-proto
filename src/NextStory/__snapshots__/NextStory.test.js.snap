@@ -26,16 +26,16 @@ exports[`NextStory component renders the UI as expected 1`] = `
   >
     <NextStory>
       <Link
-        className="NextStory__link"
+        className="NextStory__link button"
         to="/game/story/1"
       >
         <LinkAnchor
-          className="NextStory__link"
+          className="NextStory__link button"
           href="/game/story/1"
           navigate={[Function]}
         >
           <a
-            className="NextStory__link"
+            className="NextStory__link button"
             href="/game/story/1"
             onClick={[Function]}
           >

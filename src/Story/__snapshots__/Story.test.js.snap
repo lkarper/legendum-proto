@@ -10,7 +10,8 @@ exports[`Story component renders the UI as expected 1`] = `
     }
   }
 >
-  <div
+  <section
+    aria-live="polite"
     className="Story__container"
   >
     <LoadingSpinner>
@@ -38,6 +39,6 @@ exports[`Story component renders the UI as expected 1`] = `
       className="Story__alert-div"
       role="alert"
     />
-  </div>
+  </section>
 </Story>
 `;

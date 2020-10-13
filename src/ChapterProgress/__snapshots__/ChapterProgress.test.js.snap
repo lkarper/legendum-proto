@@ -28,7 +28,9 @@ exports[`ChapterProgress component renders the UI as expected 1`] = `
       exercise={Object {}}
     >
       <li>
-        <h4>
+        <h4
+          className="ChapterProgress__h4"
+        >
           Error
         </h4>
         <p>

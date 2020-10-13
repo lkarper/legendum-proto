@@ -16,22 +16,22 @@ exports[`LoginPage component renders the UI as expected 1`] = `
     }
   }
 >
-  <LoginForm
-    error=""
-    handleLogin={[Function]}
-    password=""
-    setPassword={[Function]}
-    setUserName={[Function]}
-    userName=""
+  <section
+    className="LoginPage__section"
   >
-    <div
-      className="LoginForm__container"
+    <h2
+      className="LoginPage__h2"
     >
-      <h2
-        className="LoginForm__h2"
-      >
-        Login
-      </h2>
+      Log in
+    </h2>
+    <LoginForm
+      error=""
+      handleLogin={[Function]}
+      password=""
+      setPassword={[Function]}
+      setUserName={[Function]}
+      userName=""
+    >
       <form
         className="LoginForm__form"
         onSubmit={[Function]}
@@ -84,7 +84,7 @@ exports[`LoginPage component renders the UI as expected 1`] = `
           Login
         </button>
       </form>
-    </div>
-  </LoginForm>
+    </LoginForm>
+  </section>
 </LoginPage>
 `;

@@ -259,6 +259,7 @@ exports[`Main component renders the UI as expected 1`] = `
                         </a>
                       </LinkAnchor>
                     </Link>
+                    !
                   </p>
                 </section>
                 <section
