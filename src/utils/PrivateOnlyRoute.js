@@ -20,7 +20,7 @@ const PrivateRoute = ({ component, ...props }) => {
                         />
             )}
         />
-    )
+    );
 }
 
 export default PrivateRoute;
