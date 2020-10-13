@@ -1,5 +1,12 @@
+.RegistrationForm__form {
+    line-height: 28px;
+}
+
+.RegistrationForm__form label {
+    margin-right: 5px;
+}
+
 .RegistrationForm__form input {
-    margin-left: 5px;
     font-family: 'EB Garamond', serif;
 }
 
