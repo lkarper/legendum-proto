@@ -24,7 +24,14 @@ exports[`Landing component renders the UI as expected 1`] = `
       }
     }
   >
-    <Landing>
+    <Landing
+      forceUpdate={[Function]}
+      history={
+        Object {
+          "push": [Function],
+        }
+      }
+    >
       <div
         className="Landing__image-container"
       >
@@ -73,47 +80,59 @@ exports[`Landing component renders the UI as expected 1`] = `
           Legendum is a Latin learning app that uses stories, images, and short quizzes to teach Latin!
         </p>
         <p>
-          This is a demo version of Legendum designed to get initial feedback from users. The site is now hooked up to a backend server, so you can now create an account and save your own notes and progress!
+          Registered users can track their progress through the story's chapters and save grammatical notes that they can reference later.
         </p>
-        <p>
+        <div
+          className="Landing__link-container"
+        >
           <Link
+            className="Landing__link"
             to="/register"
           >
             <LinkAnchor
+              className="Landing__link"
               href="/register"
               navigate={[Function]}
             >
               <a
+                className="Landing__link"
                 href="/register"
                 onClick={[Function]}
               >
-                Click here
+                Click here to create an account and get started!
               </a>
             </LinkAnchor>
           </Link>
-           to create an account and get started!
-        </p>
+        </div>
         <p>
           (You don't need to register to learn, but you'll need an account to save your own notes and your progress.)
         </p>
         <p>
           This demo version of Legendum contains two chapters.  The goal is to release new chapters regularly in the future.
         </p>
+      </section>
+      <section
+        className="Landing__section"
+      >
+        <header>
+          <h2>
+            Want to try all of the features without creating an account?
+          </h2>
+        </header>
         <p>
-          After you test the app, please fill out this 
-          <a
-            className="Landing__feedback-link"
-            href="https://forms.gle/VrAvhA4pQ4SxARf89"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            form
-          </a>
-          !
+          Try out Legendum by using a demo account before creating an account of your own.
         </p>
-        <p>
-          Thank you! Thank you! Thank you!
-        </p>
+        <button
+          className="Landing__demo button"
+          onClick={[Function]}
+          type="button"
+        >
+          Try Legendum with a demo account
+        </button>
+        <div
+          className="Landing__alert-div"
+          role="alert"
+        />
       </section>
       <section
         className="Landing__section"
@@ -138,26 +157,30 @@ exports[`Landing component renders the UI as expected 1`] = `
             Legendum is designed like a game and users learn Latin by completing chapters in a story. The story is full of fun characters, charming images, and the occasional bit of witty banter.
           </p>
           <p>
-            Each chapter begins with a story in English that sets the scene.
+            Each chapter begins with a scene in English designed to engage users in the learning process
           </p>
-          <p>
+          <div
+            className="Landing__link-container"
+          >
             <Link
+              className="Landing__link"
               to="/game/story/1"
             >
               <LinkAnchor
+                className="Landing__link"
                 href="/game/story/1"
                 navigate={[Function]}
               >
                 <a
+                  className="Landing__link"
                   href="/game/story/1"
                   onClick={[Function]}
                 >
-                  Click here
+                  Click here to get started with Chapter 1!
                 </a>
               </LinkAnchor>
             </Link>
-             to get started with Chapter 1!
-          </p>
+          </div>
         </section>
         <section
           className="Landing__section"
@@ -168,7 +191,7 @@ exports[`Landing component renders the UI as expected 1`] = `
             </h3>
           </header>
           <p>
-            After the user reads through the story, the chapter's Latin lesson begins. Lessons are designed on the principles of Comprehensible Input. In short, proponents of this theory of language learning argue that the best way to learn a language is to be exposed to it without the filter of another language.
+            After the user reads through the introduction, the chapter's Latin lesson begins. Lessons are designed on the principles of Comprehensible Input. In short, proponents of this theory of language learning argue that the best way to learn a language is to be exposed to it without the filter of another language.
           </p>
           <p>
             Legendum uses short sentences, repetition, and images to help students understand the Latin that they are reading without having to translate it in their heads!
@@ -180,31 +203,37 @@ exports[`Landing component renders the UI as expected 1`] = `
             Registered users can save the grammatical tidbits that are presented and can even add personal notes.
           </p>
           <p>
-            Too exicted about Latin to start with an English story? Jump right in and 
+            Too exicted about Latin to start with an English scene?
+          </p>
+          <div
+            className="Landing__link-container"
+          >
             <Link
+              className="Landing__link"
               to="/game/exercises/1/learn"
             >
               <LinkAnchor
+                className="Landing__link"
                 href="/game/exercises/1/learn"
                 navigate={[Function]}
               >
                 <a
+                  className="Landing__link"
                   href="/game/exercises/1/learn"
                   onClick={[Function]}
                 >
-                  starting learning with Exercise One
+                  Jump right in and start learning with Exercise One!
                 </a>
               </LinkAnchor>
             </Link>
-            !
-          </p>
+          </div>
         </section>
         <section
           className="Landing__section"
         >
           <header>
             <h3>
-              Test yourself with short quizzes
+              Test yourself with Short Quizzes
             </h3>
           </header>
           <p>
@@ -214,15 +243,22 @@ exports[`Landing component renders the UI as expected 1`] = `
             These quizzes are low-stress undertakings. If an incorrect answer is given, the user is presented with a short hint or explanation on why the answer is incorrect. Users can simply try again if they get the question wrong and overall "grades" are not kept. Registered users have access to their notes throughout.
           </p>
           <p>
-            Already know some Latin and want to test yourself out right away? 
+            Already know some Latin and want to test yourself out right away?
+          </p>
+          <div
+            className="Landing__link-container"
+          >
             <Link
+              className="Landing__link"
               to="/game/exercises/1/do"
             >
               <LinkAnchor
+                className="Landing__link"
                 href="/game/exercises/1/do"
                 navigate={[Function]}
               >
                 <a
+                  className="Landing__link"
                   href="/game/exercises/1/do"
                   onClick={[Function]}
                 >
@@ -230,7 +266,7 @@ exports[`Landing component renders the UI as expected 1`] = `
                 </a>
               </LinkAnchor>
             </Link>
-          </p>
+          </div>
         </section>
         <section
           className="Landing__section"
@@ -241,24 +277,33 @@ exports[`Landing component renders the UI as expected 1`] = `
             </h3>
           </header>
           <p>
-            Registered users can track their progress through lessons and stories, see how many times they've completed each chapter, and access and edit their notes on the 
+            Registered users can track their progress through lessons and stories, see how many times they've completed each chapter, and access and edit their notes on the dashboard.
+          </p>
+          <p>
+            Already have an account?
+          </p>
+          <div
+            className="Landing__link-container"
+          >
             <Link
+              className="Landing__link"
               to="/dashboard"
             >
               <LinkAnchor
+                className="Landing__link"
                 href="/dashboard"
                 navigate={[Function]}
               >
                 <a
+                  className="Landing__link"
                   href="/dashboard"
                   onClick={[Function]}
                 >
-                  dashboard
+                  Check out the dashboard!
                 </a>
               </LinkAnchor>
             </Link>
-            .
-          </p>
+          </div>
         </section>
       </section>
     </Landing>
