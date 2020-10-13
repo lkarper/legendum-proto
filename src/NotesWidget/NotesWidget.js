@@ -19,16 +19,19 @@ const NotesWidget = (props) => {
                 >
                     My notes
                 </button>
-                <div className={`NotesWidget__outer-container-${notesListContainerClassSuffix}`}>
+                <div 
+                    className={`NotesWidget__outer-container-${notesListContainerClassSuffix}`}
+                    aria-live='polite'
+                >
                     <button
                         className='NotesWidget__outer-container-close-button button'
                         onClick={() => toggleShowList(false)}
                     >
-                        &#10006;
+                        ✕&#xfe0e;
                     </button>
                     <NotesList 
                         chapt={props.match.params.chapt} 
-                        suffix={'widget-list'} 
+                        suffix='widget-list' 
                     />
                 </div>
             </>
