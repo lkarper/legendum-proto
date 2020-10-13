@@ -15,6 +15,7 @@ const NotesService = {
             );
     },
     getFetchNotesCallByUser() {
+        // Returns fetch call for use in Promise.all
         return fetch(`${config.API_ENDPOINT}/notes`, {
             headers: {
                 'authorization': `Bearer ${TokenService.getAuthToken()}`,
