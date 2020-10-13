@@ -8,6 +8,7 @@ const UserIncorrect = (props) => {
         userResponse, 
     } = props;
 
+    // Determine feedback based on a user's incorrect response
     let feedback;
     if (userResponse === page.incorrect_response_option_1) {
         feedback = page.response_if_incorrect_1;
