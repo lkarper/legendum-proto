@@ -35,10 +35,10 @@ const TokenService = {
             TokenService.readJwtToken()
         );
         /*
-            Queues a callback that will happen 30 seconds before the jwt expires.
+            Queues a callback that will happen 60 seconds before the jwt expires.
             The callback is used to call the jwt refresh endpoint.
         */
-        _timeoutId = setTimeout(callback, msUntilExpiry - 30000);
+        _timeoutId = setTimeout(callback, msUntilExpiry - 60000);
     },
     clearCallbackBeforeExpiry() {
         /*
@@ -49,4 +49,4 @@ const TokenService = {
     },
 }
 
-export default TokenService
+export default TokenService;
