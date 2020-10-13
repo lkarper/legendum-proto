@@ -8,18 +8,18 @@
 
 @media screen and (min-width: 1000px) {
     .NotesListFiltersForm__form-widget-list legend {
-        font-size: 20px;
+        font-size: 22px;
     }   
     
     .NotesListFiltersForm__form-widget-list label {
-        font-size: 18px;
+        font-size: 20px;
     }   
 
     .NotesListFiltersForm__form-dashboard legend {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .NotesListFiltersForm__form-dashboard label {
-        font-size: 18px;
+        font-size: 20px;
     }   
 }
